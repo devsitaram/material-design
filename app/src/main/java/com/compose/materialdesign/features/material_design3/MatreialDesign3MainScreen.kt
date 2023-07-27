@@ -32,15 +32,15 @@ import com.compose.materialdesign.features.material_design3.features.text.textsc
 //@Preview
 @Composable
 fun MaterialDesign3MainScreen() {
-    val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "MainScreen"){
+    val navMaterialController = rememberNavController()
+    NavHost(navController = navMaterialController, startDestination = "MainScreen"){
         // all material design 3 main screen
         composable("MainScreen"){
-            MaterialDesign3MainScree(navController)
+            MaterialDesign3MainScree(navMaterialController)
         }
         // texts screen
         composable(MaterialDesign3Item.Text.route){
-            MainTextViewScreen()
+            MainTextViewScreen(navMaterialController)
         }
         // buttons screen
         composable(MaterialDesign3Item.Button.route){
@@ -59,7 +59,7 @@ fun MaterialDesign3MainScreen() {
 }
 
 @Composable
-fun MaterialDesign3MainScree(navController: NavHostController) {
+fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
     Surface(modifier = Modifier.fillMaxSize()) {
         Column(modifier = Modifier
             .fillMaxWidth()
@@ -68,22 +68,22 @@ fun MaterialDesign3MainScree(navController: NavHostController) {
             // text components
             MaterialComponents(
                 title = "Text",
-            ) { navController.navigate(MaterialDesign3Item.Text.route) }
+            ) { navMaterialController.navigate(MaterialDesign3Item.Text.route) }
             // button components
 
             MaterialComponents(
                 title = "Button",
-            ) { navController.navigate(MaterialDesign3Item.Button.route) }
+            ) { navMaterialController.navigate(MaterialDesign3Item.Button.route) }
 
             // input text field components
             MaterialComponents(
                 title = "TextField",
-            ) { navController.navigate(MaterialDesign3Item.TextField.route) }
+            ) { navMaterialController.navigate(MaterialDesign3Item.TextField.route) }
             // dialog box components
 
             MaterialComponents(
                 title = "Dialog Box",
-            ) { navController.navigate(MaterialDesign3Item.DialogBox.route) }
+            ) { navMaterialController.navigate(MaterialDesign3Item.DialogBox.route) }
 
             // add new component
         }

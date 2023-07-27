@@ -1,6 +1,7 @@
 package com.compose.materialdesign.features.material_design3.features.text.textscreen
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -9,9 +10,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.Surface
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.ShapeDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -25,6 +31,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavHostController
 import com.compose.materialdesign.R
@@ -34,17 +41,17 @@ import com.compose.materialdesign.features.material_design3.features.text.InputT
 import com.compose.materialdesign.features.material_design3.features.text.NormalTextViewScreen
 
 @Composable
-fun MainTextViewScreen() {
-    val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "MainTextScreen") {
+fun MainTextViewScreen(navMaterialController: NavHostController) {
+    val navTextController = rememberNavController()
+    NavHost(navController = navTextController, startDestination = "MainTextScreen") {
         // main screen for types of text
         composable("MainTextScreen") {
-            TextComponent(navController)
+            TextComponent(navTextController, navMaterialController)
         }
 
         // heading text screen
         composable(MaterialDesign3TextItem.Heading.route) {
-            HeadingTextViewScreen(navController)
+            HeadingTextViewScreen(navTextController)
         }
 
         // normal text screen
@@ -64,34 +71,53 @@ fun MainTextViewScreen() {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TextComponent(navController: NavHostController) {
-    Surface(modifier = Modifier.fillMaxSize()) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(15.dp)
-        ) {
+fun TextComponent(navTextController: NavHostController, navMaterialController: NavHostController) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White)
+            .verticalScroll(
+                rememberScrollState()
+            ),
+    ) {
+        // top bar
+        TopAppBar(
+            title = { Text(text = "Texts") },
+            navigationIcon = {
+                IconButton(onClick = { navMaterialController.navigate("MainScreen") }) {
+                    Icon(
+                        imageVector = Icons.Default.KeyboardArrowLeft,
+                        contentDescription = null,
+                        modifier = Modifier.size(30.dp)
+                    )
+                }
+            }
+        )
+        Column(modifier = Modifier
+            .fillMaxWidth()
+            .padding(20.dp)) {
             // heading text components
             Material3TextComponents(
                 title = "Heading",
-                onClick = {navController.navigate(MaterialDesign3TextItem.Heading.route)}
+                onClick = { navTextController.navigate(MaterialDesign3TextItem.Heading.route) }
             )
             // normal text components
             Material3TextComponents(
                 title = "Normal Text",
-                onClick =  { navController.navigate(MaterialDesign3TextItem.NormalText.route) }
+                onClick = { navTextController.navigate(MaterialDesign3TextItem.NormalText.route) }
             )
 
             // input text components
             Material3TextComponents(
                 title = "InputText",
-                onClick = { navController.navigate(MaterialDesign3TextItem.InputText.route) }
+                onClick = { navTextController.navigate(MaterialDesign3TextItem.InputText.route) }
             )
             // Button Text components
             Material3TextComponents(
                 title = "Button Text",
-                onClick = { navController.navigate(MaterialDesign3TextItem.ButtonText.route) }
+                onClick = { navTextController.navigate(MaterialDesign3TextItem.ButtonText.route) }
             )
         }
     }
@@ -116,7 +142,9 @@ fun Material3TextComponents(title: String, onClick: () -> Unit) {
             Image(
                 painter = painterResource(id = R.drawable.ic_text_format),
                 contentDescription = null,
-                modifier = Modifier.size(70.dp)
+                modifier = Modifier
+                    .size(70.dp)
+                    .padding(10.dp)
             )
             Text(
                 text = title,

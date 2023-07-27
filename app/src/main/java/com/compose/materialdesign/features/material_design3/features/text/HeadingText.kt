@@ -3,9 +3,7 @@ package com.compose.materialdesign.features.material_design3.features.text
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -15,10 +13,11 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material3.Divider
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -30,92 +29,126 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HeadingTextViewScreen(navController: NavHostController) {
-    Surface(modifier = Modifier.fillMaxSize()) {
-        Column(
-            Modifier
-                .background(Color.White)
-                .fillMaxWidth()
-                .padding(10.dp)
-                .verticalScroll(rememberScrollState()),
-            verticalArrangement = Arrangement.Center,
-        ) {
-            Row(Modifier.fillMaxWidth()){
-                IconButton(onClick = { navController.navigate("MainTextScreen")}) {
-                    Icon(imageVector = Icons.Default.KeyboardArrowLeft, contentDescription = null, modifier = Modifier.size(40.dp))
+fun HeadingTextViewScreen(navTextController: NavHostController) {
+    Column(
+        Modifier
+            .background(Color.White)
+            .fillMaxWidth()
+            .verticalScroll(rememberScrollState()),
+        verticalArrangement = Arrangement.Center,
+    ) {
+        // top bar
+        TopAppBar(
+            title = { Text(text = "Heading") },
+            navigationIcon = {
+                IconButton(onClick = { navTextController.navigate("MainTextScreen") }) {
+                    Icon(
+                        imageVector = Icons.Default.KeyboardArrowLeft,
+                        contentDescription = null,
+                        modifier = Modifier.size(30.dp)
+                    )
                 }
             }
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(20.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                LargeTitle1(text = "Large Title 1", color = Color.DarkGray)
-                Spacer(modifier = Modifier.height(25.dp))
-                Title2(text = "Title 2", color = Color.DarkGray)
-                Spacer(modifier = Modifier.height(25.dp))
-                Title3(text = "Title 3", color = Color.DarkGray)
-                Spacer(modifier = Modifier.height(25.dp))
-                Title4(text = "Title 4", color = Color.DarkGray)
-                Spacer(modifier = Modifier.height(25.dp))
-                HEADLINE(text = "HEADLINE", color = Color.DarkGray)
-                Spacer(modifier = Modifier.height(25.dp))
-            }
-            Divider()
-            Column(modifier = Modifier.fillMaxWidth().padding(15.dp)) {
-                Spacer(modifier = Modifier.padding(top = 10.dp))
-                LargeTitle1(text = "Large Title 1", color = Color.DarkGray)
-                Description(
-                    text = "Large Title 1",
-                    fontSize = "26.sp",
-                    fontWeight = "Bold",
-                    color = "DarkGray",
-                    lineHeight = "40.sp"
-                )
+        )
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(20.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            LargeTitle1(text = "Large Title 1", color = Color.DarkGray)
+            Spacer(modifier = Modifier.height(25.dp))
+            Title2(text = "Title 2", color = Color.DarkGray)
+            Spacer(modifier = Modifier.height(25.dp))
+            Title3(text = "Title 3", color = Color.DarkGray)
+            Spacer(modifier = Modifier.height(25.dp))
+            Title4(text = "Title 4", color = Color.DarkGray)
+            Spacer(modifier = Modifier.height(25.dp))
+            HEADLINE(text = "HEADLINE", color = Color.DarkGray)
+            Spacer(modifier = Modifier.height(25.dp))
+        }
+        Divider()
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(20.dp)
+        ) {
+            LargeTitle1(text = "Large Title 1", color = Color.DarkGray)
+            Description(
+                text = "Large Title 1",
+                fontSize = "26.sp",
+                fontWeight = "Bold",
+                color = "DarkGray",
+                lineHeight = "40.sp"
+            )
 
-                Title2(text = "Title 2", color = Color.DarkGray)
-                Description(
-                    text = "Title 2",
-                    fontSize = "24.sp",
-                    fontWeight = "Bold",
-                    color = "DarkGray",
-                    lineHeight = "32.sp"
-                )
+            Title2(text = "Title 2", color = Color.DarkGray)
+            Description(
+                text = "Title 2",
+                fontSize = "24.sp",
+                fontWeight = "Bold",
+                color = "DarkGray",
+                lineHeight = "32.sp"
+            )
 
-                Title3(text = "Title 3", color = Color.DarkGray)
-                Description(
-                    text = "Title 3",
-                    fontSize = "20.sp",
-                    fontWeight = "SemiBold",
-                    color = "DarkGray",
-                    lineHeight = "32.sp"
-                )
+            Title3(text = "Title 3", color = Color.DarkGray)
+            Description(
+                text = "Title 3",
+                fontSize = "20.sp",
+                fontWeight = "SemiBold",
+                color = "DarkGray",
+                lineHeight = "32.sp"
+            )
 
-                Title4(text = "Title 4", color = Color.DarkGray)
-                Description(
-                    text = "Title 4",
-                    fontSize = "16.sp",
-                    fontWeight = "SemiBold",
-                    color = "DarkGray",
-                    lineHeight = "24.sp"
-                )
+            Title4(text = "Title 4", color = Color.DarkGray)
+            Description(
+                text = "Title 4",
+                fontSize = "16.sp",
+                fontWeight = "SemiBold",
+                color = "DarkGray",
+                lineHeight = "24.sp"
+            )
 
-                HEADLINE(text = "HEADLINE", color = Color.DarkGray)
-                Description(
-                    text = "HEADING",
-                    fontSize = "14.sp",
-                    fontWeight = "Bold",
-                    color = "DarkGray",
-                    lineHeight = "20.sp"
-                )
-            }
+            HEADLINE(text = "HEADLINE", color = Color.DarkGray)
+            Description(
+                text = "HEADING",
+                fontSize = "14.sp",
+                fontWeight = "Bold",
+                color = "DarkGray",
+                lineHeight = "20.sp"
+            )
         }
     }
 }
 
-// LargeTitle1
+// description
+@Composable
+fun Description(
+    text: String,
+    fontSize: String,
+    fontWeight: String,
+    color: String,
+    lineHeight: String
+) {
+    Text(
+        text = "In this text, have used the following styles: Text: '$text', FontSize: '$fontSize', FontWeight: '$fontWeight', Color: '$color', and LineHeight: '$lineHeight'.",
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 5.dp, bottom = 5.dp),
+        style = TextStyle(
+            textAlign = TextAlign.Justify
+        )
+    )
+    Spacer(modifier = Modifier.height(25.dp))
+}
+
+/**
+ * the text is: Large Title 1
+ * fontSize, fontWeight, color and also lineHeight
+ * it it reusable component
+ */
 @Composable
 fun LargeTitle1(text: String, color: Color) {
     Text(
@@ -129,7 +162,11 @@ fun LargeTitle1(text: String, color: Color) {
     )
 }
 
-// Title 2
+/**
+ * the text is: Title 2
+ * fontSize, fontWeight, color and also lineHeight
+ * it it reusable component
+ */
 @Composable
 fun Title2(text: String, color: Color) {
     Text(
@@ -143,7 +180,11 @@ fun Title2(text: String, color: Color) {
     )
 }
 
-// Title3
+/**
+ * the text is: Title 3
+ * fontSize, fontWeight, color and also lineHeight
+ * it it reusable component
+ */
 @Composable
 fun Title3(text: String, color: Color) {
     Text(
@@ -157,7 +198,11 @@ fun Title3(text: String, color: Color) {
     )
 }
 
-// Title 4
+/**
+ * the text is: Title 4
+ * fontSize, fontWeight, color and also lineHeight
+ * it it reusable component
+ */
 @Composable
 fun Title4(text: String, color: Color) {
     Text(
@@ -171,7 +216,11 @@ fun Title4(text: String, color: Color) {
     )
 }
 
-// HEADLINE
+/**
+ * the text is: HEADLINE
+ * fontSize, fontWeight, color and also lineHeight
+ * it it reusable component
+ */
 @Composable
 fun HEADLINE(text: String, color: Color) {
     Text(
@@ -183,24 +232,4 @@ fun HEADLINE(text: String, color: Color) {
         color = color,
         lineHeight = 20.sp,
     )
-}
-
-// description
-@Composable
-fun Description(
-    text: String,
-    fontSize: String,
-    fontWeight: String,
-    color: String,
-    lineHeight: String
-) {
-    Text(text = "In this text, have used the following styles: Text: '$text', FontSize: '$fontSize', FontWeight: '$fontWeight', Color: '$color', and LineHeight: '$lineHeight'.",
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(top = 5.dp, bottom = 5.dp),
-        style = TextStyle(
-            textAlign = TextAlign.Justify
-        )
-    )
-    Spacer(modifier = Modifier.height(25.dp))
 }
