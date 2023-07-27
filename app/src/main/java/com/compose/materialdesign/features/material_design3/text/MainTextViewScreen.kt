@@ -1,4 +1,4 @@
-package com.compose.materialdesign.features.material_design3
+package com.compose.materialdesign.features.material_design3.text
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
@@ -10,58 +10,53 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Surface
+import androidx.compose.material.Text
+import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ShapeDefaults
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.compose.material3.Card
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.compose.materialdesign.R
 import com.compose.materialdesign.features.material_design3.material_item.MaterialDesign3Item
-import com.compose.materialdesign.features.material_design3.text.MainTextViewScreen
 
-//@Preview
 @Composable
-fun MaterialDesign3MainScreen() {
+fun MainTextViewScreen() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "MainScreen"){
-        // all material design 3 main screen
-        composable("MainScreen"){
-            MaterialDesign3MainScree(navController)
+    NavHost(navController = navController, startDestination = "Font"){
+        composable("Font"){
+            TextComponent()
         }
-        // texts screen
-        composable(MaterialDesign3Item.Text.route){
-            MainTextViewScreen()
-        }
-        // buttons screen
-        composable(MaterialDesign3Item.Button.route){
+        composable(ListOfTextItems.Heading.route){
 
         }
-        // text fields screen
-        composable(MaterialDesign3Item.TextField.route){
+        composable(ListOfTextItems.Text.route){
 
         }
-        // dialog boxes screen
-        composable(MaterialDesign3Item.DialogBox.route){
+        composable(ListOfTextItems.InputText.route){
 
         }
-        // add new screen
+        composable(ListOfTextItems.ButtonText.route){
+
+        }
     }
 }
 
+@Preview
 @Composable
-fun MaterialDesign3MainScree(navController: NavHostController) {
+fun TextComponent() {
+    val navController = rememberNavController()
     Surface(modifier = Modifier.fillMaxSize()) {
         Column(modifier = Modifier
             .fillMaxWidth()
@@ -69,22 +64,22 @@ fun MaterialDesign3MainScree(navController: NavHostController) {
         ) {
             // text components
             MaterialComponents(
-                title = "Text",
+                title = "Heading",
             ) { navController.navigate(MaterialDesign3Item.Text.route) }
             // button components
 
             MaterialComponents(
-                title = "Button",
+                title = "Text",
             ) { navController.navigate(MaterialDesign3Item.Button.route) }
 
             // input text field components
             MaterialComponents(
-                title = "TextField",
+                title = "InputText",
             ) { navController.navigate(MaterialDesign3Item.TextField.route) }
             // dialog box components
 
             MaterialComponents(
-                title = "Dialog Box",
+                title = "Button Text",
             ) { navController.navigate(MaterialDesign3Item.DialogBox.route) }
 
             // add new component
@@ -107,12 +102,12 @@ fun MaterialComponents(title: String, onClick: ()-> Unit) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
-                painter = painterResource(id = R.drawable.ic_material_design),
+                painter = painterResource(id = R.drawable.ic_text_format),
                 contentDescription = null,
                 modifier = Modifier.size(70.dp)
             )
             Row(modifier = Modifier.fillMaxWidth()) {
-                Text(
+                androidx.compose.material3.Text(
                     text = title,
                     style = TextStyle(fontSize = 15.sp),
                     modifier = Modifier.padding(15.dp)
