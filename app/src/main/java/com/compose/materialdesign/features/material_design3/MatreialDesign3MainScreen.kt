@@ -28,6 +28,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.compose.materialdesign.R
+import com.compose.materialdesign.features.material_design3.button.ButtonViewScreen
 import com.compose.materialdesign.features.material_design3.data.MaterialDesign3Item
 
 //@Preview
@@ -40,19 +41,19 @@ fun MaterialDesign3MainScreen() {
             MaterialDesign3MainScree(navController)
         }
         // texts screen
-        composable("Text"){
+        composable(MaterialDesign3Item.Text.route){
 
         }
         // buttons screen
-        composable("Button"){
-
+        composable(MaterialDesign3Item.Button.route){
+            ButtonViewScreen()
         }
         // text fields screen
-        composable("TextField"){
+        composable(MaterialDesign3Item.TextField.route){
 
         }
         // dialog boxes screen
-        composable("DialogBox"){
+        composable(MaterialDesign3Item.DialogBox.route){
 
         }
         // add new screen
@@ -67,22 +68,18 @@ fun MaterialDesign3MainScree(navController: NavHostController) {
             // text components
             MaterialComponents(
                 title = "Text",
-                painterResource = painterResource(id = R.drawable.ic_material_design),
             ) { navController.navigate(MaterialDesign3Item.Text.route) }
             // button components
             MaterialComponents(
                 title = "Button",
-                painterResource = painterResource(id = R.drawable.ic_material_design),
             ) { navController.navigate(MaterialDesign3Item.Button.route) }
             // input text field components
             MaterialComponents(
                 title = "TextField",
-                painterResource = painterResource(id = R.drawable.ic_material_design),
             ) { navController.navigate(MaterialDesign3Item.TextField.route) }
             // dialog box components
             MaterialComponents(
                 title = "Dialog Box",
-                painterResource = painterResource(id = R.drawable.ic_material_design),
             ) { navController.navigate(MaterialDesign3Item.DialogBox.route) }
             // add new component
 
@@ -91,7 +88,7 @@ fun MaterialDesign3MainScree(navController: NavHostController) {
 }
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MaterialComponents(title: String, painterResource: Painter, onClick: ()-> Unit) {
+fun MaterialComponents(title: String, onClick: ()-> Unit) {
     Card(
         modifier = Modifier
             .padding(5.dp)
@@ -105,7 +102,7 @@ fun MaterialComponents(title: String, painterResource: Painter, onClick: ()-> Un
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
-                painter = painterResource,
+                painter = painterResource(id = R.drawable.ic_material_design),
                 contentDescription = null,
                 modifier = Modifier.size(70.dp)
             )
