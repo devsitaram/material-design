@@ -1,4 +1,4 @@
-package com.compose.materialdesign.features.material_design3.text
+package com.compose.materialdesign.features.material_design3.features.text
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -9,8 +9,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun HeadingTextViewScreen() {
+fun InputTextViewScreen() {
     Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(text = "Heading")
+        Text(text = "Input Text")
     }
 }

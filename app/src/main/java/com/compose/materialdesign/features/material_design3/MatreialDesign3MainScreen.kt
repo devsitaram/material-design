@@ -21,15 +21,13 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.material3.Card
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.compose.materialdesign.R
-import com.compose.materialdesign.features.material_design3.material_item.MaterialDesign3Item
-import com.compose.materialdesign.features.material_design3.text.MainTextViewScreen
+import com.compose.materialdesign.features.material_design3.features.text.textscreen.MainTextViewScreen
 
 //@Preview
 @Composable

@@ -1,4 +1,4 @@
-package com.compose.materialdesign.features.material_design3.text
+package com.compose.materialdesign.features.material_design3.features.text.textscreen
 
 // types of text
 sealed class MaterialDesign3TextItem(var route: String){

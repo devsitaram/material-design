@@ -1,4 +1,4 @@
-package com.compose.materialdesign.features.material_design3.text
+package com.compose.materialdesign.features.material_design3.features.text.textscreen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
@@ -28,6 +28,10 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavHostController
 import com.compose.materialdesign.R
+import com.compose.materialdesign.features.material_design3.features.text.ButtonTextViewScreen
+import com.compose.materialdesign.features.material_design3.features.text.HeadingTextViewScreen
+import com.compose.materialdesign.features.material_design3.features.text.InputTextViewScreen
+import com.compose.materialdesign.features.material_design3.features.text.NormalTextViewScreen
 
 @Composable
 fun MainTextViewScreen() {
@@ -45,17 +49,17 @@ fun MainTextViewScreen() {
 
         // normal text screen
         composable(MaterialDesign3TextItem.NormalText.route) {
-            HeadingTextViewScreen()
+            NormalTextViewScreen()
         }
 
         // inout text screen
         composable(MaterialDesign3TextItem.InputText.route) {
-            HeadingTextViewScreen()
+            InputTextViewScreen()
         }
 
         // button text screen
         composable(MaterialDesign3TextItem.ButtonText.route) {
-            HeadingTextViewScreen()
+            ButtonTextViewScreen()
         }
     }
 }

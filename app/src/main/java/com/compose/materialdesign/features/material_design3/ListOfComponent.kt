@@ -1,4 +1,4 @@
-package com.compose.materialdesign.features.material_design3.material_item
+package com.compose.materialdesign.features.material_design3
 
 sealed class MaterialDesign3Item(var route: String) {
     object Text : MaterialDesign3Item("Text")
