@@ -36,15 +36,15 @@ import com.compose.materialdesign.features.material_design3.features.text.Normal
 @Composable
 fun MainTextViewScreen() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "ListTextScreen") {
+    NavHost(navController = navController, startDestination = "MainTextScreen") {
         // main screen for types of text
-        composable("ListTextScreen") {
+        composable("MainTextScreen") {
             TextComponent(navController)
         }
 
         // heading text screen
         composable(MaterialDesign3TextItem.Heading.route) {
-            HeadingTextViewScreen()
+            HeadingTextViewScreen(navController)
         }
 
         // normal text screen
