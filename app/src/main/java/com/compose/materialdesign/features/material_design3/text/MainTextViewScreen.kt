@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ShapeDefaults
@@ -18,101 +17,108 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.compose.material3.Text
+import androidx.compose.ui.res.painterResource
+import androidx.navigation.NavHostController
 import com.compose.materialdesign.R
-import com.compose.materialdesign.features.material_design3.material_item.MaterialDesign3Item
 
 @Composable
 fun MainTextViewScreen() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "Font"){
-        composable("Font"){
-            TextComponent()
+    NavHost(navController = navController, startDestination = "ListTextScreen") {
+        // main screen for types of text
+        composable("ListTextScreen") {
+            TextComponent(navController)
         }
-        composable(ListOfTextItems.Heading.route){
 
+        // heading text screen
+        composable(MaterialDesign3TextItem.Heading.route) {
+            HeadingTextViewScreen()
         }
-        composable(ListOfTextItems.Text.route){
 
+        // normal text screen
+        composable(MaterialDesign3TextItem.NormalText.route) {
+            HeadingTextViewScreen()
         }
-        composable(ListOfTextItems.InputText.route){
 
+        // inout text screen
+        composable(MaterialDesign3TextItem.InputText.route) {
+            HeadingTextViewScreen()
         }
-        composable(ListOfTextItems.ButtonText.route){
 
+        // button text screen
+        composable(MaterialDesign3TextItem.ButtonText.route) {
+            HeadingTextViewScreen()
         }
     }
 }
 
-@Preview
 @Composable
-fun TextComponent() {
-    val navController = rememberNavController()
+fun TextComponent(navController: NavHostController) {
     Surface(modifier = Modifier.fillMaxSize()) {
-        Column(modifier = Modifier
-            .fillMaxWidth()
-            .padding(10.dp)
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(15.dp)
         ) {
-            // text components
-            MaterialComponents(
+            // heading text components
+            Material3TextComponents(
                 title = "Heading",
-            ) { navController.navigate(MaterialDesign3Item.Text.route) }
-            // button components
+                onClick = {navController.navigate(MaterialDesign3TextItem.Heading.route)}
+            )
+            // normal text components
+            Material3TextComponents(
+                title = "Normal Text",
+                onClick =  { navController.navigate(MaterialDesign3TextItem.NormalText.route) }
+            )
 
-            MaterialComponents(
-                title = "Text",
-            ) { navController.navigate(MaterialDesign3Item.Button.route) }
-
-            // input text field components
-            MaterialComponents(
+            // input text components
+            Material3TextComponents(
                 title = "InputText",
-            ) { navController.navigate(MaterialDesign3Item.TextField.route) }
-            // dialog box components
-
-            MaterialComponents(
+                onClick = { navController.navigate(MaterialDesign3TextItem.InputText.route) }
+            )
+            // Button Text components
+            Material3TextComponents(
                 title = "Button Text",
-            ) { navController.navigate(MaterialDesign3Item.DialogBox.route) }
-
-            // add new component
+                onClick = { navController.navigate(MaterialDesign3TextItem.ButtonText.route) }
+            )
         }
     }
 }
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MaterialComponents(title: String, onClick: ()-> Unit) {
+fun Material3TextComponents(title: String, onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .padding(5.dp)
             .border(width = 0.5.dp, color = Color.DarkGray, shape = ShapeDefaults.Small),
         onClick = onClick
     ) {
-        Column(modifier = Modifier
-            .fillMaxWidth()
-            .padding(5.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 10.dp),
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
                 painter = painterResource(id = R.drawable.ic_text_format),
                 contentDescription = null,
                 modifier = Modifier.size(70.dp)
             )
-            Row(modifier = Modifier.fillMaxWidth()) {
-                androidx.compose.material3.Text(
-                    text = title,
-                    style = TextStyle(fontSize = 15.sp),
-                    modifier = Modifier.padding(15.dp)
-                )
-            }
+            Text(
+                text = title,
+                style = TextStyle(fontSize = 15.sp, fontWeight = FontWeight.Normal),
+                modifier = Modifier.padding(15.dp)
+            )
         }
     }
 }
