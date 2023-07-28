@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Surface
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ShapeDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -28,7 +27,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.compose.materialdesign.R
-import com.compose.materialdesign.features.material_design3.features.text.textscreen.MainTextViewScreen
+import com.compose.materialdesign.features.material_design3.features.text.textscreen.TextViewScreen
+import com.compose.materialdesign.features.material_design3.features.button.ButtonViewScreen
+import com.compose.materialdesign.features.material_design3.features.textfield.textfieldscreen.TextFieldViewScreen
 
 //@Preview
 @Composable
@@ -39,18 +40,22 @@ fun MaterialDesign3MainScreen() {
         composable("MainScreen"){
             MaterialDesign3MainScree(navMaterialController)
         }
+
         // texts screen
         composable(MaterialDesign3Item.Text.route){
-            MainTextViewScreen(navMaterialController)
+            TextViewScreen(navMaterialController)
         }
+
         // buttons screen
         composable(MaterialDesign3Item.Button.route){
-
+            ButtonViewScreen()
         }
+
         // text fields screen
         composable(MaterialDesign3Item.TextField.route){
-
+            TextFieldViewScreen()
         }
+
         // dialog boxes screen
         composable(MaterialDesign3Item.DialogBox.route){
 
@@ -70,8 +75,8 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
             MaterialComponents(
                 title = "Text",
             ) { navMaterialController.navigate(MaterialDesign3Item.Text.route) }
-            // button components
 
+            // button components
             MaterialComponents(
                 title = "Button",
             ) { navMaterialController.navigate(MaterialDesign3Item.Button.route) }
@@ -80,8 +85,8 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
             MaterialComponents(
                 title = "TextField",
             ) { navMaterialController.navigate(MaterialDesign3Item.TextField.route) }
-            // dialog box components
 
+            // dialog box components
             MaterialComponents(
                 title = "Dialog Box",
             ) { navMaterialController.navigate(MaterialDesign3Item.DialogBox.route) }

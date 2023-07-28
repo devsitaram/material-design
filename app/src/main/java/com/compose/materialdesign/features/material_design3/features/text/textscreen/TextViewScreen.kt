@@ -3,6 +3,7 @@ package com.compose.materialdesign.features.material_design3.features.text.texts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -44,31 +45,31 @@ import com.compose.materialdesign.features.material_design3.features.text.InputT
 import com.compose.materialdesign.features.material_design3.features.text.NormalTextViewScreen
 
 @Composable
-fun MainTextViewScreen(navMaterialController: NavHostController) {
+fun TextViewScreen(navMaterialController: NavHostController) {
     val navTextController = rememberNavController()
     NavHost(navController = navTextController, startDestination = "MainTextScreen") {
         // main screen for types of text
         composable("MainTextScreen") {
-            TextComponent(navTextController, navMaterialController)
+            MainTextScreen(navTextController, navMaterialController)
         }
 
         // heading text screen
-        composable(MaterialDesign3TextItem.Heading.route) {
+        composable(Material3TextItem.Heading.route) {
             HeadingTextViewScreen(navTextController)
         }
 
         // normal text screen
-        composable(MaterialDesign3TextItem.NormalText.route) {
+        composable(Material3TextItem.NormalText.route) {
             NormalTextViewScreen(navTextController)
         }
 
         // inout text screen
-        composable(MaterialDesign3TextItem.InputText.route) {
+        composable(Material3TextItem.InputText.route) {
             InputTextViewScreen(navTextController)
         }
 
         // button text screen
-        composable(MaterialDesign3TextItem.ButtonText.route) {
+        composable(Material3TextItem.ButtonText.route) {
             ButtonTextViewScreen(navTextController)
         }
     }
@@ -76,7 +77,7 @@ fun MainTextViewScreen(navMaterialController: NavHostController) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TextComponent(navTextController: NavHostController, navMaterialController: NavHostController) {
+fun MainTextScreen(navTextController: NavHostController, navMaterialController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -104,36 +105,34 @@ fun TextComponent(navTextController: NavHostController, navMaterialController: N
             // heading text components
             Material3TextComponents(
                 title = "Heading",
-                onClick = { navTextController.navigate(MaterialDesign3TextItem.Heading.route) }
+                onClick = { navTextController.navigate(Material3TextItem.Heading.route) }
             )
             // normal text components
             Material3TextComponents(
                 title = "Normal Text",
-                onClick = { navTextController.navigate(MaterialDesign3TextItem.NormalText.route) }
+                onClick = { navTextController.navigate(Material3TextItem.NormalText.route) }
             )
 
             // input text components
             Material3TextComponents(
                 title = "InputText",
-                onClick = { navTextController.navigate(MaterialDesign3TextItem.InputText.route) }
+                onClick = { navTextController.navigate(Material3TextItem.InputText.route) }
             )
             // Button Text components
             Material3TextComponents(
                 title = "Button Text",
-                onClick = { navTextController.navigate(MaterialDesign3TextItem.ButtonText.route) }
+                onClick = { navTextController.navigate(Material3TextItem.ButtonText.route) }
             )
         }
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Material3TextComponents(title: String, onClick: () -> Unit) {
     Card(
         modifier = Modifier
-            .padding(5.dp)
+            .padding(5.dp).clickable { onClick() }
             .border(width = 0.5.dp, color = Color.DarkGray, shape = ShapeDefaults.Small),
-        onClick = onClick
     ) {
         Row(
             modifier = Modifier
