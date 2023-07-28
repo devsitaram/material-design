@@ -34,10 +34,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.compose.materialdesign.features.material_design3.MaterialComponents
-import com.compose.materialdesign.features.material_design3.MaterialDesign3MainScree
-import com.compose.materialdesign.features.material_design3.data.MaterialDesign3Item
-import java.nio.file.WatchEvent
 
 
 @Preview

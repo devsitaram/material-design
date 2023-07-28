@@ -62,7 +62,7 @@ fun MaterialDesign3MainScreen() {
         }
 
         composable(MaterialDesign3Item.RadioButton.route){
-            MainRadioButtonScreen(navController)
+            MainRadioButtonScreen()
 
         }
         // add new screen

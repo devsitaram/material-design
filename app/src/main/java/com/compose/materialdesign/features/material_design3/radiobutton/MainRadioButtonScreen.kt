@@ -1,10 +1,4 @@
 package com.compose.materialdesign.features.material_design3.radiobutton
-
-import com.compose.materialdesign.features.material_design3.button.LargeButtonView
-import com.compose.materialdesign.features.material_design3.button.MediumButtonScreen
-import com.compose.materialdesign.features.material_design3.button.NavigationItem
-import com.compose.materialdesign.features.material_design3.button.SmallButtonScreenView
-import android.service.autofill.OnClickAction
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -41,54 +35,47 @@ import androidx.navigation.compose.rememberNavController
 
 
 @Composable
-fun MainRadioButtonScreen(navController:NavHostController) {
+fun MainRadioButtonScreen() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "RadioButtonRoute"){
-        composable("RadioButtonRoute"){
-            RadioButtonRoute(navController)
+    NavHost(navController = navController, startDestination = "CardViewScreen"){
+        composable("CardViewScreen"){
+            CardViewScreen(navController)
         }
-        composable(NavigationItem.Large.route){
-            LargeButtonView(navController)
+        composable(RadioNavigationItem.RadioSimple.route){
+            RadioButtonView()
 
         }
-        composable(NavigationItem.Medium.route){
-            MediumButtonScreen(navController)
-        }
-
-        composable(NavigationItem.Small.route){
-            SmallButtonScreenView(navController)
+        composable(RadioNavigationItem.RadioGroup.route){
+            GroupButtonView()
         }
 
     }
-
 }
 
 
-
 @Composable
-fun RadioButtonRoute(navController: NavHostController) {
+fun CardViewScreen(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(15.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        CardView(
+        CardViewScreenPreview(
             title = "RadioSimple Examples",
             onClickAction = {navController.navigate(RadioNavigationItem.RadioSimple.route)}
         )
-        CardView(
+        CardViewScreenPreview(
             title = "RadioGroup Example",
             onClickAction = {navController.navigate(RadioNavigationItem.RadioGroup.route)}
         )
-
     }
 
 }
 
 
 @Composable
-fun CardView(title: String, onClickAction: ()-> Unit) {
+fun CardViewScreenPreview(title: String, onClickAction: ()-> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
