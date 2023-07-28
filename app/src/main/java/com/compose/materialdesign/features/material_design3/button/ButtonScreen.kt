@@ -29,10 +29,11 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.compose.materialdesign.R
 
 @Composable
-fun ButtonViewScreen() {
+fun ButtonViewScreen(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()

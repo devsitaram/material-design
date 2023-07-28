@@ -5,12 +5,8 @@ sealed class MaterialDesign3Item(var route: String) {
     object Button : MaterialDesign3Item("Button")
     object TextField : MaterialDesign3Item("TextField")
     object DialogBox: MaterialDesign3Item("DialogBox")
+    object RadioButton: MaterialDesign3Item("RadioButton")
+
+
 }
 
-sealed class Buttons(var route: String) {
-    object Home : Buttons( "Home")
-    object Profile : Buttons("Profile")
-    object Message : Buttons("Message")
-    object Game : Buttons( "Game")
-    object Setting : Buttons( "Setting")
-}
