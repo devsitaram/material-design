@@ -4,7 +4,7 @@ sealed class Material3TextFieldItem(var route: String){
     object SimpleTextField : Material3TextFieldItem("SimpleTextField")
     object TextField : Material3TextFieldItem("SimpleTextField")
     object SimpleOutlineTextField : Material3TextFieldItem("SimpleOutlineTextField")
-    object OutlineTextField : Material3TextFieldItem("OutlineTextField")
+    object OutlineTextFields : Material3TextFieldItem("OutlineTextFields")
     object TextFieldWithIcons : Material3TextFieldItem("TextFieldWithIcons")
     object TextFieldWithPlaceholder : Material3TextFieldItem("TextFieldWithPlaceholder")
     object TextFieldWithPrefixAndSuffix : Material3TextFieldItem("TextFieldWithPrefixAndSuffix")

@@ -50,7 +50,7 @@ fun TextFieldViewScreen() {
         composable(Material3TextFieldItem.SimpleOutlineTextField.route){
             MainTextFieldScreen()
         }
-        composable(Material3TextFieldItem.OutlineTextField.route){
+        composable(Material3TextFieldItem.OutlineTextFields.route){
             MainTextFieldScreen()
         }
         composable(Material3TextFieldItem.TextFieldWithIcons.route){
