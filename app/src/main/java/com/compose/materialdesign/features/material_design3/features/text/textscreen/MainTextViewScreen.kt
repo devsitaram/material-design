@@ -6,8 +6,10 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
@@ -33,6 +35,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.navigation.NavHostController
 import com.compose.materialdesign.R
 import com.compose.materialdesign.features.material_design3.features.text.ButtonTextViewScreen
@@ -56,17 +59,17 @@ fun MainTextViewScreen(navMaterialController: NavHostController) {
 
         // normal text screen
         composable(MaterialDesign3TextItem.NormalText.route) {
-            NormalTextViewScreen()
+            NormalTextViewScreen(navTextController)
         }
 
         // inout text screen
         composable(MaterialDesign3TextItem.InputText.route) {
-            InputTextViewScreen()
+            InputTextViewScreen(navTextController)
         }
 
         // button text screen
         composable(MaterialDesign3TextItem.ButtonText.route) {
-            ButtonTextViewScreen()
+            ButtonTextViewScreen(navTextController)
         }
     }
 }
@@ -86,7 +89,7 @@ fun TextComponent(navTextController: NavHostController, navMaterialController: N
         TopAppBar(
             title = { Text(text = "Texts") },
             navigationIcon = {
-                IconButton(onClick = { navMaterialController.navigate("MainScreen") }) {
+                IconButton(onClick = { navMaterialController.navigateUp() }) {
                     Icon(
                         imageVector = Icons.Default.KeyboardArrowLeft,
                         contentDescription = null,
@@ -153,4 +156,26 @@ fun Material3TextComponents(title: String, onClick: () -> Unit) {
             )
         }
     }
+}
+
+
+// text description
+@Composable
+fun TextDescription(
+    text: String,
+    fontSize: String,
+    fontWeight: String,
+    color: String,
+    lineHeight: String
+) {
+    Text(
+        text = "In this text, have used the following styles: Text: '$text', FontSize: '$fontSize', FontWeight: '$fontWeight', Color: '$color', and LineHeight: '$lineHeight'.",
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 5.dp, bottom = 5.dp),
+        style = TextStyle(
+            textAlign = TextAlign.Justify
+        )
+    )
+    Spacer(modifier = Modifier.height(25.dp))
 }

@@ -2,6 +2,7 @@ package com.compose.materialdesign.features.material_design3
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -89,14 +90,12 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
         }
     }
 }
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MaterialComponents(title: String, onClick: ()-> Unit) {
     Card(
         modifier = Modifier
-            .padding(5.dp)
+            .padding(5.dp).clickable { onClick() }
             .border(width = 0.5.dp, color = Color.DarkGray, shape = ShapeDefaults.Small),
-        onClick = onClick
     ) {
         Column(modifier = Modifier
             .fillMaxWidth()

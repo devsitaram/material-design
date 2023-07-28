@@ -28,6 +28,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.compose.materialdesign.features.material_design3.features.text.textscreen.TextDescription
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -43,7 +44,7 @@ fun HeadingTextViewScreen(navTextController: NavHostController) {
         TopAppBar(
             title = { Text(text = "Heading") },
             navigationIcon = {
-                IconButton(onClick = { navTextController.navigate("MainTextScreen") }) {
+                IconButton(onClick = { navTextController.navigateUp() }) {
                     Icon(
                         imageVector = Icons.Default.KeyboardArrowLeft,
                         contentDescription = null,
@@ -76,7 +77,7 @@ fun HeadingTextViewScreen(navTextController: NavHostController) {
                 .padding(20.dp)
         ) {
             LargeTitle1(text = "Large Title 1", color = Color.DarkGray)
-            Description(
+            TextDescription(
                 text = "Large Title 1",
                 fontSize = "26.sp",
                 fontWeight = "Bold",
@@ -85,7 +86,7 @@ fun HeadingTextViewScreen(navTextController: NavHostController) {
             )
 
             Title2(text = "Title 2", color = Color.DarkGray)
-            Description(
+            TextDescription(
                 text = "Title 2",
                 fontSize = "24.sp",
                 fontWeight = "Bold",
@@ -94,7 +95,7 @@ fun HeadingTextViewScreen(navTextController: NavHostController) {
             )
 
             Title3(text = "Title 3", color = Color.DarkGray)
-            Description(
+            TextDescription(
                 text = "Title 3",
                 fontSize = "20.sp",
                 fontWeight = "SemiBold",
@@ -103,7 +104,7 @@ fun HeadingTextViewScreen(navTextController: NavHostController) {
             )
 
             Title4(text = "Title 4", color = Color.DarkGray)
-            Description(
+            TextDescription(
                 text = "Title 4",
                 fontSize = "16.sp",
                 fontWeight = "SemiBold",
@@ -112,7 +113,7 @@ fun HeadingTextViewScreen(navTextController: NavHostController) {
             )
 
             HEADLINE(text = "HEADLINE", color = Color.DarkGray)
-            Description(
+            TextDescription(
                 text = "HEADING",
                 fontSize = "14.sp",
                 fontWeight = "Bold",
@@ -121,27 +122,6 @@ fun HeadingTextViewScreen(navTextController: NavHostController) {
             )
         }
     }
-}
-
-// description
-@Composable
-fun Description(
-    text: String,
-    fontSize: String,
-    fontWeight: String,
-    color: String,
-    lineHeight: String
-) {
-    Text(
-        text = "In this text, have used the following styles: Text: '$text', FontSize: '$fontSize', FontWeight: '$fontWeight', Color: '$color', and LineHeight: '$lineHeight'.",
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(top = 5.dp, bottom = 5.dp),
-        style = TextStyle(
-            textAlign = TextAlign.Justify
-        )
-    )
-    Spacer(modifier = Modifier.height(25.dp))
 }
 
 /**
