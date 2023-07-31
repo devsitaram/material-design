@@ -53,7 +53,7 @@ fun MaterialDesign3MainScreen() {
 
         // text fields screen
         composable(MaterialDesign3Item.TextField.route){
-            TextFieldViewScreen()
+            TextFieldViewScreen(navMaterialController)
         }
 
         // dialog boxes screen

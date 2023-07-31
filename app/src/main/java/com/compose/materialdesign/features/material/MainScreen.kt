@@ -105,14 +105,15 @@ fun MaterialDesignTypeOfUi(
 ) {
     Card(
         modifier = Modifier
-            .padding(5.dp).clickable { onClickAction() }
-            .border(width = 1.dp, color = Color.DarkGray, shape = ShapeDefaults.Small),
+            .padding(5.dp)
+            .clickable { onClickAction() }
+            .border(width = 0.5.dp, color = Color.LightGray, shape = ShapeDefaults.Small),
     ) {
         Row(
             modifier = Modifier
                 .background(Color.White)
                 .padding(15.dp)
-                .wrapContentWidth()
+                .fillMaxWidth()
                 .width(IntrinsicSize.Max), // Set the width to the maximum intrinsic width
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -130,13 +131,14 @@ fun MaterialDesignTypeOfUi(
                     modifier = Modifier.padding(top = 5.dp)
                 )
             }
-            Spacer(modifier = Modifier.width(110.dp))
-            Icon(
-                imageVector = Icons.Default.KeyboardArrowRight,
-                contentDescription = null,
-                modifier = Modifier
-                    .size(30.dp)
-            )
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                Icon(
+                    imageVector = Icons.Default.KeyboardArrowRight,
+                    contentDescription = null,
+                    modifier = Modifier
+                        .size(30.dp)
+                )
+            }
         }
     }
 }
