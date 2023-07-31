@@ -115,7 +115,7 @@ fun DialogBoxViewScreen() {
                     }
                 )
                 if (showCustomAlertDialog.value){
-                    CustomerDialogBox(text = "This area typically contains the supportive text which presents the details regarding the Dialog's purpose.", onDismiss = {showCustomAlertDialog.value = false})
+                    CustomDialogBox(text = "This area typically contains the supportive text which presents the details regarding the Dialog's purpose.", onDismiss = {showCustomAlertDialog.value = false})
                 }
 
                 // input dialog box
@@ -137,7 +137,6 @@ fun DialogBoxViewScreen() {
                         }
                     )
                 }
-
                 if (userInput.isNotBlank()) {
                     Text("Input Text: $userInput")
                 }
@@ -186,120 +185,4 @@ fun DialogBoxCard(title: String, subTitle: String, onClickAction: () -> Unit) {
             }
         }
     }
-}
-
-@Composable
-fun SampleDialogBox(title: String, text: String, onDismiss: () -> Unit) {
-//    val activity = (LocalContext.current as Activity)
-    AlertDialog(
-        onDismissRequest = { onDismiss() },
-        title = { Text( text = title ) },
-        text = { Text( text = text ) },
-        modifier = Modifier.fillMaxWidth(),
-        dismissButton = {
-            TextButton(
-                onClick = { onDismiss() }
-            ) {
-                Text(text = "Dismiss")
-            }
-        },
-        confirmButton = {
-            TextButton(
-                onClick = { onDismiss() } // activity.finish()
-            ) {
-                Text(text = "Confirm")
-            }
-        }
-    )
-}
-
-@Composable
-fun IconDialogBox(title: String, text: String, onDismiss: () -> Unit) {
-    AlertDialog(
-        onDismissRequest = { onDismiss() },
-        icon = { Icon(imageVector = Icons.Default.Favorite, contentDescription = null)},
-        title = { Text( text = title ) },
-        text = { Text( text = text ) },
-        modifier = Modifier.fillMaxWidth(),
-        dismissButton = {
-            TextButton(
-                onClick = { onDismiss() }
-            ) {
-                Text(text = "Dismiss")
-            }
-        },
-        confirmButton = {
-            TextButton(
-                onClick = { onDismiss() }
-            ) {
-                Text(text = "Confirm")
-            }
-        }
-    )
-}
-
-@Composable
-fun CustomerDialogBox(text: String, onDismiss: () -> Unit) {
-    AlertDialog(
-        onDismissRequest = { onDismiss() },
-        text = { Text( text = text ) },
-        modifier = Modifier.fillMaxWidth(),
-        confirmButton = {
-            TextButton(
-                onClick = { onDismiss() }
-            ) {
-                Text(text = "Confirm")
-            }
-        }
-    )
-}
-
-@Composable
-fun InputDialogBox(text: String, onDismiss: () -> Unit, onSubmit: (String) -> Unit) {
-    var textValue by remember { mutableStateOf("") }
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text( text = "Title" ) },
-        text = { Text( text = "This is the input dialog box." ) },
-        confirmButton = {
-            Column {
-                TextField(
-                    value = textValue,
-                    onValueChange = { textValue = it },
-                    label = { Text(text = "Text", fontSize = 14.sp)},
-                    placeholder = { Text(text = text, fontSize = 14.sp)},
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
-                    keyboardActions = KeyboardActions(
-                        onDone = {
-                            onSubmit(textValue)
-                            onDismiss()
-                        }
-                    ),
-                    singleLine = true,
-                    maxLines = 1
-                )
-                Row(Modifier.fillMaxWidth().padding(5.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.End
-                ) {
-                    TextButton(
-                        onClick = {
-                            onDismiss()
-                        }
-                    ) {
-                        Text("Dismiss")
-                    }
-                    TextButton(
-                        onClick = {
-                            onSubmit(textValue)
-                            onDismiss()
-                        }
-                    ) {
-                        Text("Submit")
-                    }
-                }
-            }
-        },
-        properties = DialogProperties(dismissOnClickOutside = false),
-    )
 }
