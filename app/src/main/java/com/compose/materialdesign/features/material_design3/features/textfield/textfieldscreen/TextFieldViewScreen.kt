@@ -7,12 +7,10 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -42,6 +40,7 @@ import com.compose.materialdesign.features.material_design3.features.textfield.P
 import com.compose.materialdesign.features.material_design3.features.textfield.SimpleOutlineTextFieldViewScreen
 import com.compose.materialdesign.features.material_design3.features.textfield.SimpleTextFieldViewScreen
 import com.compose.materialdesign.features.material_design3.features.textfield.TextAreaViewScreen
+import com.compose.materialdesign.features.material_design3.features.textfield.TextFieldViewScreens
 import com.compose.materialdesign.features.material_design3.features.textfield.TextFieldWithErrorStateViewScreen
 import com.compose.materialdesign.features.material_design3.features.textfield.TextFieldWithIconsViewScreen
 import com.compose.materialdesign.features.material_design3.features.textfield.TextFieldWithPlaceholderViewScreen
@@ -57,37 +56,37 @@ fun TextFieldViewScreen(navMaterialController: NavHostController) {
             MainTextFieldScreens(navTextFieldController, navMaterialController)
         }
         composable(Material3TextFieldItem.SimpleTextField.route){
-            SimpleTextFieldViewScreen()
+            SimpleTextFieldViewScreen(navTextFieldController)
         }
         composable(Material3TextFieldItem.TextField.route){
-            TextFieldViewScreen(navMaterialController)
+            TextFieldViewScreens(navTextFieldController)
         }
         composable(Material3TextFieldItem.SimpleOutlineTextField.route){
-            SimpleOutlineTextFieldViewScreen()
+            SimpleOutlineTextFieldViewScreen(navTextFieldController)
         }
         composable(Material3TextFieldItem.OutlineTextFields.route){
-            OutlineTextFieldsViewScreen()
+            OutlineTextFieldsViewScreen(navTextFieldController)
         }
         composable(Material3TextFieldItem.TextFieldWithIcons.route){
-            TextFieldWithIconsViewScreen()
+            TextFieldWithIconsViewScreen(navTextFieldController)
         }
         composable(Material3TextFieldItem.TextFieldWithPlaceholder.route){
-            TextFieldWithPlaceholderViewScreen()
+            TextFieldWithPlaceholderViewScreen(navTextFieldController)
         }
         composable(Material3TextFieldItem.TextFieldWithPrefixAndSuffix.route){
-            TextFieldWithPrefixAndSuffixViewScreen()
+            TextFieldWithPrefixAndSuffixViewScreen(navTextFieldController)
         }
         composable(Material3TextFieldItem.TextFieldWithErrorState.route){
-            TextFieldWithErrorStateViewScreen()
+            TextFieldWithErrorStateViewScreen(navTextFieldController)
         }
         composable(Material3TextFieldItem.TextFieldWithSupportingText.route){
-            TextFieldWithSupportingTextViewScreen()
+            TextFieldWithSupportingTextViewScreen(navTextFieldController)
         }
         composable(Material3TextFieldItem.PasswordTextField.route){
-            PasswordTextFieldViewScreen()
+            PasswordTextFieldViewScreen(navTextFieldController)
         }
         composable(Material3TextFieldItem.TextArea.route){
-            TextAreaViewScreen()
+            TextAreaViewScreen(navTextFieldController)
         }
     }
 }
