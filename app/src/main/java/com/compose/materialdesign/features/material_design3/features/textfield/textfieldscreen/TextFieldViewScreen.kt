@@ -93,9 +93,7 @@ fun TextFieldViewScreen(navMaterialController: NavHostController) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainTextFieldScreens(navTextFieldController: NavHostController,
-    navMaterialController: NavHostController
-) {
+fun MainTextFieldScreens(navTextFieldController: NavHostController, navMaterialController: NavHostController) {
     Column(
         modifier = Modifier
             .background(Color.White)

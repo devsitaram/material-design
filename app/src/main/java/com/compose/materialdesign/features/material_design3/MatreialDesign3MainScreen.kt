@@ -29,6 +29,7 @@ import androidx.navigation.compose.rememberNavController
 import com.compose.materialdesign.R
 import com.compose.materialdesign.features.material_design3.features.text.textscreen.TextViewScreen
 import com.compose.materialdesign.features.material_design3.features.button.ButtonViewScreen
+import com.compose.materialdesign.features.material_design3.features.dialogbox.DialogBoxViewScreen
 import com.compose.materialdesign.features.material_design3.features.textfield.textfieldscreen.TextFieldViewScreen
 
 //@Preview
@@ -58,9 +59,11 @@ fun MaterialDesign3MainScreen() {
 
         // dialog boxes screen
         composable(MaterialDesign3Item.DialogBox.route){
-
+            DialogBoxViewScreen()
         }
+
         // add new screen
+
     }
 }
 
@@ -92,6 +95,7 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
             ) { navMaterialController.navigate(MaterialDesign3Item.DialogBox.route) }
 
             // add new component
+
         }
     }
 }

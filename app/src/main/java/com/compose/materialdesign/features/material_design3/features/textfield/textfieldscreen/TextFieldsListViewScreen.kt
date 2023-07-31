@@ -49,7 +49,7 @@ import com.compose.materialdesign.R
 //@OptIn(ExperimentalMaterial3Api::class)
 //@Composable
 //fun MainTextFieldScreen() {
-
+//
 //    var simpleTextField by remember { mutableStateOf("") }
 //    var textField by remember { mutableStateOf("example") }
 //    var simpleOutlineTextField by remember { mutableStateOf("") }
@@ -61,7 +61,7 @@ import com.compose.materialdesign.R
 //    var supportingText by remember { mutableStateOf("") }
 //    var password by remember { mutableStateOf("") }
 //    var textArea by remember { mutableStateOf("This is a very  long input that extends beyond the height of the text area.") }
-
+//
 //    var outlineTextFields by remember { mutableStateOf("example") }
 //    Column(
 //        modifier = Modifier
@@ -160,7 +160,7 @@ import com.compose.materialdesign.R
 //        }
 //    }
 //}
-
+//
 //@Composable
 //fun SimpleTextField(value: String, onValueChange: (String) -> Unit = {}, label: String) {
 //    TextField(
@@ -172,7 +172,7 @@ import com.compose.materialdesign.R
 //        maxLines = 1,
 //    )
 //}
-
+//
 //@Composable
 //fun TextField(value: String, onValueChange: (String) -> Unit = {}, label: String) {
 //    TextField(
@@ -184,7 +184,7 @@ import com.compose.materialdesign.R
 //        maxLines = 1,
 //    )
 //}
-
+//
 //@Composable
 //fun SimpleOutlineTextField(value: String, onValueChange: (String) -> Unit = {}, label: String) {
 //    OutlinedTextField(
@@ -197,7 +197,7 @@ import com.compose.materialdesign.R
 //
 //    )
 //}
-
+//
 //@Composable
 //fun OutlineTextFields(value: String, onValueChange: (String) -> Unit = {}, label: String) {
 //    OutlinedTextField(
@@ -209,7 +209,7 @@ import com.compose.materialdesign.R
 //        maxLines = 1,
 //    )
 //}
-
+//
 //@Composable
 //fun TextFieldWithIcons(
 //    value: String,
@@ -233,7 +233,7 @@ import com.compose.materialdesign.R
 //        maxLines = 1,
 //    )
 //}
-
+//
 //@Composable
 //fun TextFieldWithPlaceholder(
 //    value: String,
@@ -298,7 +298,7 @@ import com.compose.materialdesign.R
 //        maxLines = 1,
 //    )
 //}
-
+//
 //@Composable
 //fun TextFieldWithErrorState(value: String, onValueChange: (String) -> Unit = {}, label: String) {
 //    val numOfText =  value.length
@@ -330,7 +330,7 @@ import com.compose.materialdesign.R
 //        )
 //    }
 //}
-
+//
 //@Composable
 //fun TextFieldWithSupportingText(
 //    value: String,
@@ -353,7 +353,7 @@ import com.compose.materialdesign.R
 //        )
 //    }
 //}
-
+//
 //@Composable
 //fun PasswordTextField(value: String, onValueChange: (String) -> Unit = {}, label: String) {
 //    val passwordVisibility = remember { mutableStateOf(false) }
@@ -378,7 +378,7 @@ import com.compose.materialdesign.R
 //        visualTransformation = if (passwordVisibility.value) VisualTransformation.None else PasswordVisualTransformation()
 //    )
 //}
-
+//
 //@Composable
 //fun TextArea(value: String, onValueChange: (String) -> Unit = {}, label: String) {
 //    TextField(
@@ -388,7 +388,7 @@ import com.compose.materialdesign.R
 //        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
 //    )
 //}
-
+//
 //colors = TextFieldDefaults.outlinedTextFieldColors(
 //cursorColor = Color.Black,
 //textColor = Color.Black,
