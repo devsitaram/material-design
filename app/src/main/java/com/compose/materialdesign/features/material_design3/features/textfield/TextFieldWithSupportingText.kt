@@ -47,7 +47,7 @@ fun TextFieldWithSupportingTextViewScreen(navTextFieldController: NavHostControl
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             TopAppBar(
-                title = { Text(text = "Outline TextField") },
+                title = { Text(text = "Supporting TextField") },
                 navigationIcon = {
                     IconButton(onClick = {
                         navTextFieldController.navigateUp()

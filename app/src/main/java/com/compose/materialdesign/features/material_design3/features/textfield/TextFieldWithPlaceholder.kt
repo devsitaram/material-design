@@ -43,7 +43,7 @@ fun TextFieldWithPlaceholderViewScreen(navTextFieldController: NavHostController
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             TopAppBar(
-                title = { Text(text = "Outline TextField") },
+                title = { Text(text = "Placeholder TextField") },
                 navigationIcon = {
                     IconButton(onClick = {
                         navTextFieldController.navigateUp()

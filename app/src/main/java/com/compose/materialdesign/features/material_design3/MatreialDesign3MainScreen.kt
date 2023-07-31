@@ -59,7 +59,7 @@ fun MaterialDesign3MainScreen() {
 
         // dialog boxes screen
         composable(MaterialDesign3Item.DialogBox.route){
-            DialogBoxViewScreen()
+            DialogBoxViewScreen(navMaterialController)
         }
 
         // add new screen

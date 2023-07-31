@@ -46,7 +46,7 @@ fun TextFieldWithPrefixAndSuffixViewScreen(navTextFieldController: NavHostContro
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             TopAppBar(
-                title = { Text(text = "Outline TextField") },
+                title = { Text(text = "Prefix&Suffix TextField") },
                 navigationIcon = {
                     IconButton(onClick = {
                         navTextFieldController.navigateUp()

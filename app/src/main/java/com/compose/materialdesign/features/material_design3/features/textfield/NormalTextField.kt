@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardOptions
@@ -33,7 +32,7 @@ import androidx.navigation.NavHostController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TextFieldViewScreens(navTextFieldController: NavHostController) {
+fun NormalTextFieldViewScreens(navTextFieldController: NavHostController) {
     var textField by remember { mutableStateOf("example") }
 
     Surface(Modifier.fillMaxSize()) {
@@ -44,7 +43,7 @@ fun TextFieldViewScreens(navTextFieldController: NavHostController) {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             TopAppBar(
-                title = { Text(text = "Outline TextField") },
+                title = { Text(text = "Normal TextField") },
                 navigationIcon = {
                     IconButton(onClick = {
                         navTextFieldController.navigateUp()

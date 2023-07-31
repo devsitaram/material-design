@@ -45,7 +45,7 @@ fun SimpleOutlineTextFieldViewScreen(navTextFieldController: NavHostController) 
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             TopAppBar(
-                title = { Text(text = "Outline TextField") },
+                title = { Text(text = "SimpleOutline TextField") },
                 navigationIcon = {
                     IconButton(onClick = {
                         navTextFieldController.navigateUp()

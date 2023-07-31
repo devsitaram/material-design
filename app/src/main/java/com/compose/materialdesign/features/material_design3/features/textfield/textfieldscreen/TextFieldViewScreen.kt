@@ -40,7 +40,7 @@ import com.compose.materialdesign.features.material_design3.features.textfield.P
 import com.compose.materialdesign.features.material_design3.features.textfield.SimpleOutlineTextFieldViewScreen
 import com.compose.materialdesign.features.material_design3.features.textfield.SimpleTextFieldViewScreen
 import com.compose.materialdesign.features.material_design3.features.textfield.TextAreaViewScreen
-import com.compose.materialdesign.features.material_design3.features.textfield.TextFieldViewScreens
+import com.compose.materialdesign.features.material_design3.features.textfield.NormalTextFieldViewScreens
 import com.compose.materialdesign.features.material_design3.features.textfield.TextFieldWithErrorStateViewScreen
 import com.compose.materialdesign.features.material_design3.features.textfield.TextFieldWithIconsViewScreen
 import com.compose.materialdesign.features.material_design3.features.textfield.TextFieldWithPlaceholderViewScreen
@@ -58,8 +58,8 @@ fun TextFieldViewScreen(navMaterialController: NavHostController) {
         composable(Material3TextFieldItem.SimpleTextField.route){
             SimpleTextFieldViewScreen(navTextFieldController)
         }
-        composable(Material3TextFieldItem.TextField.route){
-            TextFieldViewScreens(navTextFieldController)
+        composable(Material3TextFieldItem.NormalTextField.route){
+            NormalTextFieldViewScreens(navTextFieldController)
         }
         composable(Material3TextFieldItem.SimpleOutlineTextField.route){
             SimpleOutlineTextFieldViewScreen(navTextFieldController)
@@ -129,10 +129,10 @@ fun MainTextFieldScreens(navTextFieldController: NavHostController, navMaterialC
                 }
             )
             InputTextFieldsCard(
-                title = "TextField",
-                subTitle = "example of TextField",
+                title = "NormalTextField",
+                subTitle = "example of NormalTextField",
                 onClickAction = {
-                    navTextFieldController.navigate(Material3TextFieldItem.SimpleTextField.route)
+                    navTextFieldController.navigate(Material3TextFieldItem.NormalTextField.route)
                 }
             )
             InputTextFieldsCard(
