@@ -1,4 +1,4 @@
-package com.compose.materialdesign.features.material_design3.features.checkboxes
+package com.compose.materialdesign.features.material_design3.features.badge
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -28,46 +28,31 @@ import androidx.navigation.compose.rememberNavController
 
 
 @Composable
-fun MainCheckBoxScreen() {
+fun MainBadgeScreen() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "CheckBoxesViewScreen") {
-        composable("CheckBoxesViewScreen") {
-            CheckBoxesViewScreen(navController)
+    NavHost(navController = navController, startDestination = "NavigationBarItemWithBadgeViewScreen") {
+        composable("NavigationBarItemWithBadgeViewScreen") {
+            NavigationBarItemWithBadgeViewScreen(navController)
         }
-        composable(CheckboxesItems.CheckboxesSample.route) {
-            CheckboxesSamplePreview()
+        composable(BadgeItems.NavigationBarItemWithBadge.route) {
+            NavigationBarItemWithBadgePreview()
         }
-        composable(CheckboxesItems.CheckboxWithTextSample.route) {
-            CheckboxWithTextSamplePreview()        }
-
-        composable(CheckboxesItems.TriStateCheckboxSample.route) {
-            TriStateCheckboxSamplePreview()
-         }
 
     }
 }
 
 
 @Composable
-fun CheckBoxesViewScreen(navController: NavHostController) {
+fun NavigationBarItemWithBadgeViewScreen(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(15.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        SwitchesViewScreenPreview(
-            title = "CheckboxesSample",
-            onClick = { navController.navigate(CheckboxesItems.CheckboxesSample.route) }
-        )
-        SwitchesViewScreenPreview(
-            title = "CheckboxWithTextSample",
-            onClick = { navController.navigate(CheckboxesItems.CheckboxWithTextSample.route) }
-        )
-
-        SwitchesViewScreenPreview(
-            title = "TriStateCheckboxSample",
-            onClick = { navController.navigate(CheckboxesItems.TriStateCheckboxSample.route) }
+        NavigationBarItemWithBadgeViewScreenPreview(
+            title = "NavigationBarItemWithBadge",
+            onClick = { navController.navigate(BadgeItems.NavigationBarItemWithBadge.route) }
         )
 
     }
@@ -76,7 +61,7 @@ fun CheckBoxesViewScreen(navController: NavHostController) {
 
 
 @Composable
-fun SwitchesViewScreenPreview(title: String, onClick: ()-> Unit) {
+fun NavigationBarItemWithBadgeViewScreenPreview(title: String, onClick: ()-> Unit) {
     Card(
         modifier = Modifier
             .padding(5.dp)

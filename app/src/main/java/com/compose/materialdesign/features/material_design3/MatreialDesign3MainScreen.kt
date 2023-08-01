@@ -30,6 +30,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.compose.materialdesign.R
+import com.compose.materialdesign.features.material_design3.features.badge.MainBadgeScreen
 import com.compose.materialdesign.features.material_design3.features.button.MainButtonScreen
 import com.compose.materialdesign.features.material_design3.features.checkboxes.MainCheckBoxScreen
 import com.compose.materialdesign.features.material_design3.features.radiobutton.MainRadioButtonScreen
@@ -44,6 +45,10 @@ fun MaterialDesign3MainScreen() {
         // all material design 3 main screen
         composable("MainScreen"){
             MaterialDesign3MainScree(navController)
+        }
+        composable(MaterialDesign3Item.Badge.route) {
+            MainBadgeScreen()
+
         }
         // texts screen
         composable(MaterialDesign3Item.Text.route){
@@ -89,6 +94,10 @@ fun MaterialDesign3MainScree(navController: NavHostController) {
             .padding(10.dp)
             .verticalScroll(rememberScrollState())
         ) {
+            MaterialComponents(
+                title = "Badge",
+            ) { navController.navigate(MaterialDesign3Item.Badge.route) }
+
             // text components
             MaterialComponents(
                 title = "Text",
