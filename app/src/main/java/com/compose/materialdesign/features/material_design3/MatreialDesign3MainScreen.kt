@@ -1,5 +1,6 @@
 package com.compose.materialdesign.features.material_design3
 
+import MainCardScreen
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -10,8 +11,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Surface
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ShapeDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -22,17 +24,16 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.material3.Card
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.compose.materialdesign.R
-import com.compose.materialdesign.features.material_design3.button.ButtonViewScreen
-import com.compose.materialdesign.features.material_design3.button.MainButtonScreen
-import com.compose.materialdesign.features.material_design3.data.MaterialDesign3Item
-import com.compose.materialdesign.features.material_design3.radiobutton.MainRadioButtonScreen
+import com.compose.materialdesign.features.material_design3.features.button.MainButtonScreen
+import com.compose.materialdesign.features.material_design3.features.checkboxes.MainCheckBoxScreen
+import com.compose.materialdesign.features.material_design3.features.radiobutton.MainRadioButtonScreen
+import com.compose.materialdesign.features.material_design3.features.switches.MainSwitchScreen
 
 //@Preview
 @Composable
@@ -65,6 +66,17 @@ fun MaterialDesign3MainScreen() {
             MainRadioButtonScreen()
 
         }
+        composable(MaterialDesign3Item.Card.route){
+            MainCardScreen()
+        }
+
+        composable(MaterialDesign3Item.Switches.route){
+            MainSwitchScreen()
+        }
+
+        composable(MaterialDesign3Item.CheckBoxes.route){
+            MainCheckBoxScreen()
+        }
         // add new screen
     }
 }
@@ -75,6 +87,7 @@ fun MaterialDesign3MainScree(navController: NavHostController) {
         Column(modifier = Modifier
             .fillMaxWidth()
             .padding(10.dp)
+            .verticalScroll(rememberScrollState())
         ) {
             // text components
             MaterialComponents(
@@ -92,20 +105,33 @@ fun MaterialDesign3MainScree(navController: NavHostController) {
             MaterialComponents(
                 title = "Dialog Box",
             ) { navController.navigate(MaterialDesign3Item.DialogBox.route) }
-            // add new component
+
             MaterialComponents(title = "Radio Button" ,
             ) {navController.navigate(MaterialDesign3Item.RadioButton.route)}
+
+            MaterialComponents(title = "Cards" ,
+            ) {navController.navigate(MaterialDesign3Item.Card.route)}
+
+            MaterialComponents(title = "Switches" ,
+            ) {navController.navigate(MaterialDesign3Item.Switches.route)}
+
+            MaterialComponents(title = "CheckBoxes" ,
+            ) {navController.navigate(MaterialDesign3Item.CheckBoxes.route)}
+
+            // add new component
 
         }
     }
 }
+
+
 @Composable
 fun MaterialComponents(title: String, onClick: ()-> Unit) {
     Card(
         modifier = Modifier
             .padding(5.dp)
             .clickable { onClick() }
-            .border(width = 0.5.dp, color = Color.DarkGray, shape = ShapeDefaults.Small),
+            .border(width = 0.5.dp, color = Color.White, shape = ShapeDefaults.Small),
     ) {
         Column(modifier = Modifier
             .fillMaxWidth()

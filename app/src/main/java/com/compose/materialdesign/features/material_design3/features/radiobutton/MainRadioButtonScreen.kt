@@ -1,4 +1,4 @@
-package com.compose.materialdesign.features.material_design3.radiobutton
+package com.compose.materialdesign.features.material_design3.features.radiobutton
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -17,6 +17,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material3.Card
+import androidx.compose.material3.Icon
+import androidx.compose.material3.ShapeDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -61,13 +63,13 @@ fun CardViewScreen(navController: NavHostController) {
             .padding(15.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        CardViewScreenPreview(
+        RadioButtonScreenPreview(
             title = "RadioSimple Examples",
-            onClickAction = {navController.navigate(RadioNavigationItem.RadioSimple.route)}
+            onClick = {navController.navigate(RadioNavigationItem.RadioSimple.route)}
         )
-        CardViewScreenPreview(
+        RadioButtonScreenPreview(
             title = "RadioGroup Example",
-            onClickAction = {navController.navigate(RadioNavigationItem.RadioGroup.route)}
+            onClick = {navController.navigate(RadioNavigationItem.RadioGroup.route)}
         )
     }
 
@@ -75,35 +77,27 @@ fun CardViewScreen(navController: NavHostController) {
 
 
 @Composable
-fun CardViewScreenPreview(title: String, onClickAction: ()-> Unit) {
+fun RadioButtonScreenPreview(title: String, onClick: ()-> Unit) {
     Card(
         modifier = Modifier
-            .fillMaxWidth()
-            .height(100.dp)
-            .width(100.dp)
-            .padding(5.dp),
+            .padding(5.dp)
+            .clickable { onClick() }
+            .border(width = 0.5.dp, color = Color.White, shape = ShapeDefaults.Small),
     ) {
-        Column(Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center
+        Row(modifier = Modifier
+            .fillMaxWidth()
+            .padding(5.dp),
         ) {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 25.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text(
-                    text = title,
-                    style = TextStyle(fontSize = 20.sp, fontWeight = FontWeight.Normal ),
-                    modifier = Modifier.width(140.dp)
-                )
-                Spacer(modifier = Modifier.width(150.dp))
-                Image(
+
+            Text(
+                text = title,
+                style = TextStyle(fontSize = 15.sp),
+                modifier = Modifier.padding(15.dp)
+            )
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                Icon(
                     imageVector = Icons.Default.KeyboardArrowRight, contentDescription = "",
-                    modifier = Modifier
-                        .clickable { onClickAction() }
-                        .width(50.dp)
-                        .height(50.dp)
+                    modifier = Modifier.padding(15.dp)
                 )
             }
         }

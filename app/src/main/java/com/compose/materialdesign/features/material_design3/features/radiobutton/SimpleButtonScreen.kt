@@ -1,4 +1,4 @@
-package com.compose.materialdesign.features.material_design3.radiobutton
+package com.compose.materialdesign.features.material_design3.features.radiobutton
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

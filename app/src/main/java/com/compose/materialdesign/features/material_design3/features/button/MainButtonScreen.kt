@@ -1,4 +1,4 @@
-package com.compose.materialdesign.features.material_design3.button
+package com.compose.materialdesign.features.material_design3.features.button
 
 import android.service.autofill.OnClickAction
 import androidx.compose.foundation.Image
@@ -19,6 +19,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material3.Card
+import androidx.compose.material3.Icon
+import androidx.compose.material3.ShapeDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -70,16 +72,16 @@ fun ButtonRoute(navController: NavHostController) {
             .padding(15.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        CardView(
+        ButtonScreenPreview(
             title = "Large Button",
-            onClickAction = {navController.navigate(NavigationItem.Large.route)}
+            onClick = {navController.navigate(NavigationItem.Large.route)}
         )
-        CardView(
+        ButtonScreenPreview(
             title = "Medium Button",
-            onClickAction = {navController.navigate(NavigationItem.Medium.route)}
+            onClick = {navController.navigate(NavigationItem.Medium.route)}
         )
-        CardView(title = "Small Button",
-            onClickAction = {navController.navigate(NavigationItem.Small.route)}
+        ButtonScreenPreview(title = "Small Button",
+            onClick = {navController.navigate(NavigationItem.Small.route)}
         )
     }
 
@@ -87,35 +89,27 @@ fun ButtonRoute(navController: NavHostController) {
 
 
 @Composable
-fun CardView(title: String, onClickAction: ()-> Unit) {
+fun ButtonScreenPreview(title: String, onClick: ()-> Unit) {
     Card(
         modifier = Modifier
-            .fillMaxWidth()
-            .height(100.dp)
-            .width(100.dp)
-            .padding(5.dp),
+            .padding(5.dp)
+            .clickable { onClick() }
+            .border(width = 0.5.dp, color = Color.White, shape = ShapeDefaults.Small),
     ) {
-        Column(Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center
+        Row(modifier = Modifier
+            .fillMaxWidth()
+            .padding(5.dp),
         ) {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 25.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text(
-                    text = title,
-                    style = TextStyle(fontSize = 20.sp, fontWeight = FontWeight.Normal ),
-                    modifier = Modifier.width(140.dp)
-                )
-                Spacer(modifier = Modifier.width(150.dp))
-                Image(
+
+            Text(
+                text = title,
+                style = TextStyle(fontSize = 15.sp),
+                modifier = Modifier.padding(15.dp)
+            )
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                Icon(
                     imageVector = Icons.Default.KeyboardArrowRight, contentDescription = "",
-                    modifier = Modifier
-                        .clickable { onClickAction() }
-                        .width(50.dp)
-                        .height(50.dp)
+                    modifier = Modifier.padding(15.dp)
                 )
             }
         }

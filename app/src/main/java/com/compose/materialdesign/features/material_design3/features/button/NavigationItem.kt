@@ -1,4 +1,4 @@
-package com.compose.materialdesign.features.material_design3.button
+package com.compose.materialdesign.features.material_design3.features.button
 
 sealed class NavigationItem(var route: String) {
     object Large : NavigationItem("LButton")

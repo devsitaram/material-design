@@ -1,4 +1,4 @@
-package com.compose.materialdesign.features.material_design3.button
+package com.compose.materialdesign.features.material_design3.features.button
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.gestures.scrollable
