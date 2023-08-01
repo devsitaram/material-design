@@ -39,6 +39,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.compose.materialdesign.features.util.ListOfDataCard
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -79,13 +80,13 @@ fun DialogBoxViewScreen(navMaterialController: NavHostController) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 // AlertDialogSample
-                DialogBoxCard(title = "AlertDialogSample", subTitle = "example of AlertDialogSample", onClickAction = { showAlertDialog.value = true })
+                ListOfDataCard(title = "AlertDialogSample", subTitle = "example of AlertDialogSample", onClickAction = { showAlertDialog.value = true })
                 if (showAlertDialog.value){
                     SampleDialogBox(title = "Title", text = "Turned on by default!", onDismiss = {showAlertDialog.value = false})
                 }
 
                 // AlertDialogSWithIcon
-                DialogBoxCard(
+                ListOfDataCard(
                     title = "AlertDialogWithIcon",
                     subTitle = "example of AlertDialogSWithIcon",
                     onClickAction = {
@@ -98,7 +99,7 @@ fun DialogBoxViewScreen(navMaterialController: NavHostController) {
                 }
 
                 // AlertDialogSWithCustomContent
-                DialogBoxCard(
+                ListOfDataCard(
                     title = "AlertDialogWithCustomContent",
                     subTitle = "example of AlertDialogSWithCustomContent",
                     onClickAction = {
@@ -111,9 +112,9 @@ fun DialogBoxViewScreen(navMaterialController: NavHostController) {
                 }
 
                 // input dialog box
-                DialogBoxCard(
-                    title = "showInputDialog",
-                    subTitle = "example of showInputDialog",
+                ListOfDataCard(
+                    title = "AlertDialogWithInputText",
+                    subTitle = "example of AlertDialogWithInputText",
                     onClickAction = {
                         // show dialog box
                         showInputDialog.value = true
@@ -132,48 +133,6 @@ fun DialogBoxViewScreen(navMaterialController: NavHostController) {
                 if (userInput.isNotBlank()) {
                     Text("Input Text: $userInput")
                 }
-            }
-        }
-    }
-}
-
-@Composable
-fun DialogBoxCard(title: String, subTitle: String, onClickAction: () -> Unit) {
-    Card(
-        modifier = Modifier
-            .padding(5.dp)
-            .clickable { onClickAction() }
-            .border(width = 0.5.dp, color = Color.LightGray, shape = ShapeDefaults.Small),
-    ) {
-        Row(
-            modifier = Modifier
-                .background(Color.White)
-                .padding(15.dp)
-                .fillMaxWidth()
-                .width(IntrinsicSize.Max), // Set the width to the maximum intrinsic width
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Column {
-                Text(
-                    text = title,
-                    style = TextStyle(
-                        fontSize = 15.sp,
-                        fontWeight = FontWeight.SemiBold
-                    ),
-                )
-                Text(
-                    text = subTitle,
-                    style = TextStyle(fontSize = 12.sp),
-                    modifier = Modifier.padding(top = 5.dp)
-                )
-            }
-            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-                Icon(
-                    imageVector = Icons.Default.KeyboardArrowRight,
-                    contentDescription = null,
-                    modifier = Modifier
-                        .size(30.dp)
-                )
             }
         }
     }

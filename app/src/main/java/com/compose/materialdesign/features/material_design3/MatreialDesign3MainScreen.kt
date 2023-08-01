@@ -29,6 +29,7 @@ import androidx.navigation.compose.rememberNavController
 import com.compose.materialdesign.R
 import com.compose.materialdesign.features.material_design3.features.text.textscreen.TextViewScreen
 import com.compose.materialdesign.features.material_design3.features.button.ButtonViewScreen
+import com.compose.materialdesign.features.material_design3.features.buttonappbar.appbarscreen.BottomAppBarViewScreen
 import com.compose.materialdesign.features.material_design3.features.dialogbox.DialogBoxViewScreen
 import com.compose.materialdesign.features.material_design3.features.textfield.textfieldscreen.TextFieldViewScreen
 
@@ -62,7 +63,10 @@ fun MaterialDesign3MainScreen() {
             DialogBoxViewScreen(navMaterialController)
         }
 
-        // add new screen
+        // BottomTopBar screen
+        composable(MaterialDesign3Item.BottomAppBar.route){
+            BottomAppBarViewScreen(navMaterialController)
+        }
 
     }
 }
@@ -93,6 +97,10 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
             MaterialComponents(
                 title = "Dialog Box",
             ) { navMaterialController.navigate(MaterialDesign3Item.DialogBox.route) }
+
+            MaterialComponents(
+                title = "BottomTop/AppBar",
+            ) { navMaterialController.navigate(MaterialDesign3Item.BottomAppBar.route) }
 
             // add new component
 

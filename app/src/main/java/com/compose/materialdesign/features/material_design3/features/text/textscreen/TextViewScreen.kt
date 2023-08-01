@@ -160,13 +160,7 @@ fun Material3TextComponents(title: String, onClick: () -> Unit) {
 
 // text description
 @Composable
-fun TextDescription(
-    text: String,
-    fontSize: String,
-    fontWeight: String,
-    color: String,
-    lineHeight: String
-) {
+fun TextDescription(text: String, fontSize: String, fontWeight: String, color: String, lineHeight: String) {
     Text(
         text = "In this text, have used the following styles: Text: '$text', FontSize: '$fontSize', FontWeight: '$fontWeight', Color: '$color', and LineHeight: '$lineHeight'.",
         modifier = Modifier
