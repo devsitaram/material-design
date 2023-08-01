@@ -33,6 +33,7 @@ import com.compose.materialdesign.R
 import com.compose.materialdesign.features.material_design3.features.badge.MainBadgeScreen
 import com.compose.materialdesign.features.material_design3.features.button.MainButtonScreen
 import com.compose.materialdesign.features.material_design3.features.checkboxes.MainCheckBoxScreen
+import com.compose.materialdesign.features.material_design3.features.progressIndicators.MainIndicatorsScreen
 import com.compose.materialdesign.features.material_design3.features.radiobutton.MainRadioButtonScreen
 import com.compose.materialdesign.features.material_design3.features.switches.MainSwitchScreen
 
@@ -82,6 +83,10 @@ fun MaterialDesign3MainScreen() {
         composable(MaterialDesign3Item.CheckBoxes.route){
             MainCheckBoxScreen()
         }
+
+        composable(MaterialDesign3Item.ProgressIndicators.route){
+            MainIndicatorsScreen()
+        }
         // add new screen
     }
 }
@@ -126,6 +131,9 @@ fun MaterialDesign3MainScree(navController: NavHostController) {
 
             MaterialComponents(title = "CheckBoxes" ,
             ) {navController.navigate(MaterialDesign3Item.CheckBoxes.route)}
+
+            MaterialComponents(title = "Progress Indicators" ,
+            ) {navController.navigate(MaterialDesign3Item.ProgressIndicators.route)}
 
             // add new component
 

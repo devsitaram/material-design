@@ -10,6 +10,7 @@ sealed class MaterialDesign3Item(var route: String) {
     object Card: MaterialDesign3Item("Card")
     object Switches: MaterialDesign3Item("Switches")
     object CheckBoxes: MaterialDesign3Item("CheckBoxes")
+     object ProgressIndicators: MaterialDesign3Item("ProgressIndicators")
 
 
 

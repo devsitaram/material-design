@@ -1,4 +1,4 @@
-package com.compose.materialdesign.features.material_design3.features.badge
+package com.compose.materialdesign.features.material_design3.features.progressIndicators
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -28,31 +28,54 @@ import androidx.navigation.compose.rememberNavController
 
 
 @Composable
-fun MainBadgeScreen() {
+fun MainIndicatorsScreen() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "NavigationBarItemWithBadgeViewScreen") {
-        composable("NavigationBarItemWithBadgeViewScreen") {
-            NavigationBarItemWithBadgeViewScreen(navController)
+    NavHost(navController = navController, startDestination = "ProgressIndicatorViewScreen") {
+        composable("ProgressIndicatorViewScreen") {
+            ProgressIndicatorViewScreen(navController)
         }
-        composable(BadgeItems.NavigationBarItemWithBadge.route) {
-            LinearProgressIndicatorSample()
+        composable(ProgressItems.LinerProgressIndicators.route) {
+            LinearProgressIndicatorComponent()
         }
+        composable(ProgressItems.IndeterminateLinerProgressIndicators.route) {
+            IndeterminateLinearProgressIndicatorComponent()
+        }
+        composable(ProgressItems.CircularProgressIndicators.route) {
+            CircularProgressIndicatorComponent()
+        }
+        composable(ProgressItems.IndeterminateCircularProgressIndicators.route) {
+            IndeterminateCircularComponent()
+         }
 
     }
 }
 
 
 @Composable
-fun NavigationBarItemWithBadgeViewScreen(navController: NavHostController) {
+fun ProgressIndicatorViewScreen(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(15.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        NavigationBarItemWithBadgeViewScreenPreview(
-            title = "NavigationBarItemWithBadge",
-            onClick = { navController.navigate(BadgeItems.NavigationBarItemWithBadge.route) }
+        ProgressIndicatorsScreenPreview(
+            title = "LinerProgressIndicators",
+            onClick = { navController.navigate(ProgressItems.LinerProgressIndicators.route) }
+        )
+
+        ProgressIndicatorsScreenPreview(
+            title = "IndeterminateLinerProgressIndicators",
+            onClick = { navController.navigate(ProgressItems.IndeterminateLinerProgressIndicators.route) }
+        )
+
+        ProgressIndicatorsScreenPreview(
+            title = "CircularProgressIndicators",
+            onClick = { navController.navigate(ProgressItems.CircularProgressIndicators.route) }
+        )
+        ProgressIndicatorsScreenPreview(
+            title = "IndeterminateCircularProgressIndicators",
+            onClick = { navController.navigate(ProgressItems.IndeterminateCircularProgressIndicators.route) }
         )
 
     }
@@ -61,7 +84,7 @@ fun NavigationBarItemWithBadgeViewScreen(navController: NavHostController) {
 
 
 @Composable
-fun NavigationBarItemWithBadgeViewScreenPreview(title: String, onClick: ()-> Unit) {
+fun ProgressIndicatorsScreenPreview(title: String, onClick: ()-> Unit) {
     Card(
         modifier = Modifier
             .padding(5.dp)
