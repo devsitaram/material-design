@@ -43,6 +43,7 @@ import com.compose.materialdesign.features.material_design3.features.text.Button
 import com.compose.materialdesign.features.material_design3.features.text.HeadingTextViewScreen
 import com.compose.materialdesign.features.material_design3.features.text.InputTextViewScreen
 import com.compose.materialdesign.features.material_design3.features.text.NormalTextViewScreen
+import com.compose.materialdesign.features.util.ButtonTopAppBar
 
 @Composable
 fun TextViewScreen(navMaterialController: NavHostController) {
@@ -87,17 +88,9 @@ fun MainTextScreen(navTextController: NavHostController, navMaterialController: 
             ),
     ) {
         // top bar
-        TopAppBar(
-            title = { Text(text = "Texts") },
-            navigationIcon = {
-                IconButton(onClick = { navMaterialController.navigateUp() }) {
-                    Icon(
-                        imageVector = Icons.Default.KeyboardArrowLeft,
-                        contentDescription = null,
-                        modifier = Modifier.size(30.dp)
-                    )
-                }
-            }
+        ButtonTopAppBar(
+            title = "Texts",
+            navController = navMaterialController
         )
         Column(modifier = Modifier
             .fillMaxWidth()

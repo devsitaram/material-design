@@ -6,4 +6,5 @@ sealed class MaterialDesign3Item(var route: String) {
     object TextField : MaterialDesign3Item("TextField")
     object DialogBox: MaterialDesign3Item("DialogBox")
     object BottomAppBar: MaterialDesign3Item("BottomAppBar")
+    object ToolTips: MaterialDesign3Item("ToolTips")
 }

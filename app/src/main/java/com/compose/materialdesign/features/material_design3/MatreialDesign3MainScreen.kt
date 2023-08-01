@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Surface
 import androidx.compose.material3.ShapeDefaults
 import androidx.compose.material3.Text
@@ -32,6 +34,7 @@ import com.compose.materialdesign.features.material_design3.features.button.Butt
 import com.compose.materialdesign.features.material_design3.features.buttonappbar.appbarscreen.BottomAppBarViewScreen
 import com.compose.materialdesign.features.material_design3.features.dialogbox.DialogBoxViewScreen
 import com.compose.materialdesign.features.material_design3.features.textfield.textfieldscreen.TextFieldViewScreen
+import com.compose.materialdesign.features.material_design3.features.tooltips.tooltipscreen.ToolTipsViewScreen
 
 //@Preview
 @Composable
@@ -68,6 +71,11 @@ fun MaterialDesign3MainScreen() {
             BottomAppBarViewScreen(navMaterialController)
         }
 
+        // tooltips screen
+        composable(MaterialDesign3Item.ToolTips.route){
+            ToolTipsViewScreen(navMaterialController)
+        }
+
     }
 }
 
@@ -76,6 +84,7 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
     Surface(modifier = Modifier.fillMaxSize()) {
         Column(modifier = Modifier
             .fillMaxWidth()
+            .verticalScroll(rememberScrollState())
             .padding(10.dp)
         ) {
             // text components
@@ -102,16 +111,22 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
                 title = "BottomTop/AppBar",
             ) { navMaterialController.navigate(MaterialDesign3Item.BottomAppBar.route) }
 
+            MaterialComponents(
+                title = "Tooltips",
+            ) { navMaterialController.navigate(MaterialDesign3Item.ToolTips.route) }
+
             // add new component
 
         }
     }
 }
+
 @Composable
 fun MaterialComponents(title: String, onClick: ()-> Unit) {
     Card(
         modifier = Modifier
-            .padding(5.dp).clickable { onClick() }
+            .padding(5.dp)
+            .clickable { onClick() }
             .border(width = 0.5.dp, color = Color.DarkGray, shape = ShapeDefaults.Small),
     ) {
         Column(modifier = Modifier

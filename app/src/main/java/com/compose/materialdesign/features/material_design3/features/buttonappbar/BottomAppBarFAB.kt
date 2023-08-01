@@ -1,6 +1,7 @@
 package com.compose.materialdesign.features.material_design3.features.buttonappbar
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -15,6 +16,7 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
+import androidx.compose.material.Chip
 import androidx.compose.material.Surface
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -73,14 +75,17 @@ fun ButtonAppBarWithFAB() {
     TopAppBar(
         title = { Text(text = "") },
         navigationIcon = {
-            Row(modifier = Modifier
+            Row(
+                modifier = Modifier
                     .padding(10.dp)
                     .fillMaxWidth()
                     .width(IntrinsicSize.Max),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 IconButton(
-                    onClick = { }
+                    onClick = {
+                        // onClick action
+                    }
                 ) {
                     Icon(
                         imageVector = Icons.Default.Check,
@@ -89,7 +94,9 @@ fun ButtonAppBarWithFAB() {
                     )
                 }
                 IconButton(
-                    onClick = { }
+                    onClick = {
+                        // onclick action
+                    }
                 ) {
                     Icon(
                         imageVector = Icons.Default.Edit,
@@ -103,10 +110,14 @@ fun ButtonAppBarWithFAB() {
                 ) {
                     Card(
                         modifier = Modifier.size(40.dp),
+                        shape = ShapeDefaults.Medium
                     ) {
                         Row(
                             modifier = Modifier
-                                .fillMaxSize(),
+                                .fillMaxSize()
+                                .clickable {
+                                    // onClick action
+                                },
                             verticalAlignment = Alignment.CenterVertically,
                             horizontalArrangement = Arrangement.Center
                         ) {

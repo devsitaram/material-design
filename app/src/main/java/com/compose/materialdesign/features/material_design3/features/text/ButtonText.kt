@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.compose.materialdesign.features.material_design3.features.text.textscreen.TextDescription
+import com.compose.materialdesign.features.util.ButtonTopAppBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -40,17 +41,9 @@ fun ButtonTextViewScreen(navTextController: NavHostController) {
         verticalArrangement = Arrangement.Center,
     ) {
         // top bar
-        TopAppBar(
-            title = { Text(text = "Input Text") },
-            navigationIcon = {
-                IconButton(onClick = { navTextController.navigateUp() }) {
-                    Icon(
-                        imageVector = Icons.Default.KeyboardArrowLeft,
-                        contentDescription = null,
-                        modifier = Modifier.size(30.dp)
-                    )
-                }
-            }
+        ButtonTopAppBar(
+            title = "Button Text",
+            navController = navTextController
         )
         Column(
             modifier = Modifier

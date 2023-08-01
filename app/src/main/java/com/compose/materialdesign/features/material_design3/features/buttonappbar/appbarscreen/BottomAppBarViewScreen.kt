@@ -29,6 +29,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.compose.materialdesign.features.material_design3.features.buttonappbar.BottomAppBarFABViewScreen
 import com.compose.materialdesign.features.material_design3.features.buttonappbar.SimpleAppBarViewScreen
+import com.compose.materialdesign.features.util.ButtonTopAppBar
 import com.compose.materialdesign.features.util.ListOfDataCard
 
 @Composable
@@ -63,19 +64,9 @@ fun MainBottomTopBarScreen(
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.Top,
         ) {
-            TopAppBar(
-                title = { Text(text = "BottomTop/AppBar") },
-                navigationIcon = {
-                    IconButton(onClick = {
-                        navMaterialController.navigateUp()
-                    }) {
-                        Icon(
-                            imageVector = Icons.Default.KeyboardArrowLeft,
-                            contentDescription = null,
-                            modifier = Modifier.size(30.dp)
-                        )
-                    }
-                }
+            ButtonTopAppBar(
+                title = "BottomTop/AppBar",
+                navController = navMaterialController
             )
             Column(modifier = Modifier
                     .fillMaxWidth()
