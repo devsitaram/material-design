@@ -33,6 +33,7 @@ import com.compose.materialdesign.R
 import com.compose.materialdesign.features.material_design3.features.badge.MainBadgeScreen
 import com.compose.materialdesign.features.material_design3.features.button.MainButtonScreen
 import com.compose.materialdesign.features.material_design3.features.checkboxes.MainCheckBoxScreen
+import com.compose.materialdesign.features.material_design3.features.navigationbar.MainNavigationScreen
 import com.compose.materialdesign.features.material_design3.features.progressIndicators.MainIndicatorsScreen
 import com.compose.materialdesign.features.material_design3.features.radiobutton.MainRadioButtonScreen
 import com.compose.materialdesign.features.material_design3.features.switches.MainSwitchScreen
@@ -87,6 +88,10 @@ fun MaterialDesign3MainScreen() {
         composable(MaterialDesign3Item.ProgressIndicators.route){
             MainIndicatorsScreen()
         }
+
+        composable(MaterialDesign3Item.NavigationBar.route){
+            MainNavigationScreen()
+        }
         // add new screen
     }
 }
@@ -134,6 +139,9 @@ fun MaterialDesign3MainScree(navController: NavHostController) {
 
             MaterialComponents(title = "Progress Indicators" ,
             ) {navController.navigate(MaterialDesign3Item.ProgressIndicators.route)}
+
+            MaterialComponents(title = "Navigation Bar" ,
+            ) {navController.navigate(MaterialDesign3Item.NavigationBar.route)}
 
             // add new component
 

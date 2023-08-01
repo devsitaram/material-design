@@ -11,6 +11,7 @@ sealed class MaterialDesign3Item(var route: String) {
     object Switches: MaterialDesign3Item("Switches")
     object CheckBoxes: MaterialDesign3Item("CheckBoxes")
      object ProgressIndicators: MaterialDesign3Item("ProgressIndicators")
+    object  NavigationBar: MaterialDesign3Item("NavigationBar")
 
 
 
