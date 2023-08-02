@@ -20,6 +20,7 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -59,6 +60,10 @@ fun MenuWithScrollableViewScreen(navMenuController: NavHostController) {
     }
 }
 
+
+fun listOfMenus(){
+
+}
 @Composable
 fun MenusWithScrollable() {
     var expanded by remember { mutableStateOf(false) }
@@ -78,15 +83,7 @@ fun MenusWithScrollable() {
             onDismissRequest = { expanded = false }
         ) {
             DropdownMenuItem(onClick = { expanded = false } ) {
-                Text("Home")
-            }
-            DropdownMenuItem(onClick = { expanded = false } ) {
-                Text("Setting")
-            }
-
-            Divider(modifier = Modifier.fillMaxWidth().height(1.dp))
-            DropdownMenuItem(onClick = { expanded = false } ) {
-                Text("Save")
+                MenusItems(text = "Send Feedback", imageVector = Icons.Default.Email)
             }
         }
     }

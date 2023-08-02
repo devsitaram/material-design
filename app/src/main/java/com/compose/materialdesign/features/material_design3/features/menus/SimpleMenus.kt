@@ -92,13 +92,11 @@ fun SimpleMenus() {
                 MenusItems(text = "Edit", imageVector = Icons.Default.Edit)
             }
             DropdownMenuItem(onClick = { expanded = false } ) {
-                MenusItems(text = "Settings", imageVector = Icons.Default.Settings
-                )
+                MenusItems(text = "Settings", imageVector = Icons.Default.Settings)
             }
             Divider(modifier = Modifier.fillMaxWidth().height(1.dp))
             DropdownMenuItem(onClick = { expanded = false } ) {
-                MenusItems(text = "Send Feedback", imageVector = Icons.Default.Email
-                )
+                MenusItems(text = "Send Feedback", imageVector = Icons.Default.Email)
             }
         }
     }
