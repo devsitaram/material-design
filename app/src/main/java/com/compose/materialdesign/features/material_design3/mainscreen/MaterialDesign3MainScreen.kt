@@ -1,4 +1,4 @@
-package com.compose.materialdesign.features.material_design3
+package com.compose.materialdesign.features.material_design3.mainscreen
 
 import MainCardViewScreen
 import androidx.compose.foundation.Image
@@ -121,7 +121,6 @@ fun MaterialDesign3MainScreen() {
         composable(MaterialDesign3Item.NavigationBar.route){
             MainNavigationViewScreen()
         }
-
 
         composable(MaterialDesign3Item.Divider.route){
             MainDividerViewScreen()

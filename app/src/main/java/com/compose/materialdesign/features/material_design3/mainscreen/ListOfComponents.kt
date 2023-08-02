@@ -1,4 +1,4 @@
-package com.compose.materialdesign.features.material_design3
+package com.compose.materialdesign.features.material_design3.mainscreen
 
 sealed class MaterialDesign3Item(var route: String) {
     object Badge: MaterialDesign3Item("Badge")
@@ -17,3 +17,4 @@ sealed class MaterialDesign3Item(var route: String) {
     object Menus: MaterialDesign3Item("Menus")
     object Divider: MaterialDesign3Item("Divider")
 }
+
