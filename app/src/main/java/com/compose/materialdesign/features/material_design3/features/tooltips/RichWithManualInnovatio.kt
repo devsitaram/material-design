@@ -64,11 +64,10 @@ fun ManualInnovationViewScreen(navTooltipController: NavHostController) {
             )
             Column(
                 modifier = Modifier
-                    .fillMaxSize().background(color = Color.Red)
+                    .fillMaxSize()
                     .padding(10.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
-
             ) {
                 Spacer(modifier = Modifier.padding(top = 300.dp))
                 RichWithManualInnovationTooltip()

@@ -33,6 +33,7 @@ import com.compose.materialdesign.features.material_design3.features.text.textsc
 import com.compose.materialdesign.features.material_design3.features.button.ButtonViewScreen
 import com.compose.materialdesign.features.material_design3.features.buttonappbar.appbarscreen.BottomAppBarViewScreen
 import com.compose.materialdesign.features.material_design3.features.dialogbox.DialogBoxViewScreen
+import com.compose.materialdesign.features.material_design3.features.menus.menuscreen.MenusViewScreen
 import com.compose.materialdesign.features.material_design3.features.textfield.textfieldscreen.TextFieldViewScreen
 import com.compose.materialdesign.features.material_design3.features.tooltips.tooltipscreen.ToolTipsViewScreen
 
@@ -74,6 +75,11 @@ fun MaterialDesign3MainScreen() {
         // tooltips screen
         composable(MaterialDesign3Item.ToolTips.route){
             ToolTipsViewScreen(navMaterialController)
+        }
+
+        // menus
+        composable(MaterialDesign3Item.Menus.route){
+            MenusViewScreen(navMaterialController)
         }
 
     }
