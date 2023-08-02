@@ -31,7 +31,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.compose.materialdesign.features.util.ButtonTopAppBar
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NormalTextFieldViewScreens(navTextFieldController: NavHostController) {
     var textField by remember { mutableStateOf("example") }

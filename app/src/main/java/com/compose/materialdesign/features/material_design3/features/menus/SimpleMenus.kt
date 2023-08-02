@@ -29,6 +29,7 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -39,6 +40,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.compose.materialdesign.features.material_design3.features.menus.menuscreen.MenusItemList
 import com.compose.materialdesign.features.material_design3.features.text.RegularText
 import com.compose.materialdesign.features.material_design3.features.text.RegularTextSemiBold
 import com.compose.materialdesign.features.util.ButtonTopAppBar
@@ -59,8 +61,7 @@ fun SimpleMenusViewScreen(navMenuController: NavHostController) {
             )
             Column(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(20.dp),
+                    .fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 SimpleMenus()
@@ -89,21 +90,21 @@ fun SimpleMenus() {
             onDismissRequest = { expanded = false }
         ) {
             DropdownMenuItem(onClick = { expanded = false } ) {
-                MenusItems(text = "Edit", imageVector = Icons.Default.Edit)
+                SimpleMenusItems(text = "Edit", imageVector = Icons.Default.Edit)
             }
             DropdownMenuItem(onClick = { expanded = false } ) {
-                MenusItems(text = "Settings", imageVector = Icons.Default.Settings)
+                SimpleMenusItems(text = "Settings", imageVector = Icons.Default.Settings)
             }
             Divider(modifier = Modifier.fillMaxWidth().height(1.dp))
             DropdownMenuItem(onClick = { expanded = false } ) {
-                MenusItems(text = "Send Feedback", imageVector = Icons.Default.Email)
+                SimpleMenusItems(text = "Send Feedback F11", imageVector = Icons.Default.Email)
             }
         }
     }
 }
 
 @Composable
-fun MenusItems(text: String, imageVector: ImageVector) {
+fun SimpleMenusItems(text: String, imageVector: ImageVector) {
     Row(Modifier.fillMaxWidth()) {
         Icon(imageVector = imageVector, contentDescription = null,
             modifier = Modifier.padding(end = 10.dp)
