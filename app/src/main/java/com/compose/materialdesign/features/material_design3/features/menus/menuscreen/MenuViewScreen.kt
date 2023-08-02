@@ -16,28 +16,31 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.compose.materialdesign.features.material_design3.features.menus.ListOfMenuItems
+import com.compose.materialdesign.features.material_design3.features.menus.EditableExportDropdownMenuViewScreen
+import com.compose.materialdesign.features.material_design3.features.menus.ExportDropdownMenuViewScreen
+import com.compose.materialdesign.features.material_design3.features.menus.MenuWithScrollableViewScreen
+import com.compose.materialdesign.features.material_design3.features.menus.SimpleMenusViewScreen
 import com.compose.materialdesign.features.util.ButtonTopAppBar
 import com.compose.materialdesign.features.util.ListOfDataCard
 
 @Composable
 fun MainMenusViewScreen(navMaterialController: NavHostController) {
     val navMenuController = rememberNavController()
-    NavHost(navController = navMenuController, startDestination = "") {
-        composable("") {
+    NavHost(navController = navMenuController, startDestination = "MainMenus") {
+        composable("MainMenus") {
             MainMenusScreens(navMaterialController, navMenuController)
         }
         composable(ListOfMenuItems.ManuSample.route) {
-
+            SimpleMenusViewScreen(navMenuController)
         }
         composable(ListOfMenuItems.MenuWithScrollable.route) {
-
+            MenuWithScrollableViewScreen(navMenuController)
         }
         composable(ListOfMenuItems.ExportDropdownMenu.route) {
-
+            ExportDropdownMenuViewScreen(navMenuController)
         }
         composable(ListOfMenuItems.EditableExportDropdownMenu.route) {
-
+            EditableExportDropdownMenuViewScreen(navMenuController)
         }
     }
 
@@ -70,6 +73,27 @@ fun MainMenusScreens(
                 subTitle = "example of Menus",
                 onClickAction = {
                     navMenuController.navigate(ListOfMenuItems.ManuSample.route)
+                }
+            )
+            ListOfDataCard(
+                title = "MenuWithScrollable",
+                subTitle = "example of MenuWithScrollable",
+                onClickAction = {
+                    navMenuController.navigate(ListOfMenuItems.MenuWithScrollable.route)
+                }
+            )
+            ListOfDataCard(
+                title = "ExportDropdownMenu",
+                subTitle = "example of ExportDropdownMenu",
+                onClickAction = {
+                    navMenuController.navigate(ListOfMenuItems.ExportDropdownMenu.route)
+                }
+            )
+            ListOfDataCard(
+                title = "EditableExportDropdownMenu",
+                subTitle = "example of EditableExportDropdownMenu",
+                onClickAction = {
+                    navMenuController.navigate(ListOfMenuItems.EditableExportDropdownMenu.route)
                 }
             )
         }

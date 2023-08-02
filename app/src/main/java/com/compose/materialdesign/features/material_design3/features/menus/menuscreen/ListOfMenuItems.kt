@@ -1,4 +1,4 @@
-package com.compose.materialdesign.features.material_design3.features.menus
+package com.compose.materialdesign.features.material_design3.features.menus.menuscreen
 
 sealed class ListOfMenuItems(var route: String) {
     object ManuSample: ListOfMenuItems("ManuSample")
