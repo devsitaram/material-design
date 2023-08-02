@@ -2,6 +2,7 @@ package com.compose.materialdesign.features.material
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -34,6 +35,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.compose.materialdesign.features.material_design.MaterialDesign2MainScreen
 import com.compose.materialdesign.features.material_design3.MaterialDesign3MainScreen
+import com.compose.materialdesign.features.util.ListOfDataCard
 
 @Composable
 fun MaterialDesignAppNavHost(navController: NavHostController) {
@@ -81,62 +83,16 @@ fun MainScreen(navController: NavHostController) {
             )
             Spacer(modifier = Modifier.padding(top = 15.dp))
             // material design
-            MaterialDesignTypeOfUi(
+            ListOfDataCard(
                 title = "Material Design 2",
                 subTitle = "androidx.compose.material2",
                 onClickAction = { navController.navigate("MaterialDesign") }
             )
             // material design 3
-            MaterialDesignTypeOfUi(
+            ListOfDataCard(
                 title = "Material Design 3",
                 subTitle = "androidx.compose.material3",
                 onClickAction = { navController.navigate("MaterialDesign3") }
-            )
-        }
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun MaterialDesignTypeOfUi(
-    title: String,
-    subTitle: String,
-    onClickAction: () -> Unit,
-) {
-    Card(
-        modifier = Modifier
-            .padding(5.dp)
-            .border(width = 1.dp, color = Color.DarkGray, shape = ShapeDefaults.Small),
-        onClick = onClickAction
-    ) {
-        Row(
-            modifier = Modifier
-                .background(Color.White)
-                .padding(15.dp)
-                .wrapContentWidth()
-                .width(IntrinsicSize.Max), // Set the width to the maximum intrinsic width
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Column {
-                Text(
-                    text = title,
-                    style = TextStyle(
-                        fontSize = 15.sp,
-                        fontWeight = FontWeight.SemiBold
-                    ),
-                )
-                Text(
-                    text = subTitle,
-                    style = TextStyle(fontSize = 12.sp),
-                    modifier = Modifier.padding(top = 5.dp)
-                )
-            }
-            Spacer(modifier = Modifier.width(110.dp))
-            Icon(
-                imageVector = Icons.Default.KeyboardArrowRight,
-                contentDescription = null,
-                modifier = Modifier
-                    .size(30.dp)
             )
         }
     }

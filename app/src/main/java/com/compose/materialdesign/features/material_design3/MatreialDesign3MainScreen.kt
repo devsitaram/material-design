@@ -2,6 +2,7 @@ package com.compose.materialdesign.features.material_design3
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -10,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Surface
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ShapeDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -21,47 +21,58 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.material3.Card
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.compose.materialdesign.R
-import com.compose.materialdesign.features.material_design3.material_item.MaterialDesign3Item
-import com.compose.materialdesign.features.material_design3.text.MainTextViewScreen
+import com.compose.materialdesign.features.material_design3.features.text.textscreen.TextViewScreen
+import com.compose.materialdesign.features.material_design3.features.button.ButtonViewScreen
+import com.compose.materialdesign.features.material_design3.features.buttonappbar.appbarscreen.BottomAppBarViewScreen
+import com.compose.materialdesign.features.material_design3.features.dialogbox.DialogBoxViewScreen
+import com.compose.materialdesign.features.material_design3.features.textfield.textfieldscreen.TextFieldViewScreen
 
 //@Preview
 @Composable
 fun MaterialDesign3MainScreen() {
-    val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "MainScreen"){
+    val navMaterialController = rememberNavController()
+    NavHost(navController = navMaterialController, startDestination = "MainScreen"){
         // all material design 3 main screen
         composable("MainScreen"){
-            MaterialDesign3MainScree(navController)
+            MaterialDesign3MainScree(navMaterialController)
         }
+
         // texts screen
         composable(MaterialDesign3Item.Text.route){
-            MainTextViewScreen()
+            TextViewScreen(navMaterialController)
         }
+
         // buttons screen
         composable(MaterialDesign3Item.Button.route){
-
+            ButtonViewScreen()
         }
+
         // text fields screen
         composable(MaterialDesign3Item.TextField.route){
-
+            TextFieldViewScreen(navMaterialController)
         }
+
         // dialog boxes screen
         composable(MaterialDesign3Item.DialogBox.route){
-
+            DialogBoxViewScreen(navMaterialController)
         }
-        // add new screen
+
+        // BottomTopBar screen
+        composable(MaterialDesign3Item.BottomAppBar.route){
+            BottomAppBarViewScreen(navMaterialController)
+        }
+
     }
 }
 
 @Composable
-fun MaterialDesign3MainScree(navController: NavHostController) {
+fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
     Surface(modifier = Modifier.fillMaxSize()) {
         Column(modifier = Modifier
             .fillMaxWidth()
@@ -70,35 +81,38 @@ fun MaterialDesign3MainScree(navController: NavHostController) {
             // text components
             MaterialComponents(
                 title = "Text",
-            ) { navController.navigate(MaterialDesign3Item.Text.route) }
-            // button components
+            ) { navMaterialController.navigate(MaterialDesign3Item.Text.route) }
 
+            // button components
             MaterialComponents(
                 title = "Button",
-            ) { navController.navigate(MaterialDesign3Item.Button.route) }
+            ) { navMaterialController.navigate(MaterialDesign3Item.Button.route) }
 
             // input text field components
             MaterialComponents(
                 title = "TextField",
-            ) { navController.navigate(MaterialDesign3Item.TextField.route) }
-            // dialog box components
+            ) { navMaterialController.navigate(MaterialDesign3Item.TextField.route) }
 
+            // dialog box components
             MaterialComponents(
                 title = "Dialog Box",
-            ) { navController.navigate(MaterialDesign3Item.DialogBox.route) }
+            ) { navMaterialController.navigate(MaterialDesign3Item.DialogBox.route) }
+
+            MaterialComponents(
+                title = "BottomTop/AppBar",
+            ) { navMaterialController.navigate(MaterialDesign3Item.BottomAppBar.route) }
 
             // add new component
+
         }
     }
 }
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MaterialComponents(title: String, onClick: ()-> Unit) {
     Card(
         modifier = Modifier
-            .padding(5.dp)
+            .padding(5.dp).clickable { onClick() }
             .border(width = 0.5.dp, color = Color.DarkGray, shape = ShapeDefaults.Small),
-        onClick = onClick
     ) {
         Column(modifier = Modifier
             .fillMaxWidth()
