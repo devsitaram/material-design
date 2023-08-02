@@ -95,13 +95,14 @@ fun MenusWithScrollable() {
                 contentDescription = "More"
             )
         }
+
         // dropdown menu and inside have more item
         DropdownMenu(
             expanded = expanded,
             onDismissRequest = { expanded = false }
         ) {
             menuItemsList.forEach { 
-                DropdownMenuItem(onClick = { /*TODO*/ }) {
+                DropdownMenuItem(onClick = { expanded = false }) {
                     ScrollableMenusItems(text = it.title, imageVector = it.icon)
                 }
             }
