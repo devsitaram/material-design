@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.NavigationRail
@@ -95,10 +97,10 @@ fun SwitchWithThumbIconSamplePreview() {
 }
 
 
-enum class Page(val title:String, val content: String){
-    HOME("home","Show only icon"),
-    SEARCH("Search","Show icon with label"),
-    SETTINGS("Settings","Show icon /Show the label only when selected")
+enum class Page(val title:String, ){
+    HOME("Home"),
+    SEARCH("Search"),
+    SETTINGS("Settings")
 }
 
 @Composable
@@ -106,9 +108,9 @@ fun NavigationRailSample() {
     var selectedItem by remember { mutableStateOf(0) }
     val pages = Page.values()
     val icons = listOf(Icons.Filled.Home, Icons.Filled.Search, Icons.Filled.Settings)
-    Row(modifier = Modifier.wrapContentWidth(),
-    verticalAlignment = Alignment.CenterVertically,
-    horizontalArrangement = Arrangement.Center) {
+    Column(modifier = Modifier.wrapContentSize(),
+    verticalArrangement = Arrangement.Center ,
+    horizontalAlignment = Alignment.CenterHorizontally) {
         NavigationRail {
             pages.forEachIndexed { index, item ->
                 when(item){
@@ -140,7 +142,6 @@ fun NavigationRailSample() {
             }
         }
 
-        Text(pages[selectedItem].content, Modifier.padding(start = 8.dp))
     }
 }
 

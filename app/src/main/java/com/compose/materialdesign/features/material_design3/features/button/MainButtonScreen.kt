@@ -85,7 +85,6 @@ fun ButtonRoute(navController: NavHostController) {
 
 }
 
-
 @Composable
 fun ButtonScreenPreview(title: String, onClick: ()-> Unit) {
     Card(

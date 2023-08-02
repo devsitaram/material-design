@@ -23,8 +23,8 @@ import com.compose.materialdesign.features.util.ListOfDataCard
 @Composable
 fun MainMenusViewScreen(navMaterialController: NavHostController) {
     val navMenuController = rememberNavController()
-    NavHost(navController = navMenuController, startDestination = "") {
-        composable("") {
+    NavHost(navController = navMenuController, startDestination = "MainMenus") {
+        composable("MainMenus") {
             MainMenusScreens(navMaterialController, navMenuController)
         }
         composable(ListOfMenuItems.ManuSample.route) {

@@ -14,17 +14,17 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Surface
+import androidx.compose.material3.Card
 import androidx.compose.material3.ShapeDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.material3.Card
-import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -35,6 +35,7 @@ import com.compose.materialdesign.features.material_design3.features.button.Main
 import com.compose.materialdesign.features.material_design3.features.buttonappbar.appbarscreen.MainBottomAppBarViewScreen
 import com.compose.materialdesign.features.material_design3.features.checkboxes.MainCheckBoxViewScreen
 import com.compose.materialdesign.features.material_design3.features.dialogbox.MainDialogBoxViewScreen
+import com.compose.materialdesign.features.material_design3.features.divider.MainDividerViewScreen
 import com.compose.materialdesign.features.material_design3.features.menus.menuscreen.MainMenusViewScreen
 import com.compose.materialdesign.features.material_design3.features.navigationbar.MainNavigationViewScreen
 import com.compose.materialdesign.features.material_design3.features.progressIndicators.MainIndicatorsViewScreen
@@ -44,48 +45,52 @@ import com.compose.materialdesign.features.material_design3.features.text.textsc
 import com.compose.materialdesign.features.material_design3.features.textfield.textfieldscreen.MainTextFieldViewScreen
 import com.compose.materialdesign.features.material_design3.features.tooltips.tooltipscreen.MainToolTipsViewScreen
 
-//@Preview
 @Composable
 fun MaterialDesign3MainScreen() {
     val navMaterialController = rememberNavController()
-    NavHost(navController = navMaterialController, startDestination = "MainScreen"){
+    NavHost(navController = navMaterialController, startDestination = "MainScreen") {
         // all material design 3 main screen
-        composable("MainScreen"){
+        composable("MainScreen") {
             MaterialDesign3MainScree(navMaterialController)
         }
 
         // texts screen
-        composable(MaterialDesign3Item.Text.route){
+        composable(MaterialDesign3Item.Badge.route) {
+            MainBadgeViewScreen()
+        }
+
+        // texts screen
+        composable(MaterialDesign3Item.Text.route) {
             MainTextViewScreen(navMaterialController)
         }
 
         // buttons screen
-        composable(MaterialDesign3Item.Button.route){
+        composable(MaterialDesign3Item.Button.route) {
             MainButtonViewScreen()
         }
 
         // text fields screen
-        composable(MaterialDesign3Item.TextField.route){
+        composable(MaterialDesign3Item.TextField.route) {
             MainTextFieldViewScreen(navMaterialController)
         }
 
         // dialog boxes screen
-        composable(MaterialDesign3Item.DialogBox.route){
+        composable(MaterialDesign3Item.DialogBox.route) {
             MainDialogBoxViewScreen(navMaterialController)
         }
 
         // BottomTopBar screen
-        composable(MaterialDesign3Item.BottomAppBar.route){
+        composable(MaterialDesign3Item.BottomAppBar.route) {
             MainBottomAppBarViewScreen(navMaterialController)
         }
 
         // tooltips screen
-        composable(MaterialDesign3Item.ToolTips.route){
+        composable(MaterialDesign3Item.ToolTips.route) {
             MainToolTipsViewScreen(navMaterialController)
         }
 
         // menus
-        composable(MaterialDesign3Item.Menus.route){
+        composable(MaterialDesign3Item.Menus.route) {
             MainMenusViewScreen(navMaterialController)
         }
 
@@ -116,6 +121,11 @@ fun MaterialDesign3MainScreen() {
         composable(MaterialDesign3Item.NavigationBar.route){
             MainNavigationViewScreen()
         }
+
+
+        composable(MaterialDesign3Item.Divider.route){
+            MainDividerViewScreen()
+        }
     }
 }
 
@@ -127,32 +137,29 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
             .verticalScroll(rememberScrollState())
             .padding(10.dp)
         ) {
+            MaterialComponents(title = "Badge",
+            ) { navMaterialController.navigate(MaterialDesign3Item.Badge.route) }
+
             // text components
-            MaterialComponents(
-                title = "Text",
+            MaterialComponents(title = "Text",
             ) { navMaterialController.navigate(MaterialDesign3Item.Text.route) }
 
             // button components
-            MaterialComponents(
-                title = "Button",
+            MaterialComponents(title = "Button",
             ) { navMaterialController.navigate(MaterialDesign3Item.Button.route) }
 
             // input text field components
-            MaterialComponents(
-                title = "TextField",
+            MaterialComponents(title = "TextField",
             ) { navMaterialController.navigate(MaterialDesign3Item.TextField.route) }
 
             // dialog box components
-            MaterialComponents(
-                title = "Dialog Box",
+            MaterialComponents(title = "Dialog Box",
             ) { navMaterialController.navigate(MaterialDesign3Item.DialogBox.route) }
 
-            MaterialComponents(
-                title = "BottomTop/AppBar",
+            MaterialComponents(title = "BottomTop/AppBar",
             ) { navMaterialController.navigate(MaterialDesign3Item.BottomAppBar.route) }
 
-            MaterialComponents(
-                title = "Tooltips",
+            MaterialComponents(title = "Tooltips",
             ) { navMaterialController.navigate(MaterialDesign3Item.ToolTips.route) }
 
             // add new component
@@ -183,21 +190,49 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
             MaterialComponents(
                 title = "Navigation Bar",
             ) { navMaterialController.navigate(MaterialDesign3Item.NavigationBar.route) }
+
+            MaterialComponents(title = "Menus",
+            ) { navMaterialController.navigate(MaterialDesign3Item.Menus.route) }
+
+            MaterialComponents(title = "Radio Button" ,
+            ) {navMaterialController.navigate(MaterialDesign3Item.RadioButton.route)}
+
+            MaterialComponents(title = "Cards" ,
+            ) {navMaterialController.navigate(MaterialDesign3Item.Card.route)}
+
+            MaterialComponents(title = "Switches" ,
+            ) {navMaterialController.navigate(MaterialDesign3Item.Switches.route)}
+
+            MaterialComponents(title = "CheckBoxes" ,
+            ) {navMaterialController.navigate(MaterialDesign3Item.CheckBoxes.route)}
+
+            MaterialComponents(title = "Progress Indicators" ,
+            ) {navMaterialController.navigate(MaterialDesign3Item.ProgressIndicators.route)}
+
+            MaterialComponents(title = "Navigation Bar" ,
+            ) {navMaterialController.navigate(MaterialDesign3Item.NavigationBar.route)}
+
+
+             MaterialComponents(title = "Divider") {
+                navMaterialController.navigate(MaterialDesign3Item.Divider.route)
+             }
+            // add new component
         }
     }
 }
 
 @Composable
-fun MaterialComponents(title: String, onClick: ()-> Unit) {
+fun MaterialComponents(title: String, onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .padding(5.dp)
             .clickable { onClick() }
             .border(width = 0.5.dp, color = Color.DarkGray, shape = ShapeDefaults.Small),
     ) {
-        Column(modifier = Modifier
-            .fillMaxWidth()
-            .padding(5.dp),
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(5.dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
