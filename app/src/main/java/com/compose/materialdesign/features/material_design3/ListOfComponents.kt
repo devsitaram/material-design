@@ -13,7 +13,5 @@ sealed class MaterialDesign3Item(var route: String) {
      object ProgressIndicators: MaterialDesign3Item("ProgressIndicators")
     object  NavigationBar: MaterialDesign3Item("NavigationBar")
 
-
-
 }
 
