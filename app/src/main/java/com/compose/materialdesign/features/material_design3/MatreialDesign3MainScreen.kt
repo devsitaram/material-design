@@ -37,8 +37,9 @@ import com.compose.materialdesign.features.material_design3.features.navigationb
 import com.compose.materialdesign.features.material_design3.features.progressIndicators.MainIndicatorsScreen
 import com.compose.materialdesign.features.material_design3.features.radiobutton.MainRadioButtonScreen
 import com.compose.materialdesign.features.material_design3.features.switches.MainSwitchScreen
-import com.compose.materialdesign.features.material_design3.features.text.textscreen.MainTextViewScreen
-
+import com.compose.materialdesign.features.material_design3.features.text.textscreen.TextViewScreen
+import com.compose.materialdesign.features.material_design3.features.dialogbox.DialogBoxViewScreen
+import com.compose.materialdesign.features.material_design3.features.textfield.textfieldscreen.TextFieldViewScreen
 
 //@Preview
 @Composable
@@ -50,14 +51,16 @@ fun MaterialDesign3MainScreen() {
         composable("MainScreen"){
             MaterialDesign3MainScree(navMaterialController)
         }
+
         composable(MaterialDesign3Item.Badge.route) {
             MainBadgeScreen()
-
         }
+
         // texts screen
         composable(MaterialDesign3Item.Text.route){
-
+            TextViewScreen(navMaterialController)
         }
+
         // buttons screen
         composable(MaterialDesign3Item.Button.route){
             MainButtonScreen()
@@ -65,19 +68,13 @@ fun MaterialDesign3MainScreen() {
 
         // text fields screen
         composable(MaterialDesign3Item.TextField.route){
-            MainTextViewScreen(navMaterialController)
-
+            TextFieldViewScreen(navMaterialController)
         }
 
-        composable(MaterialDesign3Item.Text.route){
-
-            MainTextViewScreen(navMaterialController)
-
-        }
 
         // dialog boxes screen
         composable(MaterialDesign3Item.DialogBox.route){
-
+            DialogBoxViewScreen()
         }
 
         composable(MaterialDesign3Item.RadioButton.route){
@@ -103,7 +100,6 @@ fun MaterialDesign3MainScreen() {
         composable(MaterialDesign3Item.NavigationBar.route){
             MainNavigationScreen()
         }
-        // add new screen
     }
 }
 
@@ -123,8 +119,8 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
             MaterialComponents(
                 title = "Text",
             ) { navMaterialController.navigate(MaterialDesign3Item.Text.route) }
-            // button components
 
+            // button components
             MaterialComponents(
                 title = "Button",
             ) { navMaterialController.navigate(MaterialDesign3Item.Button.route) }
@@ -151,6 +147,11 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
 
             MaterialComponents(title = "Navigation Bar" ,
             ) {navMaterialController.navigate(MaterialDesign3Item.NavigationBar.route)}
+
+            // dialog box components
+            MaterialComponents(
+                title = "Dialog Box",
+            ) { navMaterialController.navigate(MaterialDesign3Item.DialogBox.route) }
 
             // add new component
         }
