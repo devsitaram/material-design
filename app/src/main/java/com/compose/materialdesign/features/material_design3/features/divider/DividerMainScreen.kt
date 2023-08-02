@@ -84,7 +84,6 @@ fun DividerScreenPreview(title: String, onClick: ()-> Unit) {
             .fillMaxWidth()
             .padding(5.dp),
         ) {
-
                 Text(
                     text = title,
                     style = TextStyle(fontSize = 15.sp),

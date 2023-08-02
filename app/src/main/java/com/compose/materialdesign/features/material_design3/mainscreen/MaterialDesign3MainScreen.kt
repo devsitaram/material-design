@@ -41,6 +41,7 @@ import com.compose.materialdesign.features.material_design3.features.navigationb
 import com.compose.materialdesign.features.material_design3.features.progressIndicators.MainIndicatorsViewScreen
 import com.compose.materialdesign.features.material_design3.features.radiobutton.MainRadioButtonViewScreen
 import com.compose.materialdesign.features.material_design3.features.switches.MainSwitchViewScreen
+import com.compose.materialdesign.features.material_design3.features.tabs.MainTabsViewScreen
 import com.compose.materialdesign.features.material_design3.features.text.textscreen.MainTextViewScreen
 import com.compose.materialdesign.features.material_design3.features.textfield.textfieldscreen.MainTextFieldViewScreen
 import com.compose.materialdesign.features.material_design3.features.tooltips.tooltipscreen.MainToolTipsViewScreen
@@ -126,7 +127,7 @@ fun MaterialDesign3MainScreen() {
             MainDividerViewScreen()
         }
         composable(MaterialDesign3Item.Tabs.route){
-//            dsls
+            MainTabsViewScreen()
         }
     }
 }
