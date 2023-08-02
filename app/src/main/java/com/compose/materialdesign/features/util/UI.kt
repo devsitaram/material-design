@@ -95,7 +95,6 @@ fun ListOfDataCard(title: String, subTitle: String, onClickAction: () -> Unit) {
     }
 }
 
-
 @Composable
 fun RowCardViewItems(title: String, onClick: ()-> Unit) {
     Card(

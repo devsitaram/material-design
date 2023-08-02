@@ -37,15 +37,13 @@ import androidx.leanback.widget.SearchBar
 @Composable
 fun DividerSamplePreview() {
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize().padding(15.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
         Divider(thickness = 2.dp, color = Color.Blue)
 
     }
-
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

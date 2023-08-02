@@ -100,15 +100,3 @@ fun FancyTabsPreview() {
 }
 
 
-@Composable
-fun Tab(text: String? = null, icon: Image? = null, selected: Boolean, onSelected: () -> Unit) {
-    val tint = (MaterialTheme.colorScheme).onPrimary
-    when {
-        text != null && icon != null -> CombinedTab(text, icon, selected, onSelected, tint)
-        text != null -> TextTab(text, selected, onSelected, tint)
-        icon != null -> IconTab(icon, selected, onSelected, tint)
-        // Nothing provided here (?!), so let's just draw an empty tab that handles clicks
-        else -> BaseTab(selected, onSelected, {})
-    }
-}
-

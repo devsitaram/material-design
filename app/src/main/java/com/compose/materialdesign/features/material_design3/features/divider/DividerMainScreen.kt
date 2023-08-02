@@ -31,6 +31,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.compose.materialdesign.features.util.RowCardViewItems
 
 
 @SuppressLint("UnrememberedMutableState")
@@ -48,8 +49,6 @@ fun MainDividerViewScreen() {
             modifier = Modifier,
             state = mutableStateOf(searchTextState))
         }
-
-
     }
 }
 
@@ -62,39 +61,9 @@ fun DividerViewScreen(navController: NavHostController) {
             .padding(15.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        DividerScreenPreview(
+        RowCardViewItems(
             title = "Divider Sample",
             onClick = { navController.navigate(DividerItems.DividerSample.route) }
         )
-
-    }
-
-}
-
-
-@Composable
-fun DividerScreenPreview(title: String, onClick: ()-> Unit) {
-    Card(
-        modifier = Modifier
-            .padding(5.dp)
-            .clickable { onClick() }
-            .border(width = 0.5.dp, color = Color.DarkGray, shape = ShapeDefaults.Small),
-    ) {
-        Row(modifier = Modifier
-            .fillMaxWidth()
-            .padding(5.dp),
-        ) {
-                Text(
-                    text = title,
-                    style = TextStyle(fontSize = 15.sp),
-                    modifier = Modifier.padding(15.dp)
-                )
-                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-                Icon(
-                    imageVector = Icons.Default.KeyboardArrowRight, contentDescription = "",
-                    modifier = Modifier.padding(15.dp)
-                )
-            }
-        }
     }
 }
