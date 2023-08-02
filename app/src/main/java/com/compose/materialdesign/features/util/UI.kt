@@ -96,7 +96,7 @@ fun ListOfDataCard(title: String, subTitle: String, onClickAction: () -> Unit) {
 }
 
 @Composable
-fun RowCardView(title: String, onClick: () -> Unit) {
+fun RowCardViewItems(title: String, onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .padding(5.dp)
