@@ -23,7 +23,7 @@ import com.compose.materialdesign.features.util.ButtonTopAppBar
 import com.compose.materialdesign.features.util.ListOfDataCard
 
 @Composable
-fun ToolTipsViewScreen(navMaterialController: NavHostController) {
+fun MainToolTipsViewScreen(navMaterialController: NavHostController) {
     val navTooltipController = rememberNavController()
     NavHost(navController = navTooltipController, startDestination = "MainTooltips"){
         composable("MainTooltips"){

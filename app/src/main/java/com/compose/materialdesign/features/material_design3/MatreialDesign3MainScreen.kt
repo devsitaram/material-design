@@ -1,5 +1,6 @@
 package com.compose.materialdesign.features.material_design3
 
+import MainCardViewScreen
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -29,14 +30,19 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.compose.materialdesign.R
-import com.compose.materialdesign.features.material_design3.button.MainButtonScreen
-import com.compose.materialdesign.features.material_design3.features.buttonappbar.appbarscreen.BottomAppBarViewScreen
-import com.compose.materialdesign.features.material_design3.features.dialogbox.DialogBoxViewScreen
-import com.compose.materialdesign.features.material_design3.features.menus.menuscreen.MenusViewScreen
-import com.compose.materialdesign.features.material_design3.features.radiobutton.MainRadioButtonScreen
-import com.compose.materialdesign.features.material_design3.features.text.textscreen.TextViewScreen
-import com.compose.materialdesign.features.material_design3.features.textfield.textfieldscreen.TextFieldViewScreen
-import com.compose.materialdesign.features.material_design3.features.tooltips.tooltipscreen.ToolTipsViewScreen
+import com.compose.materialdesign.features.material_design3.features.badge.MainBadgeViewScreen
+import com.compose.materialdesign.features.material_design3.features.button.MainButtonViewScreen
+import com.compose.materialdesign.features.material_design3.features.buttonappbar.appbarscreen.MainBottomAppBarViewScreen
+import com.compose.materialdesign.features.material_design3.features.checkboxes.MainCheckBoxViewScreen
+import com.compose.materialdesign.features.material_design3.features.dialogbox.MainDialogBoxViewScreen
+import com.compose.materialdesign.features.material_design3.features.menus.menuscreen.MainMenusViewScreen
+import com.compose.materialdesign.features.material_design3.features.navigationbar.MainNavigationViewScreen
+import com.compose.materialdesign.features.material_design3.features.progressIndicators.MainIndicatorsViewScreen
+import com.compose.materialdesign.features.material_design3.features.radiobutton.MainRadioButtonViewScreen
+import com.compose.materialdesign.features.material_design3.features.switches.MainSwitchViewScreen
+import com.compose.materialdesign.features.material_design3.features.text.textscreen.MainTextViewScreen
+import com.compose.materialdesign.features.material_design3.features.textfield.textfieldscreen.MainTextFieldViewScreen
+import com.compose.materialdesign.features.material_design3.features.tooltips.tooltipscreen.MainToolTipsViewScreen
 
 @Composable
 fun MaterialDesign3MainScreen() {
@@ -47,89 +53,128 @@ fun MaterialDesign3MainScreen() {
             MaterialDesign3MainScree(navMaterialController)
         }
 
+        composable(MaterialDesign3Item.Badge.route) {
+            MainBadgeViewScreen()
+        }
+
         // texts screen
         composable(MaterialDesign3Item.Text.route) {
-            TextViewScreen(navMaterialController)
+            MainTextViewScreen(navMaterialController)
         }
 
         // buttons screen
         composable(MaterialDesign3Item.Button.route) {
-            MainButtonScreen()
+            MainButtonViewScreen()
         }
 
         // text fields screen
         composable(MaterialDesign3Item.TextField.route) {
-            TextFieldViewScreen(navMaterialController)
+            MainTextFieldViewScreen(navMaterialController)
         }
 
         // dialog boxes screen
         composable(MaterialDesign3Item.DialogBox.route) {
-            DialogBoxViewScreen(navMaterialController)
+            MainDialogBoxViewScreen(navMaterialController)
         }
 
         // BottomTopBar screen
         composable(MaterialDesign3Item.BottomAppBar.route) {
-            BottomAppBarViewScreen(navMaterialController)
+            MainBottomAppBarViewScreen(navMaterialController)
         }
 
         // tooltips screen
         composable(MaterialDesign3Item.ToolTips.route) {
-            ToolTipsViewScreen(navMaterialController)
+            MainToolTipsViewScreen(navMaterialController)
         }
 
         // menus
         composable(MaterialDesign3Item.Menus.route) {
-            MenusViewScreen(navMaterialController)
+            MainMenusViewScreen(navMaterialController)
         }
 
         composable(MaterialDesign3Item.RadioButton.route){
-            MainRadioButtonScreen()
+            MainRadioButtonViewScreen()
         }
+
+        composable(MaterialDesign3Item.Card.route){
+            MainCardViewScreen()
+        }
+
+        composable(MaterialDesign3Item.Switches.route){
+            MainSwitchViewScreen()
+        }
+
+        composable(MaterialDesign3Item.CheckBoxes.route){
+            MainCheckBoxViewScreen()
+        }
+
+        composable(MaterialDesign3Item.ProgressIndicators.route){
+            MainIndicatorsViewScreen()
+        }
+
+        composable(MaterialDesign3Item.NavigationBar.route){
+            MainNavigationViewScreen()
+        }
+        // add new screen
     }
 }
 
 @Composable
 fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
     Surface(modifier = Modifier.fillMaxSize()) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .verticalScroll(rememberScrollState())
-                .padding(10.dp)
+        Column(modifier = Modifier
+            .fillMaxWidth()
+            .padding(10.dp)
+            .verticalScroll(rememberScrollState())
         ) {
+            MaterialComponents(title = "Badge",
+            ) { navMaterialController.navigate(MaterialDesign3Item.Badge.route) }
+
             // text components
-            MaterialComponents(
-                title = "Text",
+            MaterialComponents(title = "Text",
             ) { navMaterialController.navigate(MaterialDesign3Item.Text.route) }
 
             // button components
-            MaterialComponents(
-                title = "Button",
+            MaterialComponents(title = "Button",
             ) { navMaterialController.navigate(MaterialDesign3Item.Button.route) }
 
             // input text field components
-            MaterialComponents(
-                title = "TextField",
+            MaterialComponents(title = "TextField",
             ) { navMaterialController.navigate(MaterialDesign3Item.TextField.route) }
 
             // dialog box components
-            MaterialComponents(
-                title = "Dialog Box",
+            MaterialComponents(title = "Dialog Box",
             ) { navMaterialController.navigate(MaterialDesign3Item.DialogBox.route) }
 
-            MaterialComponents(
-                title = "BottomTop/AppBar",
+            MaterialComponents(title = "BottomTop/AppBar",
             ) { navMaterialController.navigate(MaterialDesign3Item.BottomAppBar.route) }
 
-            MaterialComponents(
-                title = "Tooltips",
+            MaterialComponents(title = "Tooltips",
             ) { navMaterialController.navigate(MaterialDesign3Item.ToolTips.route) }
 
             // add new component
-            MaterialComponents(
-                title = "Radio Button",
-            ) { navMaterialController.navigate(MaterialDesign3Item.RadioButton.route) }
+            MaterialComponents(title = "Menus",
+            ) { navMaterialController.navigate(MaterialDesign3Item.Menus.route) }
 
+            MaterialComponents(title = "Radio Button" ,
+            ) {navMaterialController.navigate(MaterialDesign3Item.RadioButton.route)}
+
+            MaterialComponents(title = "Cards" ,
+            ) {navMaterialController.navigate(MaterialDesign3Item.Card.route)}
+
+            MaterialComponents(title = "Switches" ,
+            ) {navMaterialController.navigate(MaterialDesign3Item.Switches.route)}
+
+            MaterialComponents(title = "CheckBoxes" ,
+            ) {navMaterialController.navigate(MaterialDesign3Item.CheckBoxes.route)}
+
+            MaterialComponents(title = "Progress Indicators" ,
+            ) {navMaterialController.navigate(MaterialDesign3Item.ProgressIndicators.route)}
+
+            MaterialComponents(title = "Navigation Bar" ,
+            ) {navMaterialController.navigate(MaterialDesign3Item.NavigationBar.route)}
+
+            // add new component
         }
     }
 }
@@ -140,7 +185,7 @@ fun MaterialComponents(title: String, onClick: () -> Unit) {
         modifier = Modifier
             .padding(5.dp)
             .clickable { onClick() }
-            .border(width = 0.5.dp, color = Color.DarkGray, shape = ShapeDefaults.Small),
+            .border(width = 0.5.dp, color = Color.White, shape = ShapeDefaults.Small),
     ) {
         Column(
             modifier = Modifier

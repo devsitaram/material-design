@@ -43,7 +43,7 @@ import com.compose.materialdesign.features.util.ButtonTopAppBar
 import com.compose.materialdesign.features.util.ListOfDataCard
 
 @Composable
-fun DialogBoxViewScreen(navMaterialController: NavHostController) {
+fun MainDialogBoxViewScreen(navMaterialController: NavHostController) {
     val showAlertDialog = remember { mutableStateOf(false) }
     val showIconAlertDialog = remember { mutableStateOf(false) }
     val showCustomAlertDialog = remember { mutableStateOf(false) }

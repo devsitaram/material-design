@@ -51,7 +51,7 @@ import com.compose.materialdesign.features.util.ListOfDataCard
 
 
 @Composable
-fun TextFieldViewScreen(navMaterialController: NavHostController) {
+fun MainTextFieldViewScreen(navMaterialController: NavHostController) {
     val navTextFieldController = rememberNavController()
     NavHost(navController = navTextFieldController, startDestination = "MainTextFieldScreen"){
         composable("MainTextFieldScreen"){
