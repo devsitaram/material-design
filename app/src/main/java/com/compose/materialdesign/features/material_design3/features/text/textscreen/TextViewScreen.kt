@@ -46,7 +46,7 @@ import com.compose.materialdesign.features.material_design3.features.text.Normal
 import com.compose.materialdesign.features.util.ButtonTopAppBar
 
 @Composable
-fun TextViewScreen(navMaterialController: NavHostController) {
+fun MainTextViewScreen(navMaterialController: NavHostController) {
     val navTextController = rememberNavController()
     NavHost(navController = navTextController, startDestination = "MainTextScreen") {
         // main screen for types of text

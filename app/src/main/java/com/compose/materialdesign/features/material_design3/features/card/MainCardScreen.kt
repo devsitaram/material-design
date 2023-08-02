@@ -41,7 +41,7 @@ import com.compose.materialdesign.features.material_design3.features.card.Outlin
 
 
 @Composable
-fun MainCardScreen() {
+fun MainCardViewScreen() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "CardsViewScreen") {
         composable("CardsViewScreen") {

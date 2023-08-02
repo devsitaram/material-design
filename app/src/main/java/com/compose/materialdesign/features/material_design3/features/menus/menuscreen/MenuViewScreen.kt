@@ -21,7 +21,7 @@ import com.compose.materialdesign.features.util.ButtonTopAppBar
 import com.compose.materialdesign.features.util.ListOfDataCard
 
 @Composable
-fun MenusViewScreen(navMaterialController: NavHostController) {
+fun MainMenusViewScreen(navMaterialController: NavHostController) {
     val navMenuController = rememberNavController()
     NavHost(navController = navMenuController, startDestination = "") {
         composable("") {

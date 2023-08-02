@@ -28,7 +28,7 @@ import androidx.navigation.compose.rememberNavController
 
 
 @Composable
-fun MainBadgeScreen() {
+fun MainBadgeViewScreen() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "NavigationBarItemWithBadgeViewScreen") {
         composable("NavigationBarItemWithBadgeViewScreen") {

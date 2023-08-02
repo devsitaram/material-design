@@ -28,7 +28,7 @@ import androidx.navigation.compose.rememberNavController
 
 
 @Composable
-fun MainNavigationScreen() {
+fun MainNavigationViewScreen() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "NavigationViewScreen") {
         composable("NavigationViewScreen") {

@@ -33,7 +33,7 @@ import com.compose.materialdesign.features.util.ButtonTopAppBar
 import com.compose.materialdesign.features.util.ListOfDataCard
 
 @Composable
-fun BottomAppBarViewScreen(navMaterialController: NavHostController) {
+fun MainBottomAppBarViewScreen(navMaterialController: NavHostController) {
     val navBtnTopBarController = rememberNavController()
     NavHost(navController = navBtnTopBarController, startDestination = "MainAppBar") {
         composable("MainAppBar") {

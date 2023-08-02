@@ -37,7 +37,7 @@ import androidx.navigation.compose.rememberNavController
 
 
 @Composable
-fun MainRadioButtonScreen() {
+fun MainRadioButtonViewScreen() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "CardViewScreen"){
         composable("CardViewScreen"){

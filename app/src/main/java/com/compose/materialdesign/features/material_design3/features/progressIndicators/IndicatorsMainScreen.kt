@@ -28,7 +28,7 @@ import androidx.navigation.compose.rememberNavController
 
 
 @Composable
-fun MainIndicatorsScreen() {
+fun MainIndicatorsViewScreen() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "ProgressIndicatorViewScreen") {
         composable("ProgressIndicatorViewScreen") {

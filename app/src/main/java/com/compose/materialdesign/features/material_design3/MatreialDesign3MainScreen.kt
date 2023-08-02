@@ -1,6 +1,6 @@
 package com.compose.materialdesign.features.material_design3
 
-import MainCardScreen
+import MainCardViewScreen
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -30,19 +30,19 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.compose.materialdesign.R
-import com.compose.materialdesign.features.material_design3.features.badge.MainBadgeScreen
-import com.compose.materialdesign.features.material_design3.features.text.textscreen.TextViewScreen
+import com.compose.materialdesign.features.material_design3.features.badge.MainBadgeViewScreen
 import com.compose.materialdesign.features.material_design3.features.button.MainButtonViewScreen
-import com.compose.materialdesign.features.material_design3.features.buttonappbar.appbarscreen.BottomAppBarViewScreen
-import com.compose.materialdesign.features.material_design3.features.checkboxes.MainCheckBoxScreen
-import com.compose.materialdesign.features.material_design3.features.dialogbox.DialogBoxViewScreen
-import com.compose.materialdesign.features.material_design3.features.menus.menuscreen.MenusViewScreen
-import com.compose.materialdesign.features.material_design3.features.navigationbar.MainNavigationScreen
-import com.compose.materialdesign.features.material_design3.features.progressIndicators.MainIndicatorsScreen
-import com.compose.materialdesign.features.material_design3.features.radiobutton.MainRadioButtonScreen
-import com.compose.materialdesign.features.material_design3.features.switches.MainSwitchScreen
-import com.compose.materialdesign.features.material_design3.features.textfield.textfieldscreen.TextFieldViewScreen
-import com.compose.materialdesign.features.material_design3.features.tooltips.tooltipscreen.ToolTipsViewScreen
+import com.compose.materialdesign.features.material_design3.features.buttonappbar.appbarscreen.MainBottomAppBarViewScreen
+import com.compose.materialdesign.features.material_design3.features.checkboxes.MainCheckBoxViewScreen
+import com.compose.materialdesign.features.material_design3.features.dialogbox.MainDialogBoxViewScreen
+import com.compose.materialdesign.features.material_design3.features.menus.menuscreen.MainMenusViewScreen
+import com.compose.materialdesign.features.material_design3.features.navigationbar.MainNavigationViewScreen
+import com.compose.materialdesign.features.material_design3.features.progressIndicators.MainIndicatorsViewScreen
+import com.compose.materialdesign.features.material_design3.features.radiobutton.MainRadioButtonViewScreen
+import com.compose.materialdesign.features.material_design3.features.switches.MainSwitchViewScreen
+import com.compose.materialdesign.features.material_design3.features.text.textscreen.MainTextViewScreen
+import com.compose.materialdesign.features.material_design3.features.textfield.textfieldscreen.MainTextFieldViewScreen
+import com.compose.materialdesign.features.material_design3.features.tooltips.tooltipscreen.MainToolTipsViewScreen
 
 //@Preview
 @Composable
@@ -56,7 +56,7 @@ fun MaterialDesign3MainScreen() {
 
         // texts screen
         composable(MaterialDesign3Item.Text.route){
-            TextViewScreen(navMaterialController)
+            MainTextViewScreen(navMaterialController)
         }
 
         // buttons screen
@@ -66,71 +66,55 @@ fun MaterialDesign3MainScreen() {
 
         // text fields screen
         composable(MaterialDesign3Item.TextField.route){
-            TextFieldViewScreen(navMaterialController)
+            MainTextFieldViewScreen(navMaterialController)
         }
 
         // dialog boxes screen
         composable(MaterialDesign3Item.DialogBox.route){
-            DialogBoxViewScreen(navMaterialController)
+            MainDialogBoxViewScreen(navMaterialController)
         }
 
         // BottomTopBar screen
         composable(MaterialDesign3Item.BottomAppBar.route){
-            BottomAppBarViewScreen(navMaterialController)
+            MainBottomAppBarViewScreen(navMaterialController)
         }
 
         // tooltips screen
         composable(MaterialDesign3Item.ToolTips.route){
-            ToolTipsViewScreen(navMaterialController)
+            MainToolTipsViewScreen(navMaterialController)
         }
 
         // menus
         composable(MaterialDesign3Item.Menus.route){
-            MenusViewScreen(navMaterialController)
-        }
-        // BottomTopBar screen
-        composable(MaterialDesign3Item.BottomAppBar.route){
-            BottomAppBarViewScreen(navMaterialController)
+            MainMenusViewScreen(navMaterialController)
         }
 
-        // tooltips screen
-        composable(MaterialDesign3Item.ToolTips.route){
-            ToolTipsViewScreen(navMaterialController)
-        }
-
-        // menus
-        composable(MaterialDesign3Item.Menus.route){
-            MenusViewScreen(navMaterialController)
-        }
-
-
-        //
         composable(MaterialDesign3Item.RadioButton.route){
-           MainRadioButtonScreen()
+            MainRadioButtonViewScreen()
         }
 
         composable(MaterialDesign3Item.Badge.route){
-           MainBadgeScreen()
+            MainBadgeViewScreen()
         }
 
         composable(MaterialDesign3Item.Card.route){
-            MainCardScreen()
+            MainCardViewScreen()
         }
 
         composable(MaterialDesign3Item.Switches.route){
-           MainSwitchScreen()
+            MainSwitchViewScreen()
         }
 
         composable(MaterialDesign3Item.CheckBoxes.route){
-           MainCheckBoxScreen()
+            MainCheckBoxViewScreen()
         }
 
         composable(MaterialDesign3Item.ProgressIndicators.route){
-            MainIndicatorsScreen()
+            MainIndicatorsViewScreen()
         }
 
         composable(MaterialDesign3Item.NavigationBar.route){
-            MainNavigationScreen()
+            MainNavigationViewScreen()
         }
     }
 }
@@ -175,6 +159,10 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
             MaterialComponents(
                 title = "Badges",
             ) { navMaterialController.navigate(MaterialDesign3Item.Badge.route) }
+
+            MaterialComponents(
+                title = "Menus",
+            ) { navMaterialController.navigate(MaterialDesign3Item.Menus.route) }
 
             MaterialComponents(
                 title = "Radio Button",

@@ -28,7 +28,7 @@ import androidx.navigation.compose.rememberNavController
 
 
 @Composable
-fun MainCheckBoxScreen() {
+fun MainCheckBoxViewScreen() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "CheckBoxesViewScreen") {
         composable("CheckBoxesViewScreen") {
