@@ -45,7 +45,8 @@ fun MainSwitchScreen() {
             SwitchSamplePreview()
         }
         composable(SwitchItems.SwitchWithThumbIconSample.route) {
-            SwitchWithThumbIconSamplePreview()
+//            SwitchWithThumbIconSamplePreview()
+            NavigationRailSample()
         }
 
     }

@@ -40,7 +40,7 @@ import androidx.navigation.compose.rememberNavController
 
 @Preview
 @Composable
-fun MainButtonScreen() {
+fun MainButtonViewScreen() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "ButtonRoute"){
         composable("ButtonRoute"){
@@ -61,8 +61,6 @@ fun MainButtonScreen() {
     }
 
 }
-
-
 
 @Composable
 fun ButtonRoute(navController: NavHostController) {

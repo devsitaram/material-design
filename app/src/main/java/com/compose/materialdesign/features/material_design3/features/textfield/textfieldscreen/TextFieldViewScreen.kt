@@ -40,12 +40,14 @@ import com.compose.materialdesign.features.material_design3.features.textfield.P
 import com.compose.materialdesign.features.material_design3.features.textfield.SimpleOutlineTextFieldViewScreen
 import com.compose.materialdesign.features.material_design3.features.textfield.SimpleTextFieldViewScreen
 import com.compose.materialdesign.features.material_design3.features.textfield.TextAreaViewScreen
-import com.compose.materialdesign.features.material_design3.features.textfield.TextFieldViewScreens
+import com.compose.materialdesign.features.material_design3.features.textfield.NormalTextFieldViewScreens
 import com.compose.materialdesign.features.material_design3.features.textfield.TextFieldWithErrorStateViewScreen
 import com.compose.materialdesign.features.material_design3.features.textfield.TextFieldWithIconsViewScreen
 import com.compose.materialdesign.features.material_design3.features.textfield.TextFieldWithPlaceholderViewScreen
 import com.compose.materialdesign.features.material_design3.features.textfield.TextFieldWithPrefixAndSuffixViewScreen
 import com.compose.materialdesign.features.material_design3.features.textfield.TextFieldWithSupportingTextViewScreen
+import com.compose.materialdesign.features.util.ButtonTopAppBar
+import com.compose.materialdesign.features.util.ListOfDataCard
 
 
 @Composable
@@ -58,8 +60,8 @@ fun TextFieldViewScreen(navMaterialController: NavHostController) {
         composable(Material3TextFieldItem.SimpleTextField.route){
             SimpleTextFieldViewScreen(navTextFieldController)
         }
-        composable(Material3TextFieldItem.TextField.route){
-            TextFieldViewScreens(navTextFieldController)
+        composable(Material3TextFieldItem.NormalTextField.route){
+            NormalTextFieldViewScreens(navTextFieldController)
         }
         composable(Material3TextFieldItem.SimpleOutlineTextField.route){
             SimpleOutlineTextFieldViewScreen(navTextFieldController)
@@ -91,7 +93,6 @@ fun TextFieldViewScreen(navMaterialController: NavHostController) {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainTextFieldScreens(navTextFieldController: NavHostController, navMaterialController: NavHostController) {
     Column(
@@ -101,19 +102,9 @@ fun MainTextFieldScreens(navTextFieldController: NavHostController, navMaterialC
             .verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.Center,
     ) {
-        TopAppBar(
-            title = { Text(text = "Input Text") },
-            navigationIcon = {
-                IconButton(onClick = {
-                     navMaterialController.navigateUp()
-                }) {
-                    Icon(
-                        imageVector = Icons.Default.KeyboardArrowLeft,
-                        contentDescription = null,
-                        modifier = Modifier.size(30.dp)
-                    )
-                }
-            }
+        ButtonTopAppBar(
+            title = "Input TextFields",
+            navController = navMaterialController
         )
         Column(modifier = Modifier
             .fillMaxWidth()
@@ -121,125 +112,83 @@ fun MainTextFieldScreens(navTextFieldController: NavHostController, navMaterialC
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             // SimpleTextField
-            InputTextFieldsCard(
+            ListOfDataCard(
                 title = "SimpleTextField",
                 subTitle = "example of TextField",
                 onClickAction = {
                     navTextFieldController.navigate(Material3TextFieldItem.SimpleTextField.route)
                 }
             )
-            InputTextFieldsCard(
-                title = "TextField",
-                subTitle = "example of TextField",
+            ListOfDataCard(
+                title = "NormalTextField",
+                subTitle = "example of NormalTextField",
                 onClickAction = {
-                    navTextFieldController.navigate(Material3TextFieldItem.SimpleTextField.route)
+                    navTextFieldController.navigate(Material3TextFieldItem.NormalTextField.route)
                 }
             )
-            InputTextFieldsCard(
+            ListOfDataCard(
                 title = "SimpleOutlineTextField",
                 subTitle = "example of SimpleOutlineTextField",
                 onClickAction = {
                     navTextFieldController.navigate(Material3TextFieldItem.SimpleOutlineTextField.route)
                 }
             )
-            InputTextFieldsCard(
+            ListOfDataCard(
                 title = "OutlineTextFields",
                 subTitle = "example of OutlineTextFields",
                 onClickAction = {
                     navTextFieldController.navigate(Material3TextFieldItem.OutlineTextFields.route)
                 }
             )
-            InputTextFieldsCard(
+            ListOfDataCard(
                 title = "TextFieldWithIcons",
                 subTitle = "example of TextFieldWithIcons",
                 onClickAction = {
                     navTextFieldController.navigate(Material3TextFieldItem.TextFieldWithIcons.route)
                 }
             )
-            InputTextFieldsCard(
+            ListOfDataCard(
                 title = "TextFieldWithPlaceholder",
                 subTitle = "example of TextField",
                 onClickAction = {
                     navTextFieldController.navigate(Material3TextFieldItem.TextFieldWithPlaceholder.route)
                 }
             )
-            InputTextFieldsCard(
+            ListOfDataCard(
                 title = "TextFieldWithPrefixAndSuffix",
                 subTitle = "example of TextFieldWithPrefixAndSuffix",
                 onClickAction = {
                     navTextFieldController.navigate(Material3TextFieldItem.TextFieldWithPrefixAndSuffix.route)
                 }
             )
-            InputTextFieldsCard(
+            ListOfDataCard(
                 title = "TextFieldWithErrorState",
                 subTitle = "example of TextFieldWithErrorState",
                 onClickAction = {
                     navTextFieldController.navigate(Material3TextFieldItem.TextFieldWithErrorState.route)
                 }
             )
-            InputTextFieldsCard(
+            ListOfDataCard(
                 title = "TextFieldWithSupportingText",
                 subTitle = "example of TextFieldWithSupportingText",
                 onClickAction = {
                     navTextFieldController.navigate(Material3TextFieldItem.TextFieldWithSupportingText.route)
                 }
             )
-            InputTextFieldsCard(
+            ListOfDataCard(
                 title = "PasswordTextField",
                 subTitle = "example of PasswordTextField",
                 onClickAction = {
                     navTextFieldController.navigate(Material3TextFieldItem.PasswordTextField.route)
                 }
             )
-            InputTextFieldsCard(
+            ListOfDataCard(
                 title = "TextArea",
                 subTitle = "example of TextArea",
                 onClickAction = {
                     navTextFieldController.navigate(Material3TextFieldItem.TextArea.route)
                 }
             )
-        }
-    }
-}
-
-@Composable
-fun InputTextFieldsCard(title: String, subTitle: String, onClickAction: () -> Unit) {
-    Card(
-        modifier = Modifier
-            .padding(5.dp)
-            .clickable { onClickAction() }
-            .border(width = 0.5.dp, color = Color.LightGray, shape = ShapeDefaults.Small),
-    ) {
-        Row(
-            modifier = Modifier
-                .background(Color.White)
-                .padding(15.dp)
-                .fillMaxWidth()
-                .width(IntrinsicSize.Max), // Set the width to the maximum intrinsic width
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Column {
-                Text(
-                    text = title,
-                    style = TextStyle(
-                        fontSize = 15.sp,
-                        fontWeight = FontWeight.SemiBold
-                    ),
-                )
-                Text(
-                    text = subTitle,
-                    style = TextStyle(fontSize = 12.sp),
-                    modifier = Modifier.padding(top = 5.dp)
-                )
-            }
-            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-                Icon(
-                    imageVector = Icons.Default.KeyboardArrowRight,
-                    contentDescription = null,
-                    modifier = Modifier
-                        .size(30.dp)
-                )
-            }
         }
     }
 }

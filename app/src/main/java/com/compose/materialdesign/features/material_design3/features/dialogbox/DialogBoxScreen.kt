@@ -13,23 +13,17 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.text.KeyboardActions
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Surface
-import androidx.compose.material.TextField
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.KeyboardArrowRight
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ShapeDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -41,16 +35,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.window.DialogProperties
+import androidx.navigation.NavHostController
+import com.compose.materialdesign.features.util.ButtonTopAppBar
+import com.compose.materialdesign.features.util.ListOfDataCard
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Preview
 @Composable
-fun DialogBoxViewScreen() {
+fun DialogBoxViewScreen(navMaterialController: NavHostController) {
     val showAlertDialog = remember { mutableStateOf(false) }
     val showIconAlertDialog = remember { mutableStateOf(false) }
     val showCustomAlertDialog = remember { mutableStateOf(false) }
@@ -66,19 +59,9 @@ fun DialogBoxViewScreen() {
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.Top,
         ) {
-            TopAppBar(
-                title = { Text(text = "Dialog Box") },
-                navigationIcon = {
-                    IconButton(onClick = {
-                    //    navMaterialController.navigateUp()
-                    }) {
-                        Icon(
-                            imageVector = Icons.Default.KeyboardArrowLeft,
-                            contentDescription = null,
-                            modifier = Modifier.size(30.dp)
-                        )
-                    }
-                }
+            ButtonTopAppBar(
+                title = "Dialog Box",
+                navController = navMaterialController
             )
             Column(
                 modifier = Modifier
@@ -87,13 +70,13 @@ fun DialogBoxViewScreen() {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 // AlertDialogSample
-                DialogBoxCard(title = "AlertDialogSample", subTitle = "example of AlertDialogSample", onClickAction = { showAlertDialog.value = true })
+                ListOfDataCard(title = "AlertDialogSample", subTitle = "example of AlertDialogSample", onClickAction = { showAlertDialog.value = true })
                 if (showAlertDialog.value){
-                    SampleDialogBox(title = "Dialog Box", text = "Turned on by default!", onDismiss = {showAlertDialog.value = false})
+                    SampleDialogBox(title = "Title", text = "Turned on by default!", onDismiss = {showAlertDialog.value = false})
                 }
 
                 // AlertDialogSWithIcon
-                DialogBoxCard(
+                ListOfDataCard(
                     title = "AlertDialogWithIcon",
                     subTitle = "example of AlertDialogSWithIcon",
                     onClickAction = {
@@ -106,7 +89,7 @@ fun DialogBoxViewScreen() {
                 }
 
                 // AlertDialogSWithCustomContent
-                DialogBoxCard(
+                ListOfDataCard(
                     title = "AlertDialogWithCustomContent",
                     subTitle = "example of AlertDialogSWithCustomContent",
                     onClickAction = {
@@ -119,9 +102,9 @@ fun DialogBoxViewScreen() {
                 }
 
                 // input dialog box
-                DialogBoxCard(
-                    title = "showInputDialog",
-                    subTitle = "example of showInputDialog",
+                ListOfDataCard(
+                    title = "AlertDialogWithInputText",
+                    subTitle = "example of AlertDialogWithInputText",
                     onClickAction = {
                         // show dialog box
                         showInputDialog.value = true
@@ -140,48 +123,6 @@ fun DialogBoxViewScreen() {
                 if (userInput.isNotBlank()) {
                     Text("Input Text: $userInput")
                 }
-            }
-        }
-    }
-}
-
-@Composable
-fun DialogBoxCard(title: String, subTitle: String, onClickAction: () -> Unit) {
-    Card(
-        modifier = Modifier
-            .padding(5.dp)
-            .clickable { onClickAction() }
-            .border(width = 0.5.dp, color = Color.LightGray, shape = ShapeDefaults.Small),
-    ) {
-        Row(
-            modifier = Modifier
-                .background(Color.White)
-                .padding(15.dp)
-                .fillMaxWidth()
-                .width(IntrinsicSize.Max), // Set the width to the maximum intrinsic width
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Column {
-                Text(
-                    text = title,
-                    style = TextStyle(
-                        fontSize = 15.sp,
-                        fontWeight = FontWeight.SemiBold
-                    ),
-                )
-                Text(
-                    text = subTitle,
-                    style = TextStyle(fontSize = 12.sp),
-                    modifier = Modifier.padding(top = 5.dp)
-                )
-            }
-            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-                Icon(
-                    imageVector = Icons.Default.KeyboardArrowRight,
-                    contentDescription = null,
-                    modifier = Modifier
-                        .size(30.dp)
-                )
             }
         }
     }

@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.compose.materialdesign.R
+import com.compose.materialdesign.features.util.ButtonTopAppBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -46,19 +47,9 @@ fun PasswordTextFieldViewScreen(navTextFieldController: NavHostController) {
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            TopAppBar(
-                title = { Text(text = "Outline TextField") },
-                navigationIcon = {
-                    IconButton(onClick = {
-                        navTextFieldController.navigateUp()
-                    }) {
-                        Icon(
-                            imageVector = Icons.Default.KeyboardArrowLeft,
-                            contentDescription = null,
-                            modifier = Modifier.size(30.dp)
-                        )
-                    }
-                }
+            ButtonTopAppBar(
+                title = "Password TextField",
+                navController = navTextFieldController
             )
             Spacer(modifier = Modifier.padding(top = 200.dp))
             Column(

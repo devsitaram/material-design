@@ -2,7 +2,7 @@ package com.compose.materialdesign.features.material_design3.features.textfield.
 
 sealed class Material3TextFieldItem(var route: String){
     object SimpleTextField : Material3TextFieldItem("SimpleTextField")
-    object TextField : Material3TextFieldItem("TextField")
+    object NormalTextField : Material3TextFieldItem("NormalTextField")
     object SimpleOutlineTextField : Material3TextFieldItem("SimpleOutlineTextField")
     object OutlineTextFields : Material3TextFieldItem("OutlineTextFields")
     object TextFieldWithIcons : Material3TextFieldItem("TextFieldWithIcons")
