@@ -35,6 +35,7 @@ import com.compose.materialdesign.features.material_design3.features.button.Main
 import com.compose.materialdesign.features.material_design3.features.buttonappbar.appbarscreen.MainBottomAppBarViewScreen
 import com.compose.materialdesign.features.material_design3.features.checkboxes.MainCheckBoxViewScreen
 import com.compose.materialdesign.features.material_design3.features.dialogbox.MainDialogBoxViewScreen
+import com.compose.materialdesign.features.material_design3.features.divider.MainDividerViewScreen
 import com.compose.materialdesign.features.material_design3.features.menus.menuscreen.MainMenusViewScreen
 import com.compose.materialdesign.features.material_design3.features.navigationbar.MainNavigationViewScreen
 import com.compose.materialdesign.features.material_design3.features.progressIndicators.MainIndicatorsViewScreen
@@ -53,6 +54,7 @@ fun MaterialDesign3MainScreen() {
             MaterialDesign3MainScree(navMaterialController)
         }
 
+        // texts screen
         composable(MaterialDesign3Item.Badge.route) {
             MainBadgeViewScreen()
         }
@@ -96,6 +98,10 @@ fun MaterialDesign3MainScreen() {
             MainRadioButtonViewScreen()
         }
 
+        composable(MaterialDesign3Item.Badge.route){
+            MainBadgeViewScreen()
+        }
+
         composable(MaterialDesign3Item.Card.route){
             MainCardViewScreen()
         }
@@ -115,7 +121,11 @@ fun MaterialDesign3MainScreen() {
         composable(MaterialDesign3Item.NavigationBar.route){
             MainNavigationViewScreen()
         }
-        // add new screen
+
+
+        composable(MaterialDesign3Item.Divider.route){
+            MainDividerViewScreen()
+        }
     }
 }
 
@@ -124,8 +134,8 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
     Surface(modifier = Modifier.fillMaxSize()) {
         Column(modifier = Modifier
             .fillMaxWidth()
-            .padding(10.dp)
             .verticalScroll(rememberScrollState())
+            .padding(10.dp)
         ) {
             MaterialComponents(title = "Badge",
             ) { navMaterialController.navigate(MaterialDesign3Item.Badge.route) }
@@ -153,6 +163,34 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
             ) { navMaterialController.navigate(MaterialDesign3Item.ToolTips.route) }
 
             // add new component
+            MaterialComponents(
+                title = "Badges",
+            ) { navMaterialController.navigate(MaterialDesign3Item.Badge.route) }
+
+            MaterialComponents(
+                title = "Menus",
+            ) { navMaterialController.navigate(MaterialDesign3Item.Menus.route) }
+
+            MaterialComponents(
+                title = "Radio Button",
+            ) { navMaterialController.navigate(MaterialDesign3Item.RadioButton.route) }
+
+            MaterialComponents(
+                title = "Card",
+            ) { navMaterialController.navigate(MaterialDesign3Item.Card.route) }
+
+            MaterialComponents(
+                title = "Switches",
+            ) { navMaterialController.navigate(MaterialDesign3Item.Switches.route) }
+
+            MaterialComponents(
+                title = "Progress Indicators",
+            ) { navMaterialController.navigate(MaterialDesign3Item.ProgressIndicators.route) }
+
+            MaterialComponents(
+                title = "Navigation Bar",
+            ) { navMaterialController.navigate(MaterialDesign3Item.NavigationBar.route) }
+
             MaterialComponents(title = "Menus",
             ) { navMaterialController.navigate(MaterialDesign3Item.Menus.route) }
 
@@ -174,6 +212,10 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
             MaterialComponents(title = "Navigation Bar" ,
             ) {navMaterialController.navigate(MaterialDesign3Item.NavigationBar.route)}
 
+
+             MaterialComponents(title = "Divider") {
+                navMaterialController.navigate(MaterialDesign3Item.Divider.route)
+             }
             // add new component
         }
     }
@@ -185,7 +227,7 @@ fun MaterialComponents(title: String, onClick: () -> Unit) {
         modifier = Modifier
             .padding(5.dp)
             .clickable { onClick() }
-            .border(width = 0.5.dp, color = Color.White, shape = ShapeDefaults.Small),
+            .border(width = 0.5.dp, color = Color.DarkGray, shape = ShapeDefaults.Small),
     ) {
         Column(
             modifier = Modifier

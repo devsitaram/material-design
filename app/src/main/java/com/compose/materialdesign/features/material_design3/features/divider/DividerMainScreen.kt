@@ -1,4 +1,4 @@
-package com.compose.materialdesign.features.material_design3.features.badge
+package com.compose.materialdesign.features.material_design3.features.divider
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -26,59 +26,53 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 
-
 @Composable
-fun MainBadgeViewScreen() {
+fun MainDividerViewScreen() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "NavigationBarItemWithBadgeViewScreen") {
-        composable("NavigationBarItemWithBadgeViewScreen") {
-            NavigationBarItemWithBadgeViewScreen(navController)
+    NavHost(navController = navController, startDestination = "CheckBoxesViewScreen") {
+        composable("CheckBoxesViewScreen") {
+            DividerViewScreen(navController)
         }
-        composable(BadgeItems.NavigationBarItemWithBadge.route) {
-            NavigationBarItemWithBadgePreview()
+        composable(DividerItems.DividerSample.route) {
+            DividerSamplePreview()
         }
-
     }
 }
 
-
 @Composable
-fun NavigationBarItemWithBadgeViewScreen(navController: NavHostController) {
+fun DividerViewScreen(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(15.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        NavigationBarItemWithBadgeViewScreenPreview(
-            title = "NavigationBarItemWithBadge",
-            onClick = { navController.navigate(BadgeItems.NavigationBarItemWithBadge.route) }
+        DividerScreenPreview(
+            title = "Divider Sample",
+            onClick = { navController.navigate(DividerItems.DividerSample.route) }
         )
-
     }
-
 }
 
-
 @Composable
-fun NavigationBarItemWithBadgeViewScreenPreview(title: String, onClick: ()-> Unit) {
+fun DividerScreenPreview(title: String, onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .padding(5.dp)
             .clickable { onClick() }
             .border(width = 0.5.dp, color = Color.DarkGray, shape = ShapeDefaults.Small),
     ) {
-        Row(modifier = Modifier
-            .fillMaxWidth()
-            .padding(5.dp),
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(5.dp),
         ) {
-
-                Text(
-                    text = title,
-                    style = TextStyle(fontSize = 15.sp),
-                    modifier = Modifier.padding(15.dp)
-                )
-                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+            Text(
+                text = title,
+                style = TextStyle(fontSize = 15.sp),
+                modifier = Modifier.padding(15.dp)
+            )
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
                 Icon(
                     imageVector = Icons.Default.KeyboardArrowRight, contentDescription = "",
                     modifier = Modifier.padding(15.dp)

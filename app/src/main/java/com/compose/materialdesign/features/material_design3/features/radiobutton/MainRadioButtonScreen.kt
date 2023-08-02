@@ -44,7 +44,6 @@ fun MainRadioButtonViewScreen() {
         }
         composable(RadioNavigationItem.RadioSimple.route){
             RadioButtonView()
-
         }
         composable(RadioNavigationItem.RadioGroup.route){
             GroupButtonView()
