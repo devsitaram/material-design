@@ -125,6 +125,9 @@ fun MaterialDesign3MainScreen() {
         composable(MaterialDesign3Item.Divider.route){
             MainDividerViewScreen()
         }
+        composable(MaterialDesign3Item.Tabs.route){
+//            dsls
+        }
     }
 }
 
@@ -215,6 +218,10 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
              MaterialComponents(title = "Divider") {
                 navMaterialController.navigate(MaterialDesign3Item.Divider.route)
              }
+
+            MaterialComponents(title = "Tabs") {
+                navMaterialController.navigate(MaterialDesign3Item.Tabs.route)
+            }
             // add new component
         }
     }

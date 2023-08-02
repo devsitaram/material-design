@@ -1,6 +1,5 @@
-package com.compose.materialdesign.features.material_design3.features.divider
+package com.compose.materialdesign.features.material_design3.features.tabs
 
-import android.annotation.SuppressLint
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -16,55 +15,58 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.ShapeDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.compose.materialdesign.features.material_design3.features.card.CardItems
+import com.compose.materialdesign.features.material_design3.features.card.CardSamplePreview
+import com.compose.materialdesign.features.material_design3.features.card.ClickableCardSamplePreview
+import com.compose.materialdesign.features.material_design3.features.card.ClickableElevatedCardSamplePreView
+import com.compose.materialdesign.features.material_design3.features.card.ClickableOutlinedCardSamplePreview
+import com.compose.materialdesign.features.material_design3.features.card.ElevatedCardSamplePreView
+import com.compose.materialdesign.features.material_design3.features.card.OutlinedCardSamplePreview
 
 
-@SuppressLint("UnrememberedMutableState")
 @Composable
-fun MainDividerViewScreen() {
+fun MainSwitchViewScreen() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "CheckBoxesViewScreen") {
-        composable("CheckBoxesViewScreen") {
-            DividerViewScreen(navController)
+    NavHost(navController = navController, startDestination = "SwitchesViewScreen") {
+        composable("SwitchesViewScreen") {
+            SwitchesViewScreen(navController)
         }
-        composable(DividerItems.DividerSample.route) {
-//            DividerSamplePreview()
-            val searchTextState by remember { mutableStateOf(TextFieldValue()) }
-          SearchView(
-            modifier = Modifier,
-            state = mutableStateOf(searchTextState))
+        composable(SwitchItems.SwitchSample.route) {
+            SwitchSamplePreview()
         }
-
+        composable(SwitchItems.SwitchWithThumbIconSample.route) {
+            SwitchWithThumbIconSamplePreview()
+        }
 
     }
 }
 
 
 @Composable
-fun DividerViewScreen(navController: NavHostController) {
+fun SwitchesViewScreen(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(15.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        DividerScreenPreview(
-            title = "Divider Sample",
-            onClick = { navController.navigate(DividerItems.DividerSample.route) }
+        SwitchesViewScreenPreview(
+            title = "SwitchSample",
+            onClick = { navController.navigate(SwitchItems.SwitchSample.route) }
+        )
+        SwitchesViewScreenPreview(
+            title = "SwitchWithThumbIconSample",
+            onClick = { navController.navigate(SwitchItems.SwitchWithThumbIconSample.route) }
         )
 
     }
@@ -73,7 +75,7 @@ fun DividerViewScreen(navController: NavHostController) {
 
 
 @Composable
-fun DividerScreenPreview(title: String, onClick: ()-> Unit) {
+fun SwitchesViewScreenPreview(title: String, onClick: ()-> Unit) {
     Card(
         modifier = Modifier
             .padding(5.dp)
