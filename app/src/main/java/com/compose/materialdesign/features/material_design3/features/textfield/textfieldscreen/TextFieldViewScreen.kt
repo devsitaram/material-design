@@ -46,11 +46,12 @@ import com.compose.materialdesign.features.material_design3.features.textfield.T
 import com.compose.materialdesign.features.material_design3.features.textfield.TextFieldWithPlaceholderViewScreen
 import com.compose.materialdesign.features.material_design3.features.textfield.TextFieldWithPrefixAndSuffixViewScreen
 import com.compose.materialdesign.features.material_design3.features.textfield.TextFieldWithSupportingTextViewScreen
+import com.compose.materialdesign.features.util.ButtonTopAppBar
 import com.compose.materialdesign.features.util.ListOfDataCard
 
 
 @Composable
-fun TextFieldViewScreen(navMaterialController: NavHostController) {
+fun MainTextFieldViewScreen(navMaterialController: NavHostController) {
     val navTextFieldController = rememberNavController()
     NavHost(navController = navTextFieldController, startDestination = "MainTextFieldScreen"){
         composable("MainTextFieldScreen"){
@@ -92,7 +93,6 @@ fun TextFieldViewScreen(navMaterialController: NavHostController) {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainTextFieldScreens(navTextFieldController: NavHostController, navMaterialController: NavHostController) {
     Column(
@@ -102,19 +102,9 @@ fun MainTextFieldScreens(navTextFieldController: NavHostController, navMaterialC
             .verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.Center,
     ) {
-        TopAppBar(
-            title = { Text(text = "Input Text") },
-            navigationIcon = {
-                IconButton(onClick = {
-                     navMaterialController.navigateUp()
-                }) {
-                    Icon(
-                        imageVector = Icons.Default.KeyboardArrowLeft,
-                        contentDescription = null,
-                        modifier = Modifier.size(30.dp)
-                    )
-                }
-            }
+        ButtonTopAppBar(
+            title = "Input TextFields",
+            navController = navMaterialController
         )
         Column(modifier = Modifier
             .fillMaxWidth()

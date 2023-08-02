@@ -39,11 +39,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.compose.materialdesign.features.util.ButtonTopAppBar
 import com.compose.materialdesign.features.util.ListOfDataCard
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DialogBoxViewScreen(navMaterialController: NavHostController) {
+fun MainDialogBoxViewScreen(navMaterialController: NavHostController) {
     val showAlertDialog = remember { mutableStateOf(false) }
     val showIconAlertDialog = remember { mutableStateOf(false) }
     val showCustomAlertDialog = remember { mutableStateOf(false) }
@@ -59,19 +59,9 @@ fun DialogBoxViewScreen(navMaterialController: NavHostController) {
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.Top,
         ) {
-            TopAppBar(
-                title = { Text(text = "Dialog Box") },
-                navigationIcon = {
-                    IconButton(onClick = {
-                        navMaterialController.navigateUp()
-                    }) {
-                        Icon(
-                            imageVector = Icons.Default.KeyboardArrowLeft,
-                            contentDescription = null,
-                            modifier = Modifier.size(30.dp)
-                        )
-                    }
-                }
+            ButtonTopAppBar(
+                title = "Dialog Box",
+                navController = navMaterialController
             )
             Column(
                 modifier = Modifier

@@ -30,6 +30,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.compose.materialdesign.features.util.ButtonTopAppBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -44,19 +45,9 @@ fun SimpleTextFieldViewScreen(navTextFieldController: NavHostController) {
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            TopAppBar(
-                title = { Text(text = "Simple TextField") },
-                navigationIcon = {
-                    IconButton(onClick = {
-                        navTextFieldController.navigateUp()
-                    }) {
-                        Icon(
-                            imageVector = Icons.Default.KeyboardArrowLeft,
-                            contentDescription = null,
-                            modifier = Modifier.size(30.dp)
-                        )
-                    }
-                }
+            ButtonTopAppBar(
+                title = "Simple TextField",
+                navController = navTextFieldController
             )
             Spacer(modifier = Modifier.padding(top = 200.dp))
             Column(
