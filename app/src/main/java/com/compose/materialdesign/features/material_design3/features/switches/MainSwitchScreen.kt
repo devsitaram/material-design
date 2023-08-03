@@ -45,13 +45,11 @@ fun MainSwitchViewScreen() {
             SwitchSamplePreview()
         }
         composable(SwitchItems.SwitchWithThumbIconSample.route) {
-//            SwitchWithThumbIconSamplePreview()
-            NavigationRailSample()
+            SwitchWithThumbIconSamplePreview()
         }
 
     }
 }
-
 
 @Composable
 fun SwitchesViewScreen(navController: NavHostController) {

@@ -34,7 +34,6 @@ import com.compose.materialdesign.features.util.ButtonTopAppBar
 @Composable
 fun NormalTextFieldViewScreens(navTextFieldController: NavHostController) {
     var textField by remember { mutableStateOf("example") }
-
     Surface(Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier

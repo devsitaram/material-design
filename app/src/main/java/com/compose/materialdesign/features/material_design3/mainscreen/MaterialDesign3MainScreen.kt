@@ -40,6 +40,7 @@ import com.compose.materialdesign.features.material_design3.features.menus.menus
 import com.compose.materialdesign.features.material_design3.features.navigationbar.MainNavigationViewScreen
 import com.compose.materialdesign.features.material_design3.features.progressIndicators.MainIndicatorsViewScreen
 import com.compose.materialdesign.features.material_design3.features.radiobutton.MainRadioButtonViewScreen
+import com.compose.materialdesign.features.material_design3.features.slider.sliderscreen.MainSliderViewScreen
 import com.compose.materialdesign.features.material_design3.features.switches.MainSwitchViewScreen
 import com.compose.materialdesign.features.material_design3.features.text.textscreen.MainTextViewScreen
 import com.compose.materialdesign.features.material_design3.features.textfield.textfieldscreen.MainTextFieldViewScreen
@@ -127,7 +128,7 @@ fun MaterialDesign3MainScreen() {
         }
 
         composable(MaterialDesign3Item.Slider.route){
-
+            MainSliderViewScreen(navMaterialController)
         }
     }
 }

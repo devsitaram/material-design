@@ -58,7 +58,7 @@ fun SwitchSamplePreview() {
             checked = checked,
             onCheckedChange = { checked = it },
 
-        )
+            )
 
 
     }
@@ -69,7 +69,6 @@ fun SwitchSamplePreview() {
 @Composable
 fun SwitchWithThumbIconSamplePreview() {
     var checked by remember { mutableStateOf(true) }
-
     val icon: (@Composable () -> Unit)? = if (checked) {
         {
             Icon(
@@ -82,11 +81,12 @@ fun SwitchWithThumbIconSamplePreview() {
         null
     }
 
-    Column ( modifier = Modifier.fillMaxSize(),
+    Column(
+        modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
 
-            ){
+    ) {
         Switch(
             modifier = Modifier.semantics { contentDescription = "SwitchIcon" },
             checked = checked,
@@ -96,54 +96,6 @@ fun SwitchWithThumbIconSamplePreview() {
     }
 }
 
-
-enum class Page(val title:String, ){
-    HOME("Home"),
-    SEARCH("Search"),
-    SETTINGS("Settings")
-}
-
-@Composable
-fun NavigationRailSample() {
-    var selectedItem by remember { mutableStateOf(0) }
-    val pages = Page.values()
-    val icons = listOf(Icons.Filled.Home, Icons.Filled.Search, Icons.Filled.Settings)
-    Column(modifier = Modifier.wrapContentSize(),
-    verticalArrangement = Arrangement.Center ,
-    horizontalAlignment = Alignment.CenterHorizontally) {
-        NavigationRail {
-            pages.forEachIndexed { index, item ->
-                when(item){
-                    Page.HOME -> {
-                        NavigationRailItem(
-                            icon = { Icon(icons[index], contentDescription = "") },
-                            selected = selectedItem == index,
-                            onClick = { selectedItem = index }
-                        )
-                    }
-                    Page.SEARCH -> {
-                        NavigationRailItem(
-                            label = { Text(item.title) },
-                            icon = { Icon(icons[index], contentDescription = "") },
-                            selected = selectedItem == index,
-                            onClick = { selectedItem = index }
-                        )
-                    }
-                    Page.SETTINGS -> {
-                        NavigationRailItem(
-                            label = { Text(item.title) },
-                            icon = { Icon(icons[index], contentDescription = "") },
-                            selected = selectedItem == index,
-                            onClick = { selectedItem = index },
-                            alwaysShowLabel = false
-                        )
-                    }
-                }
-            }
-        }
-
-    }
-}
 
 
 
