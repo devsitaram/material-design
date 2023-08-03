@@ -103,9 +103,10 @@ fun RowCardViewItems(title: String, onClick: ()-> Unit) {
             .clickable { onClick() }
             .border(width = 0.5.dp, color = Color.DarkGray, shape = ShapeDefaults.Small),
     ) {
-        Row(modifier = Modifier
-            .fillMaxWidth()
-            .padding(5.dp),
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(5.dp),
         ) {
             Text(
                 text = title,

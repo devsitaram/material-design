@@ -7,7 +7,6 @@ sealed class TabsItems(var route: String) {
     object LeadingIconTabs : TabsItems("LeadingIconTabs")
     object ScrollingTextTabs : TabsItems("ScrollingTextTabs")
     object FancyTabs : TabsItems("FancyTabs")
-
     object FancyIndicatorTabs : TabsItems("FancyIndicatorTabs")
     object FancyIndicatorContainerTabs : TabsItems("FancyIndicatorContainerTabs")
     object ScrollingFancyIndicatorContainerTabs:TabsItems("ScrollingFancyIndicatorContainerTabs")

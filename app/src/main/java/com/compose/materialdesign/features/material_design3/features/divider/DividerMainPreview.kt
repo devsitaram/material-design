@@ -33,16 +33,14 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.leanback.widget.SearchBar
 
-
 @Composable
 fun DividerSamplePreview() {
     Column(
-        modifier = Modifier.fillMaxSize().padding(15.dp),
+        modifier = Modifier.fillMaxSize().padding(20.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Divider(thickness = 2.dp, color = Color.Blue)
-
     }
 }
 

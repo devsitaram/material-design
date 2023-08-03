@@ -35,128 +35,126 @@ fun MainTabsViewScreen() {
             TabsViewScreen(navController)
         }
         composable(TabsItems.TextTabs.route) {
-            SwitchSamplePreview()
+            TextTabsScreen()
         }
         composable(TabsItems.IconTabs.route) {
+            IconsTabsScreen()
         }
         composable(TabsItems.TextAndIconTabs.route) {
-            SwitchSamplePreview()
+            TextAndIconsTabsScreen()
         }
         composable(TabsItems.LeadingIconTabs.route) {
-
-
+            LeadingIconsTabsScreen()
         }
         composable(TabsItems.ScrollingTextTabs.route) {
-            SwitchSamplePreview()
+            ScrollingTextTabsScreen()
         }
         composable(TabsItems.FancyTabs.route) {
-            FancyTabsPreview()
+            FancyTabsScreen()
         }
 
         composable(TabsItems.FancyIndicatorTabs.route) {
-            SwitchSamplePreview()
+            FancyIndicatorTabsScreen()
         }
 
         composable(TabsItems.FancyIndicatorContainerTabs.route) {
+            FancyIndicatorContainerTabsScreen()
 
         }
 
         composable(TabsItems.ScrollingFancyIndicatorContainerTabs.route) {
-
+            ScrollingFancyIndicatorContainerTabsScreen()
         }
 
     }
 }
-        @Composable
-        fun TabsViewScreen(navController: NavHostController) {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(15.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                TabsViewScreenPreview(
-                    title = "TextTabs",
-                    onClick = { navController.navigate(TabsItems.TextTabs.route) }
-                )
-                TabsViewScreenPreview(
-                    title = "IconTabs",
-                    onClick = { navController.navigate(TabsItems.IconTabs.route) }
-                )
-                TabsViewScreenPreview(
-                    title = "TextAndIconTabs",
-                    onClick = { navController.navigate(TabsItems.TextAndIconTabs.route) }
-                )
-                TabsViewScreenPreview(
-                    title = "LeadingIconTabs",
-                    onClick = { navController.navigate(TabsItems.LeadingIconTabs.route) }
-                )
-                TabsViewScreenPreview(
-                    title = "ScrollingTextTabs",
-                    onClick = { navController.navigate(TabsItems.ScrollingTextTabs.route) }
-                )
-                TabsViewScreenPreview(
-                    title = "IconTabs",
-                    onClick = { navController.navigate(TabsItems.IconTabs.route) }
-                )
-                TabsViewScreenPreview(
-                    title = "FancyTabs",
-                    onClick = { navController.navigate(TabsItems.FancyTabs.route) }
-                )
-                TabsViewScreenPreview(
-                    title = "FancyIndicatorTabs",
-                    onClick = { navController.navigate(TabsItems.FancyIndicatorTabs.route) }
-                )
-                TabsViewScreenPreview(
-                    title = "FancyIndicatorContainerTabs",
-                    onClick = { navController.navigate(TabsItems.FancyIndicatorContainerTabs.route) }
-                )
-
-                TabsViewScreenPreview(
-                    title = "ScrollingFancyIndicatorContainerTabs",
-                    onClick = { navController.navigate(TabsItems.ScrollingFancyIndicatorContainerTabs.route) }
-                )
-
-            }
-
-        }
-
-
 
 
 @Composable
-        fun TabsViewScreenPreview(title: String, onClick: () -> Unit) {
-            Card(
-                modifier = Modifier
-                    .padding(5.dp)
-                    .clickable { onClick() }
-                    .border(
-                        width = 0.5.dp,
-                        color = Color.DarkGray,
-                        shape = ShapeDefaults.Small
-                    ),
-            ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(5.dp),
-                ) {
+fun TabsViewScreen(navController: NavHostController) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(15.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        TabsViewScreenPreview(
+            title = "TextTabs",
+            onClick = { navController.navigate(TabsItems.TextTabs.route) }
+        )
+        TabsViewScreenPreview(
+            title = "IconTabs",
+            onClick = { navController.navigate(TabsItems.IconTabs.route) }
+        )
+        TabsViewScreenPreview(
+            title = "TextAndIconTabs",
+            onClick = { navController.navigate(TabsItems.TextAndIconTabs.route) }
+        )
+        TabsViewScreenPreview(
+            title = "LeadingIconTabs",
+            onClick = { navController.navigate(TabsItems.LeadingIconTabs.route) }
+        )
+        TabsViewScreenPreview(
+            title = "ScrollingTextTabs",
+            onClick = { navController.navigate(TabsItems.ScrollingTextTabs.route) }
+        )
 
-                    Text(
-                        text = title,
-                        style = TextStyle(fontSize = 15.sp),
-                        modifier = Modifier.padding(15.dp)
-                    )
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.End
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.KeyboardArrowRight,
-                            contentDescription = "",
-                            modifier = Modifier.padding(15.dp)
-                        )
-                    }
-                }
+        TabsViewScreenPreview(
+            title = "FancyTabs",
+            onClick = { navController.navigate(TabsItems.FancyTabs.route) }
+        )
+        TabsViewScreenPreview(
+            title = "FancyIndicatorTabs",
+            onClick = { navController.navigate(TabsItems.FancyIndicatorTabs.route) }
+        )
+        TabsViewScreenPreview(
+            title = "FancyIndicatorContainerTabs",
+            onClick = { navController.navigate(TabsItems.FancyIndicatorContainerTabs.route) }
+        )
+
+        TabsViewScreenPreview(
+            title = "ScrollingFancyIndicatorContainerTabs",
+            onClick = { navController.navigate(TabsItems.ScrollingFancyIndicatorContainerTabs.route) }
+        )
+
+    }
+
+}
+
+
+@Composable
+fun TabsViewScreenPreview(title: String, onClick: () -> Unit) {
+    Card(
+        modifier = Modifier
+            .padding(5.dp)
+            .clickable { onClick() }
+            .border(
+                width = 0.5.dp,
+                color = Color.DarkGray,
+                shape = ShapeDefaults.Small
+            ),
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(5.dp),
+        ) {
+
+            Text(
+                text = title,
+                style = TextStyle(fontSize = 15.sp),
+                modifier = Modifier.padding(15.dp)
+            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.End
+            ) {
+                Icon(
+                    imageVector = Icons.Default.KeyboardArrowRight,
+                    contentDescription = "",
+                    modifier = Modifier.padding(15.dp)
+                )
             }
         }
+    }
+}

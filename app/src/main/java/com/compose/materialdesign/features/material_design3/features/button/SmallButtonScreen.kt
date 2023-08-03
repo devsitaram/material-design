@@ -27,16 +27,12 @@ import com.compose.materialdesign.R
 
 @Composable
 fun SmallButtonScreenView(navController: NavHostController) {
-
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(start = 10.dp, top = 10.dp),
         horizontalAlignment = Alignment.Start,
-
         ) {
-
-
         Text(
             text = "Enabled Small button", style = TextStyle(
                 fontWeight = FontWeight.Bold, fontSize = 20.sp,

@@ -51,7 +51,6 @@ fun MainSwitchViewScreen() {
     }
 }
 
-
 @Composable
 fun SwitchesViewScreen(navController: NavHostController) {
     Column(

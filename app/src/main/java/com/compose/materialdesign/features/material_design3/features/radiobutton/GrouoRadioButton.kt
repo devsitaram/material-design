@@ -33,7 +33,7 @@ fun GroupButtonView() {
     ) {
         val radioOption = listOf("Apple", "Banana" ,"Orange")
         radioOption.forEachIndexed { i, option: String ->
-            Row() {
+            Row {
                 RadioButton(
                     selected = radioStat == i,
                     onClick = { radioStat = i },

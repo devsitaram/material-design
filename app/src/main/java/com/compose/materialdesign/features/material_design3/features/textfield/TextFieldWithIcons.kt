@@ -33,8 +33,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.compose.materialdesign.R
 import com.compose.materialdesign.features.util.ButtonTopAppBar
+import androidx.compose.material.TextField
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TextFieldWithIconsViewScreen(navTextFieldController: NavHostController) {
     var textFieldWithIcons by remember { mutableStateOf("") }
@@ -69,14 +69,8 @@ fun TextFieldWithIconsViewScreen(navTextFieldController: NavHostController) {
 }
 
 @Composable
-fun TextFieldWithIcons(
-    value: String,
-    onValueChange: (String) -> Unit = {},
-    label: String,
-    leadingIcon: Painter,
-    trailingIcon: Painter
-) {
-    androidx.compose.material.TextField(
+fun TextFieldWithIcons(value: String, onValueChange: (String) -> Unit = {}, label: String, leadingIcon: Painter, trailingIcon: Painter) {
+    TextField(
         value = value,
         onValueChange = onValueChange,
         label = { Text(text = label, fontSize = 14.sp) },
