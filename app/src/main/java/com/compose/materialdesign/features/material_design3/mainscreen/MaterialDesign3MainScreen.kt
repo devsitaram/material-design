@@ -166,11 +166,6 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
             MaterialComponents(title = "Tooltips",
             ) { navMaterialController.navigate(MaterialDesign3Item.ToolTips.route) }
 
-            // add new component
-            MaterialComponents(
-                title = "Badges",
-            ) { navMaterialController.navigate(MaterialDesign3Item.Badge.route) }
-
             MaterialComponents(
                 title = "Menus",
             ) { navMaterialController.navigate(MaterialDesign3Item.Menus.route) }
