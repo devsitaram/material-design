@@ -18,6 +18,7 @@ import androidx.compose.material.LinearProgressIndicator
 import androidx.compose.material.ProgressIndicatorDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -68,7 +69,7 @@ fun NavigationBarItemWithBadgePreview() {
                             }
                         }) {
                         Icon(
-                            Icons.Filled.Favorite,
+                            Icons.Filled.Star,
                             contentDescription = "Favorite"
                         )
                     }
@@ -81,40 +82,6 @@ fun NavigationBarItemWithBadgePreview() {
 }
 
 
-@Composable
-fun LinearProgressIndicatorSample() {
-    var progress by remember { mutableStateOf(0.1f) }
-    val animatedProgress = animateFloatAsState(
-        targetValue = progress,
-        animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec
-    ).value
-
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-
-        Spacer(Modifier.height(30.dp))
-        Text("LinearProgressIndicator with undefined progress")
-        LinearProgressIndicator()
-        Spacer(Modifier.height(30.dp))
-//        Text("LinearProgressIndicator with progress set by buttons")
-//        LinearProgressIndicator(progress = animatedProgress)
-//        Spacer(Modifier.height(30.dp))
-        OutlinedButton(
-            onClick = {
-                if (progress < 1f) progress += 0.1f
-            }
-        ) {
-            Text("Increase")
-        }
-
-        OutlinedButton(
-            onClick = {
-                if (progress > 0f) progress -= 0.1f
-            }
-        ) {
-            Text("Decrease")
-        }
-    }
-}
 
 
 

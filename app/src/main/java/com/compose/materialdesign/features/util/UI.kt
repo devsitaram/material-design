@@ -94,3 +94,31 @@ fun ListOfDataCard(title: String, subTitle: String, onClickAction: () -> Unit) {
         }
     }
 }
+
+@Composable
+fun RowCardViewItems(title: String, onClick: () -> Unit) {
+    Card(
+        modifier = Modifier
+            .padding(5.dp)
+            .clickable { onClick() }
+            .border(width = 0.5.dp, color = Color.DarkGray, shape = ShapeDefaults.Small),
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(5.dp),
+        ) {
+            Text(
+                text = title,
+                style = TextStyle(fontSize = 15.sp),
+                modifier = Modifier.padding(15.dp)
+            )
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                Icon(
+                    imageVector = Icons.Default.KeyboardArrowRight, contentDescription = "",
+                    modifier = Modifier.padding(15.dp)
+                )
+            }
+        }
+    }
+}

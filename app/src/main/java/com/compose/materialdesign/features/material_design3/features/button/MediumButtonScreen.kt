@@ -17,6 +17,7 @@ import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -98,12 +99,28 @@ fun MediumButtonScreen(navController: NavHostController) {
 
         }
 
-        OutlinedButton(onClick = {  } , modifier = Modifier.wrapContentWidth().height(40.dp).width(110.dp) ) {
+        OutlinedButton(onClick = { }, modifier = Modifier
+            .wrapContentWidth()
+            .height(40.dp)
+            .width(110.dp)) {
 
-            Icon(imageVector = Icons.Default.AddCircle, contentDescription = "" ,
-                modifier = Modifier.size(ButtonDefaults.IconSize))
+            Icon(
+                imageVector = Icons.Default.AddCircle, contentDescription = "",
+                modifier = Modifier.size(ButtonDefaults.IconSize)
+            )
             Spacer(modifier = Modifier.size(ButtonDefaults.IconSize))
             Text(text = "Add")
+        }
+
+
+        FloatingActionButton(
+            onClick = { }, modifier = Modifier
+                .wrapContentWidth()
+                .height(40.dp)
+                .width(98.dp)
+                .padding(top = 10.dp)
+        ) {
+
         }
 
 

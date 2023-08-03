@@ -30,7 +30,6 @@ import androidx.navigation.NavHostController
 import com.compose.materialdesign.features.material_design3.features.text.textscreen.TextDescription
 import com.compose.materialdesign.features.util.ButtonTopAppBar
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ButtonTextViewScreen(navTextController: NavHostController) {
     Column(

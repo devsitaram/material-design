@@ -35,7 +35,7 @@ fun MainBadgeViewScreen() {
             NavigationBarItemWithBadgeViewScreen(navController)
         }
         composable(BadgeItems.NavigationBarItemWithBadge.route) {
-            LinearProgressIndicatorSample()
+            NavigationBarItemWithBadgePreview()
         }
 
     }

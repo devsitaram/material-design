@@ -76,7 +76,6 @@ fun MainTextViewScreen(navMaterialController: NavHostController) {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainTextScreen(navTextController: NavHostController, navMaterialController: NavHostController) {
     Column(
@@ -86,6 +85,7 @@ fun MainTextScreen(navTextController: NavHostController, navMaterialController: 
             .verticalScroll(
                 rememberScrollState()
             ),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // top bar
         ButtonTopAppBar(
@@ -94,7 +94,9 @@ fun MainTextScreen(navTextController: NavHostController, navMaterialController: 
         )
         Column(modifier = Modifier
             .fillMaxWidth()
-            .padding(20.dp)) {
+            .padding(20.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
             // heading text components
             Material3TextComponents(
                 title = "Heading",
