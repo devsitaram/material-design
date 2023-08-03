@@ -136,8 +136,7 @@ fun MaterialDesign3MainScreen() {
 @Composable
 fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
     Surface(modifier = Modifier.fillMaxSize()) {
-        Column(modifier = Modifier
-            .fillMaxWidth()
+        Column(modifier = Modifier.fillMaxWidth()
             .verticalScroll(rememberScrollState())
             .padding(10.dp)
         ) {
