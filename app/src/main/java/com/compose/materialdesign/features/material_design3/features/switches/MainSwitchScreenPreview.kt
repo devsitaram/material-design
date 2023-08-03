@@ -16,13 +16,19 @@ import androidx.compose.material.NavigationRail
 import androidx.compose.material.NavigationRailItem
 import androidx.compose.material3.Icon
 import androidx.compose.material.Switch
+import androidx.compose.material.Tab
+import androidx.compose.material.TabRow
 
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -34,6 +40,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import java.nio.file.WatchEvent
 
@@ -59,7 +66,6 @@ fun SwitchSamplePreview() {
             onCheckedChange = { checked = it },
 
             )
-
 
     }
 
@@ -95,10 +101,4 @@ fun SwitchWithThumbIconSamplePreview() {
         )
     }
 }
-
-
-
-
-
-
 
