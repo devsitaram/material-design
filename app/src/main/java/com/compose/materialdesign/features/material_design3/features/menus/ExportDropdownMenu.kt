@@ -80,9 +80,7 @@ fun ExportDropdownMenuScreen() {
     // box
     ExposedDropdownMenuBox(
         expanded = expanded,
-        onExpandedChange = {
-            expanded = !expanded
-        }
+        onExpandedChange = { expanded = !expanded }
     ) {
         // text field
         TextField(

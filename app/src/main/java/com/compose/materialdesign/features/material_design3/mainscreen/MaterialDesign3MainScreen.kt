@@ -122,9 +122,12 @@ fun MaterialDesign3MainScreen() {
             MainNavigationViewScreen()
         }
 
-
         composable(MaterialDesign3Item.Divider.route){
             MainDividerViewScreen()
+        }
+
+        composable(MaterialDesign3Item.Slider.route){
+
         }
     }
 }
@@ -212,10 +215,13 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
             MaterialComponents(title = "Navigation Bar" ,
             ) {navMaterialController.navigate(MaterialDesign3Item.NavigationBar.route)}
 
-
              MaterialComponents(title = "Divider") {
                 navMaterialController.navigate(MaterialDesign3Item.Divider.route)
              }
+
+            MaterialComponents(title = "Slider") {
+                navMaterialController.navigate(MaterialDesign3Item.Slider.route)
+            }
             // add new component
         }
     }

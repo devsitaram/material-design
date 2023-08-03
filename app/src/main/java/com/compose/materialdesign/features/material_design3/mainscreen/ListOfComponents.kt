@@ -16,4 +16,5 @@ sealed class MaterialDesign3Item(var route: String) {
     object ToolTips : MaterialDesign3Item("ToolTips")
     object Menus : MaterialDesign3Item("menus")
     object Divider: MaterialDesign3Item("Divider")
+    object Slider: MaterialDesign3Item("Slider")
 }
