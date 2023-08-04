@@ -1,4 +1,4 @@
-package com.compose.materialdesign.features.material_design3.features.switches
+package com.compose.materialdesign.features.material_design3.features.navigationdrawer
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -25,67 +25,80 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.compose.materialdesign.features.material_design3.features.navigationdrawer.ModalNavigationDrawerSampleScreen
 
 
 @Composable
-fun MainSwitchViewScreen() {
+fun MainNavigationDrawerViewScreen() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "SwitchesViewScreen") {
-        composable("SwitchesViewScreen") {
-            SwitchesViewScreen(navController)
+    NavHost(navController = navController, startDestination = "NavigationDrawerViewScreen") {
+        composable("NavigationDrawerViewScreen") {
+            NavigationDrawerViewScreen(navController)
         }
-        composable(SwitchItems.SwitchSample.route) {
-            SwitchSamplePreview()
+        composable(DrawerItems.ModalNavigationDrawerBarSample.route) {
+            ModalNavigationDrawerSampleScreen()
         }
-        composable(SwitchItems.SwitchWithThumbIconSample.route) {
-            SwitchWithThumbIconSamplePreview()
+        composable(DrawerItems.PermanentNavigationDrawerBarSample.route) {
+//            NavigationBarWithSelectedLabel()
         }
+
+        composable(DrawerItems.DismissibleNavigationDrawerBarSample.route) {
+//            NavigationBarWithSelectedLabel()
+        }
+
 
     }
 }
 
+
 @Composable
-fun SwitchesViewScreen(navController: NavHostController) {
+fun NavigationDrawerViewScreen(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(15.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        SwitchesViewScreenPreview(
-            title = "SwitchSample",
-            onClick = { navController.navigate(SwitchItems.SwitchSample.route) }
-        )
-        SwitchesViewScreenPreview(
-            title = "SwitchWithThumbIconSample",
-            onClick = { navController.navigate(SwitchItems.SwitchWithThumbIconSample.route) }
+        NavigationDrawerScreenPreview(
+            title = "ModalNavigationDrawerBarSample",
+            onClick = { navController.navigate(DrawerItems.ModalNavigationDrawerBarSample.route) }
         )
 
+        NavigationDrawerScreenPreview(
+            title = "PermanentNavigationDrawerBarSample",
+            onClick = { navController.navigate(DrawerItems.PermanentNavigationDrawerBarSample.route) }
+
+        )
+
+        NavigationDrawerScreenPreview(
+            title = "DismissibleNavigationDrawerBarSample",
+            onClick = { navController.navigate(DrawerItems.DismissibleNavigationDrawerBarSample.route) }
+
+        )
     }
 
 }
 
 
 @Composable
-fun SwitchesViewScreenPreview(title: String, onClick: ()-> Unit) {
+fun NavigationDrawerScreenPreview(title: String, onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .padding(5.dp)
             .clickable { onClick() }
             .border(width = 0.5.dp, color = Color.DarkGray, shape = ShapeDefaults.Small),
     ) {
-        Row(modifier = Modifier
-            .fillMaxWidth()
-            .padding(5.dp),
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(5.dp),
         ) {
 
-                Text(
-                    text = title,
-                    style = TextStyle(fontSize = 15.sp),
-                    modifier = Modifier.padding(15.dp)
-                )
-                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+            Text(
+                text = title,
+                style = TextStyle(fontSize = 15.sp),
+                modifier = Modifier.padding(15.dp)
+            )
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
                 Icon(
                     imageVector = Icons.Default.KeyboardArrowRight, contentDescription = "",
                     modifier = Modifier.padding(15.dp)

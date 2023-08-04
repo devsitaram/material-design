@@ -38,12 +38,14 @@ import com.compose.materialdesign.features.material_design3.features.dialogbox.M
 import com.compose.materialdesign.features.material_design3.features.divider.MainDividerViewScreen
 import com.compose.materialdesign.features.material_design3.features.menus.menuscreen.MainMenusViewScreen
 import com.compose.materialdesign.features.material_design3.features.navigationbar.MainNavigationViewScreen
+import com.compose.materialdesign.features.material_design3.features.navigationdrawer.MainNavigationDrawerViewScreen
 import com.compose.materialdesign.features.material_design3.features.progressIndicators.MainIndicatorsViewScreen
 import com.compose.materialdesign.features.material_design3.features.radiobutton.MainRadioButtonViewScreen
 import com.compose.materialdesign.features.material_design3.features.slider.sliderscreen.MainSliderViewScreen
 import com.compose.materialdesign.features.material_design3.features.switches.MainSwitchViewScreen
 import com.compose.materialdesign.features.material_design3.features.tabs.MainTabsViewScreen
 import com.compose.materialdesign.features.material_design3.features.text.textscreen.MainTextViewScreen
+import com.compose.materialdesign.features.material_design3.features.text.textscreen.Material3TextComponents
 import com.compose.materialdesign.features.material_design3.features.textfield.textfieldscreen.MainTextFieldViewScreen
 import com.compose.materialdesign.features.material_design3.features.tooltips.tooltipscreen.MainToolTipsViewScreen
 
@@ -133,6 +135,10 @@ fun MaterialDesign3MainScreen() {
 
         composable(MaterialDesign3Item.Slider.route) {
             MainSliderViewScreen(navMaterialController)
+        }
+
+        composable(MaterialDesign3Item.NavigationDrawer.route){
+            MainNavigationDrawerViewScreen()
         }
     }
 }
@@ -245,6 +251,10 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
 
             MaterialComponents(title = "Slider") {
                 navMaterialController.navigate(MaterialDesign3Item.Slider.route)
+            }
+
+            MaterialComponents(title = "Navigation Drawer") {
+                navMaterialController.navigate(MaterialDesign3Item.NavigationDrawer.route)
             }
             // add new component
         }

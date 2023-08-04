@@ -15,7 +15,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.NavigationRail
 import androidx.compose.material.NavigationRailItem
 import androidx.compose.material3.Icon
-import androidx.compose.material.Switch
+import androidx.compose.material3.Switch
 import androidx.compose.material.Tab
 import androidx.compose.material.TabRow
 
@@ -97,7 +97,7 @@ fun SwitchWithThumbIconSamplePreview() {
             modifier = Modifier.semantics { contentDescription = "SwitchIcon" },
             checked = checked,
             onCheckedChange = { checked = it },
-            //        thumbContent = icon
+                    thumbContent = icon
         )
     }
 }
