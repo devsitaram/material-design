@@ -37,6 +37,8 @@ import com.compose.materialdesign.features.material_design3.features.checkboxes.
 import com.compose.materialdesign.features.material_design3.features.dialogbox.MainDialogBoxViewScreen
 import com.compose.materialdesign.features.material_design3.features.divider.MainDividerViewScreen
 import com.compose.materialdesign.features.material_design3.features.extendedfab.MainExtendedFABViewScreen
+import com.compose.materialdesign.features.material_design3.features.floatingactionbutton.MainFloatingABViewScreen
+import com.compose.materialdesign.features.material_design3.features.iconbutton.MainIconButtonViewScreen
 import com.compose.materialdesign.features.material_design3.features.menus.menuscreen.MainMenusViewScreen
 import com.compose.materialdesign.features.material_design3.features.navigationbar.MainNavigationViewScreen
 import com.compose.materialdesign.features.material_design3.features.navigationdrawer.MainNavigationDrawerViewScreen
@@ -138,12 +140,21 @@ fun MaterialDesign3MainScreen() {
             MainSliderViewScreen(navMaterialController)
         }
 
-        composable(MaterialDesign3Item.NavigationDrawer.route){
+        composable(MaterialDesign3Item.NavigationDrawer.route) {
             MainNavigationDrawerViewScreen()
         }
 
-        composable(MaterialDesign3Item.ExtendedFAB.route){
+        composable(MaterialDesign3Item.ExtendedFAB.route) {
             MainExtendedFABViewScreen()
+
+        }
+
+        composable(MaterialDesign3Item.FloatingActionButton.route) {
+            MainFloatingABViewScreen()
+        }
+
+        composable(MaterialDesign3Item.IconButton.route) {
+            MainIconButtonViewScreen()
 
         }
     }
@@ -265,6 +276,16 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
 
             MaterialComponents(title = "Extended FAB") {
                 navMaterialController.navigate(MaterialDesign3Item.ExtendedFAB.route)
+
+            }
+
+            MaterialComponents(title = "Floating Action Button") {
+                navMaterialController.navigate(MaterialDesign3Item.FloatingActionButton.route)
+
+            }
+
+            MaterialComponents(title = "Icon Button") {
+                navMaterialController.navigate(MaterialDesign3Item.IconButton.route)
 
             }
             // add new component
