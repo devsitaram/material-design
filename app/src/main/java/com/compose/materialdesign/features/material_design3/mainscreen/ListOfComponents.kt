@@ -20,5 +20,7 @@ sealed class MaterialDesign3Item(var route: String) {
     object Slider: MaterialDesign3Item("Slider")
     object NavigationDrawer: MaterialDesign3Item("NavigationDrawer")
     object ExtendedFAB: MaterialDesign3Item("ExtendedFAB")
+
+    object FloatingActionButton:MaterialDesign3Item("FloatingActionButton")
 }
 
