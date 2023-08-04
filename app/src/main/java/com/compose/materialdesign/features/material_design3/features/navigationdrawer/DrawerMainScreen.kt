@@ -42,7 +42,7 @@ fun MainNavigationDrawerViewScreen() {
         }
 
         composable(DrawerItems.DismissibleNavigationDrawerBarSample.route) {
-//            NavigationBarWithSelectedLabel()
+            DismissibleNavigationDrawerSampleViewScreen()
         }
 
 
