@@ -1,8 +1,10 @@
 package com.compose.materialdesign.features.material_design3.features.checkboxes
 
+import android.service.autofill.OnClickAction
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -46,7 +48,7 @@ import androidx.compose.ui.unit.sp
 
 
 @Composable
-fun CheckboxesSamplePreview() {
+fun CheckboxesSamplePreview(onClickAction: ()->Unit = {}) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -58,13 +60,10 @@ fun CheckboxesSamplePreview() {
         Row {
             Checkbox(
                 checked = checkedState.value,
-
-                modifier = Modifier.padding(16.dp),
-
+                modifier = Modifier.padding(16.dp).clickable { onClickAction() },
                 onCheckedChange = { checkedState.value = it },
             )
         }
-
 
     }
 

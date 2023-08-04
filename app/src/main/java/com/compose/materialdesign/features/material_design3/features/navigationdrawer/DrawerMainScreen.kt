@@ -35,10 +35,10 @@ fun MainNavigationDrawerViewScreen() {
             NavigationDrawerViewScreen(navController)
         }
         composable(DrawerItems.ModalNavigationDrawerBarSample.route) {
-            ModalNavigationDrawerSampleScreen()
+            ModalNavigationDrawerSampleViewScreen()
         }
         composable(DrawerItems.PermanentNavigationDrawerBarSample.route) {
-//            NavigationBarWithSelectedLabel()
+            PermanentNavigationDrawerSampleViewScreen()
         }
 
         composable(DrawerItems.DismissibleNavigationDrawerBarSample.route) {
