@@ -34,14 +34,14 @@ fun MainNavigationDrawerViewScreen() {
         composable("NavigationDrawerViewScreen") {
             NavigationDrawerViewScreen(navController)
         }
-        composable(DrawerItems.ModalNavigationDrawerBarSample.route) {
+        composable(NavDrawerItems.ModalNavigationNavDrawerBarSample.route) {
             ModalNavigationDrawerSampleViewScreen()
         }
-        composable(DrawerItems.PermanentNavigationDrawerBarSample.route) {
+        composable(NavDrawerItems.PermanentNavigationNavDrawerBarSample.route) {
             PermanentNavigationDrawerSampleViewScreen()
         }
 
-        composable(DrawerItems.DismissibleNavigationDrawerBarSample.route) {
+        composable(NavDrawerItems.DismissibleNavigationNavDrawerBarSample.route) {
             DismissibleNavigationDrawerSampleViewScreen()
         }
 
@@ -60,18 +60,18 @@ fun NavigationDrawerViewScreen(navController: NavHostController) {
     ) {
         NavigationDrawerScreenPreview(
             title = "ModalNavigationDrawerBarSample",
-            onClick = { navController.navigate(DrawerItems.ModalNavigationDrawerBarSample.route) }
+            onClick = { navController.navigate(NavDrawerItems.ModalNavigationNavDrawerBarSample.route) }
         )
 
         NavigationDrawerScreenPreview(
             title = "PermanentNavigationDrawerBarSample",
-            onClick = { navController.navigate(DrawerItems.PermanentNavigationDrawerBarSample.route) }
+            onClick = { navController.navigate(NavDrawerItems.PermanentNavigationNavDrawerBarSample.route) }
 
         )
 
         NavigationDrawerScreenPreview(
             title = "DismissibleNavigationDrawerBarSample",
-            onClick = { navController.navigate(DrawerItems.DismissibleNavigationDrawerBarSample.route) }
+            onClick = { navController.navigate(NavDrawerItems.DismissibleNavigationNavDrawerBarSample.route) }
 
         )
     }

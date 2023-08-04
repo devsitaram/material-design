@@ -30,6 +30,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.compose.materialdesign.R
+import com.compose.materialdesign.features.material_design3.features.BottomSheet.bottomsheetscreen.MainBottomSheetViewScreen
 import com.compose.materialdesign.features.material_design3.features.badge.MainBadgeViewScreen
 import com.compose.materialdesign.features.material_design3.features.button.MainButtonViewScreen
 import com.compose.materialdesign.features.material_design3.features.buttonappbar.appbarscreen.MainBottomAppBarViewScreen
@@ -155,10 +156,14 @@ fun MaterialDesign3MainScreen() {
 
         composable(MaterialDesign3Item.IconButton.route) {
             MainIconButtonViewScreen()
+        }
 
+            composable(MaterialDesign3Item.BottomSheets.route) {
+                MainBottomSheetViewScreen(navMaterialController)
+            }
         }
     }
-}
+
 
 @Composable
 fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
@@ -200,11 +205,6 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
             MaterialComponents(
                 title = "Tooltips",
             ) { navMaterialController.navigate(MaterialDesign3Item.ToolTips.route) }
-
-            // add new component
-            MaterialComponents(
-                title = "Badges",
-            ) { navMaterialController.navigate(MaterialDesign3Item.Badge.route) }
 
             MaterialComponents(
                 title = "Menus",
@@ -286,12 +286,16 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
 
             MaterialComponents(title = "Icon Button") {
                 navMaterialController.navigate(MaterialDesign3Item.IconButton.route)
+            }
 
+            MaterialComponents(title = "Bottom Sheet") {
+                navMaterialController.navigate(MaterialDesign3Item.BottomSheets.route)
             }
             // add new component
         }
     }
 }
+
 
 @Composable
 fun MaterialComponents(title: String, onClick: () -> Unit) {

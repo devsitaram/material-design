@@ -77,7 +77,7 @@ fun MainSliderScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         ButtonTopAppBar(
-            title = "Input TextFields",
+            title = "Sliders",
             navController = navMaterialController
         )
         Column(
