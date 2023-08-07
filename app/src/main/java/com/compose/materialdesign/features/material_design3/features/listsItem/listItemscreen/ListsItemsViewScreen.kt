@@ -29,13 +29,13 @@ fun MainListItemsViewScreen(navMaterialController: NavHostController) {
         composable("MainListScreen"){
             MainListItemScreen(navListsController, navMaterialController)
         }
-        composable(ListsItemsOfListItems.OneLineListItem.route){
+        composable(ListOfListsItems.OneLineListItemOfLists.route){
             OneLineListItemViewScreen(navListsController)
         }
-        composable(ListsItemsOfListItems.TwoLineListItem.route){
+        composable(ListOfListsItems.TwoLineListItemOfLists.route){
             TwoLineListItemViewScreen(navListsController)
         }
-        composable(ListsItemsOfListItems.ThreeLineListItem.route){
+        composable(ListOfListsItems.ThreeLineListItemOfLists.route){
             ThreeLineListItemViewScreen(navListsController)
         }
     }
@@ -68,21 +68,21 @@ fun MainListItemScreen(
                 title = "OneLine ListItem",
                 subTitle = "example of Single line list",
                 onClickAction = {
-                    navListsController.navigate(ListsItemsOfListItems.OneLineListItem.route)
+                    navListsController.navigate(ListOfListsItems.OneLineListItemOfLists.route)
                 }
             )
             ListOfDataCard(
                 title = "TwoLine ListItem",
                 subTitle = "example of Double line list",
                 onClickAction = {
-                    navListsController.navigate(ListsItemsOfListItems.TwoLineListItem.route)
+                    navListsController.navigate(ListOfListsItems.TwoLineListItemOfLists.route)
                 }
             )
             ListOfDataCard(
                 title = "ThreeLine ListItem",
                 subTitle = "example of Tribal line list",
                 onClickAction = {
-                    navListsController.navigate(ListsItemsOfListItems.ThreeLineListItem.route)
+                    navListsController.navigate(ListOfListsItems.ThreeLineListItemOfLists.route)
                 }
             )
         }
