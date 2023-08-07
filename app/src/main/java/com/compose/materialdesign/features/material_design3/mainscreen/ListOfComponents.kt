@@ -21,5 +21,6 @@ sealed class MaterialDesign3Item(var route: String) {
     object BottomSheets: MaterialDesign3Item("BottomSheet")
     object NavigationDrawer: MaterialDesign3Item("NavigationDrawer")
     object ExtendedFAB: MaterialDesign3Item("ExtendedFAB")
+    object ListsItems: MaterialDesign3Item("ListsItems")
 }
 

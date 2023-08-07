@@ -8,12 +8,10 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.DropdownMenu
@@ -23,11 +21,9 @@ import androidx.compose.material.Surface
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Create
-import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.Card
 import androidx.compose.material3.Divider
-import androidx.compose.material3.ListItemDefaults.contentColor
 import androidx.compose.material3.ShapeDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -39,7 +35,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
@@ -57,7 +52,7 @@ import com.compose.materialdesign.features.material_design3.features.checkboxes.
 import com.compose.materialdesign.features.material_design3.features.dialogbox.MainDialogBoxViewScreen
 import com.compose.materialdesign.features.material_design3.features.divider.MainDividerViewScreen
 import com.compose.materialdesign.features.material_design3.features.extendedfab.MainExtendedFABViewScreen
-import com.compose.materialdesign.features.material_design3.features.menus.SimpleMenusItems
+import com.compose.materialdesign.features.material_design3.features.listsItem.listItemscreen.MainListItemsViewScreen
 import com.compose.materialdesign.features.material_design3.features.menus.menuscreen.MainMenusViewScreen
 import com.compose.materialdesign.features.material_design3.features.navigationbar.MainNavigationViewScreen
 import com.compose.materialdesign.features.material_design3.features.navigationdrawer.MainNavigationDrawerViewScreen
@@ -67,7 +62,6 @@ import com.compose.materialdesign.features.material_design3.features.slider.slid
 import com.compose.materialdesign.features.material_design3.features.switches.MainSwitchViewScreen
 import com.compose.materialdesign.features.material_design3.features.tabs.MainTabsViewScreen
 import com.compose.materialdesign.features.material_design3.features.text.RegularText
-import com.compose.materialdesign.features.material_design3.features.text.SmallTextBold
 import com.compose.materialdesign.features.material_design3.features.text.Title3
 import com.compose.materialdesign.features.material_design3.features.text.textscreen.MainTextViewScreen
 import com.compose.materialdesign.features.material_design3.features.textfield.textfieldscreen.MainTextFieldViewScreen
@@ -172,6 +166,10 @@ fun MaterialDesign3MainScreen() {
         composable(MaterialDesign3Item.ExtendedFAB.route) {
             MainExtendedFABViewScreen()
         }
+
+        composable(MaterialDesign3Item.ListsItems.route){
+            MainListItemsViewScreen(navMaterialController)
+        }
     }
 }
 
@@ -188,7 +186,6 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
                     .fillMaxWidth()
                     .verticalScroll(rememberScrollState())
                     .padding(10.dp)
-
             ) {
                 MaterialComponents(
                     title = "Badge",
@@ -295,7 +292,10 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
 
                 MaterialComponents(title = "Extended FAB") {
                     navMaterialController.navigate(MaterialDesign3Item.ExtendedFAB.route)
+                }
 
+                MaterialComponents(title = "Lists") {
+                    navMaterialController.navigate(MaterialDesign3Item.ListsItems.route)
                 }
                 // add new component
             }
