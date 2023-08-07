@@ -111,5 +111,4 @@ fun SimpleMenusItems(text: String, imageVector: ImageVector) {
         )
         RegularTextSemiBold(text = text, color = Color.Black)
     }
-
 }
