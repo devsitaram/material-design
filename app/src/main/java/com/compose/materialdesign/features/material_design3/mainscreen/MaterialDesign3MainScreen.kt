@@ -30,6 +30,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.compose.materialdesign.R
+import com.compose.materialdesign.features.material_design3.features.BottomSheet.bottomsheetscreen.MainBottomSheetViewScreen
 import com.compose.materialdesign.features.material_design3.features.badge.MainBadgeViewScreen
 import com.compose.materialdesign.features.material_design3.features.button.MainButtonViewScreen
 import com.compose.materialdesign.features.material_design3.features.buttonappbar.appbarscreen.MainBottomAppBarViewScreen
@@ -45,10 +46,10 @@ import com.compose.materialdesign.features.material_design3.features.navigationd
 import com.compose.materialdesign.features.material_design3.features.progressIndicators.MainIndicatorsViewScreen
 import com.compose.materialdesign.features.material_design3.features.radiobutton.MainRadioButtonViewScreen
 import com.compose.materialdesign.features.material_design3.features.slider.sliderscreen.MainSliderViewScreen
+import com.compose.materialdesign.features.material_design3.features.snackbar.MainSnackBarViewScreen
 import com.compose.materialdesign.features.material_design3.features.switches.MainSwitchViewScreen
 import com.compose.materialdesign.features.material_design3.features.tabs.MainTabsViewScreen
 import com.compose.materialdesign.features.material_design3.features.text.textscreen.MainTextViewScreen
-import com.compose.materialdesign.features.material_design3.features.text.textscreen.Material3TextComponents
 import com.compose.materialdesign.features.material_design3.features.textfield.textfieldscreen.MainTextFieldViewScreen
 import com.compose.materialdesign.features.material_design3.features.tooltips.tooltipscreen.MainToolTipsViewScreen
 
@@ -155,10 +156,17 @@ fun MaterialDesign3MainScreen() {
 
         composable(MaterialDesign3Item.IconButton.route) {
             MainIconButtonViewScreen()
+        }
 
+        composable(MaterialDesign3Item.BottomSheets.route) {
+            MainBottomSheetViewScreen(navMaterialController)
+        }
+        composable(MaterialDesign3Item.SnackBar.route) {
+            MainSnackBarViewScreen()
         }
     }
 }
+
 
 @Composable
 fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
@@ -200,11 +208,6 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
             MaterialComponents(
                 title = "Tooltips",
             ) { navMaterialController.navigate(MaterialDesign3Item.ToolTips.route) }
-
-            // add new component
-            MaterialComponents(
-                title = "Badges",
-            ) { navMaterialController.navigate(MaterialDesign3Item.Badge.route) }
 
             MaterialComponents(
                 title = "Menus",
@@ -286,12 +289,21 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
 
             MaterialComponents(title = "Icon Button") {
                 navMaterialController.navigate(MaterialDesign3Item.IconButton.route)
+            }
+
+            MaterialComponents(title = "Bottom Sheet") {
+                navMaterialController.navigate(MaterialDesign3Item.BottomSheets.route)
+            }
+
+            MaterialComponents(title = "Snack Bar") {
+                navMaterialController.navigate(MaterialDesign3Item.SnackBar.route)
 
             }
             // add new component
         }
     }
 }
+
 
 @Composable
 fun MaterialComponents(title: String, onClick: () -> Unit) {

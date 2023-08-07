@@ -67,7 +67,6 @@ fun SwitchWithThumbIconSamplePreview() {
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
-
     ) {
         Switch(
             modifier = Modifier.semantics { contentDescription = "SwitchIcon" },

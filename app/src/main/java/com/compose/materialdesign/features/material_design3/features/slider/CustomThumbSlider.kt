@@ -39,7 +39,7 @@ fun CustomThumbSliderViewScreen(navSliderController: NavHostController) {
     ) {
         // top bar
         ButtonTopAppBar(
-            title = "Simple Slider",
+            title = "CustomThumb Slider",
             navController = navSliderController
         )
         Column(

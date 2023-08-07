@@ -39,15 +39,15 @@ fun MainFloatingABViewScreen() {
         composable("FloatingActionButtonRoute"){
             FloatingActionButtonRoute(navController)
         }
-        composable(FloatingABItem.FloatingActionButtonSample.route){
+        composable(FloatingActionButtonItem.FloatingActionButtonSample.route){
             FloatingActionButtonSampleViewScreen()
 
         }
-        composable(FloatingABItem.LargeFloatingActionButtonSample.route){
+        composable(FloatingActionButtonItem.LargeFloatingActionButtonSample.route){
           LargeFloatingActionButtonSampleViewScreen()
          }
 
-        composable(FloatingABItem.SmallFloatingActionButtonSample.route){
+        composable(FloatingActionButtonItem.SmallFloatingActionButtonSample.route){
             SmallFloatingActionButtonSampleViewScreen()
 
         }
@@ -65,14 +65,14 @@ fun FloatingActionButtonRoute(navController: NavHostController) {
     ) {
         FloatingActionButtonPreview(
             title = "FloatingActionButtonSample",
-            onClick = {navController.navigate(FloatingABItem.FloatingActionButtonSample.route)}
+            onClick = {navController.navigate(FloatingActionButtonItem.FloatingActionButtonSample.route)}
         )
         FloatingActionButtonPreview(
             title = "LargeFloatingActionButtonSample",
-            onClick = {navController.navigate(FloatingABItem.LargeFloatingActionButtonSample.route)}
+            onClick = {navController.navigate(FloatingActionButtonItem.LargeFloatingActionButtonSample.route)}
         )
         FloatingActionButtonPreview(title = "SmallFloatingActionButtonSample",
-            onClick = {navController.navigate(FloatingABItem.SmallFloatingActionButtonSample.route)}
+            onClick = {navController.navigate(FloatingActionButtonItem.SmallFloatingActionButtonSample.route)}
         )
 
     }
