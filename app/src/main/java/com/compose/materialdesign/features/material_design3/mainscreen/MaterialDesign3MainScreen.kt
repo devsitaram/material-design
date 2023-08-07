@@ -58,6 +58,7 @@ import com.compose.materialdesign.features.material_design3.features.navigationb
 import com.compose.materialdesign.features.material_design3.features.navigationdrawer.MainNavigationDrawerViewScreen
 import com.compose.materialdesign.features.material_design3.features.progressIndicators.MainIndicatorsViewScreen
 import com.compose.materialdesign.features.material_design3.features.radiobutton.MainRadioButtonViewScreen
+import com.compose.materialdesign.features.material_design3.features.searchbar.searchbarscreen.MainSearchBarViewScreen
 import com.compose.materialdesign.features.material_design3.features.slider.sliderscreen.MainSliderViewScreen
 import com.compose.materialdesign.features.material_design3.features.switches.MainSwitchViewScreen
 import com.compose.materialdesign.features.material_design3.features.tabs.MainTabsViewScreen
@@ -169,6 +170,10 @@ fun MaterialDesign3MainScreen() {
 
         composable(MaterialDesign3Item.ListsItems.route){
             MainListItemsViewScreen(navMaterialController)
+        }
+
+        composable(MaterialDesign3Item.Searchbar.route){
+            MainSearchBarViewScreen(navMaterialController)
         }
     }
 }
@@ -296,6 +301,10 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
 
                 MaterialComponents(title = "Lists") {
                     navMaterialController.navigate(MaterialDesign3Item.ListsItems.route)
+                }
+
+                MaterialComponents(title = "Search Bar") {
+                    navMaterialController.navigate(MaterialDesign3Item.Searchbar.route)
                 }
                 // add new component
             }
