@@ -67,8 +67,7 @@ fun MainSliderViewScreen(navMaterialController: NavHostController) {
 @Composable
 fun MainSliderScreen(
     navSliderController: NavHostController,
-    navMaterialController: NavHostController
-) {
+    navMaterialController: NavHostController) {
     Column(
         modifier = Modifier
             .background(Color.White)

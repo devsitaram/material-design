@@ -1,5 +1,6 @@
 package com.compose.materialdesign.features.material_design3.features.BottomSheet
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -17,6 +18,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.verticalScroll
@@ -52,6 +54,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.compose.materialdesign.R
@@ -63,15 +66,16 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun ModelBottomSheetViewScreen(navBtnSheetController: NavHostController) {
+
     val scope = rememberCoroutineScope()
     val scaffoldState = rememberBottomSheetScaffoldState()
 
     // checkbox action
-    var checkBox by remember { mutableStateOf(false) }
-    var sheetPeekHeight by remember { mutableStateOf(false) }
+    var checkBoxSkip by remember { mutableStateOf(false) }
+    var height by remember { mutableStateOf(false) }
 
     val onButtonClick: () -> Unit = {
-        sheetPeekHeight = checkBox
+        height = checkBoxSkip
         scope.launch {
             if (scaffoldState.bottomSheetState.isExpanded) {
                 scaffoldState.bottomSheetState.collapse()
@@ -81,52 +85,53 @@ fun ModelBottomSheetViewScreen(navBtnSheetController: NavHostController) {
         }
     }
 
-    BottomSheetScaffold(
-        scaffoldState = scaffoldState,
-        sheetPeekHeight = if (sheetPeekHeight) 0.dp else 300.dp,
-
-        sheetShape = ShapeDefaults.ExtraLarge,
-        sheetContent = {
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(Color.LightGray)
-            ) {
-                CountryList(
-                    onClickAction = {
-                        scope.launch {
-                            if (scaffoldState.bottomSheetState.isExpanded) {
-                                scaffoldState.bottomSheetState.collapse()
-                            } else {
-                                scaffoldState.bottomSheetState.expand()
+    Column(Modifier.fillMaxWidth()) {
+        // top bar
+        ButtonTopAppBar(
+            title = "Model BottomSheet",
+            navController = navBtnSheetController
+        )
+        BottomSheetScaffold(
+            scaffoldState = scaffoldState,
+            sheetPeekHeight = if (height) 300.dp else 0.dp,
+            sheetShape = ShapeDefaults.ExtraLarge,
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(alignment = Alignment.CenterHorizontally),
+            sheetContent = {
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(Color.LightGray)
+                ) {
+                    CountryList(
+                        onClickAction = {
+                            scope.launch {
+                                if (scaffoldState.bottomSheetState.isExpanded) {
+                                    scaffoldState.bottomSheetState.collapse()
+                                } else {
+                                    scaffoldState.bottomSheetState.expand()
+                                }
                             }
                         }
-                    }
-                )
+                    )
+                }
             }
-        }
-    ) { innerPadding ->
-        // this is the screen
-        Column(
-            modifier = Modifier
-                .background(Color.White)
-                .fillMaxSize()
-                .padding(innerPadding)
-                .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            // top bar
-            ButtonTopAppBar(
-                title = "NestedScaffold BottomSheet",
-                navController = navBtnSheetController
-            )
+        ) { innerPadding ->
+            // this is the screen
             Column(
-                modifier = Modifier.fillMaxSize(),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
+                modifier = Modifier
+                    .background(Color.White)
+                    .fillMaxSize()
+                    .padding(innerPadding)
+                    .verticalScroll(rememberScrollState()),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Row(Modifier.wrapContentWidth(), verticalAlignment = Alignment.CenterVertically) {
-                    Checkbox(checked = checkBox, onCheckedChange = { checkBox = it })
+                Row(
+                    Modifier.wrapContentWidth(),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Checkbox(checked = checkBoxSkip, onCheckedChange = { checkBoxSkip = it })
                     Text(text = "Skip, partially expanded State")
                 }
 
@@ -166,9 +171,10 @@ fun CountryList(onClickAction: () -> Unit = {}) {
         Pair("Norway", "\uD83C\uDDF3\uD83C\uDDF4")
     )
     var textValues by remember { mutableStateOf("") }
-    Column(modifier = Modifier
-        .fillMaxWidth()
-        .padding(30.dp),
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(30.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // hide button

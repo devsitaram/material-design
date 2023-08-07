@@ -181,7 +181,6 @@ fun ScaffoldWithCoroutineSnackBarSnackBarViewScreen() {
                         snackBarHostState.showSnackbar(
                             message = "SnackBar # ${++clickCount}",
                             actionLabel = "Action  ${++clickCount}",
-
                         )
                     }
                 }

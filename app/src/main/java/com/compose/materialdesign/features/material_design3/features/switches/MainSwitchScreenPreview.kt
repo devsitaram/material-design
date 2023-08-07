@@ -32,11 +32,6 @@ fun SwitchSamplePreview() {
         Switch(
 
             modifier = Modifier
-
-//                .border(
-//                    border = BorderStroke(2.dp, Color.Gray),
-//                    shape = RoundedCornerShape(20.dp))
-
                 .semantics { contentDescription = "Switch" },
             checked = checked,
             onCheckedChange = { checked = it },

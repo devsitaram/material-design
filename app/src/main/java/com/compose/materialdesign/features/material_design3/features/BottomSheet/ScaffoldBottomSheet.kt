@@ -31,64 +31,66 @@ import kotlinx.coroutines.launch
 fun ScaffoldBottomSheetViewScreen(navBtnSheetController: NavHostController) {
     val scope = rememberCoroutineScope()
     val scaffoldState = rememberBottomSheetScaffoldState()
-    BottomSheetScaffold(
-        scaffoldState = scaffoldState,
-        sheetPeekHeight = 128.dp,
-        sheetContent = {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(Color.LightGray)
-                    .height(130.dp),
-                contentAlignment = Alignment.Center
-            ) {
-                Text("Swipe up to expand sheet")
-            }
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(Color.LightGray)
-                    .padding(64.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Text("Sheet content")
-                Spacer(Modifier.height(20.dp))
-                Button(
-                    onClick = {
-                        scope.launch {
-                            if (scaffoldState.bottomSheetState.isExpanded) {
-                                scaffoldState.bottomSheetState.collapse()
-                            } else {
-                                scaffoldState.bottomSheetState.requireOffset()
+    Column(Modifier.fillMaxWidth()) {
+        // top bar
+        ButtonTopAppBar(
+            title = "Scaffold BottomSheet",
+            navController = navBtnSheetController
+        )
+        BottomSheetScaffold(
+            scaffoldState = scaffoldState,
+            sheetPeekHeight = 128.dp,
+            sheetContent = {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(Color.LightGray)
+                        .height(130.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text("Swipe up to expand sheet")
+                }
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(Color.LightGray)
+                        .padding(64.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text("Sheet content")
+                    Spacer(Modifier.height(20.dp))
+                    Button(
+                        onClick = {
+                            scope.launch {
+                                if (scaffoldState.bottomSheetState.isExpanded) {
+                                    scaffoldState.bottomSheetState.collapse()
+                                } else {
+                                    scaffoldState.bottomSheetState.requireOffset()
+                                }
                             }
                         }
+                    ) {
+                        Text("Click to collapse sheet")
                     }
-                ) {
-                    Text("Click to collapse sheet")
                 }
             }
-        }
-    ) { innerPadding ->
-        // this is the screen
-        Column(
-            modifier = Modifier
-                .background(Color.White)
-                .fillMaxSize()
-                .padding(innerPadding)
-                .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            // top bar
-            ButtonTopAppBar(
-                title = "Scaffold BottomSheet",
-                navController = navBtnSheetController
-            )
+        ) { innerPadding ->
+            // this is the screen
             Column(
-                modifier = Modifier.fillMaxSize(),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
+                modifier = Modifier
+                    .background(Color.White)
+                    .fillMaxSize()
+                    .padding(innerPadding)
+                    .verticalScroll(rememberScrollState()),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                // make the content
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    // make the content
+                }
             }
         }
     }
