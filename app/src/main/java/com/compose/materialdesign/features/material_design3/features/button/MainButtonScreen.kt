@@ -1,22 +1,14 @@
 package com.compose.materialdesign.features.material_design3.features.button
 
-import android.service.autofill.OnClickAction
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.material.Surface
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
@@ -27,11 +19,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -46,16 +36,27 @@ fun MainButtonViewScreen() {
         composable("ButtonRoute"){
             ButtonRoute(navController)
         }
-        composable(NavigationItem.Large.route){
-            LargeButtonView(navController )
+        composable(ButtonItem.ButtonSample.route){
+            ButtonSampleViewScreen()
 
         }
-        composable(NavigationItem.Medium.route){
-          MediumButtonScreen(navController)
+        composable(ButtonItem.ElevatedButtonSample.route){
+            ElevatedButtonSampleViewScreen()
          }
 
-        composable(NavigationItem.Small.route){
-         SmallButtonScreenView(navController)
+        composable(ButtonItem.FilledTonalButtonSample.route){
+         FilledTonalButtonSampleViewScreen()
+        }
+
+        composable(ButtonItem.OutlineButtonSample.route){
+            OutlineButtonSampleViewScreen()
+        }
+        composable(ButtonItem.TextButtonSample.route){
+            TextButtonSampleViewScreen()
+        }
+
+        composable(ButtonItem.ButtonWithIconButtonSample.route){
+            ButtonWithIconViewScreen()
         }
 
     }
@@ -71,15 +72,24 @@ fun ButtonRoute(navController: NavHostController) {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         ButtonScreenPreview(
-            title = "Large Button",
-            onClick = {navController.navigate(NavigationItem.Large.route)}
+            title = "ButtonSample",
+            onClick = {navController.navigate(ButtonItem.ButtonSample.route)}
         )
         ButtonScreenPreview(
-            title = "Medium Button",
-            onClick = {navController.navigate(NavigationItem.Medium.route)}
+            title = "ElevatedButtonSample",
+            onClick = {navController.navigate(ButtonItem.ElevatedButtonSample.route)}
         )
-        ButtonScreenPreview(title = "Small Button",
-            onClick = {navController.navigate(NavigationItem.Small.route)}
+        ButtonScreenPreview(title = "FilledTonalButtonSample",
+            onClick = {navController.navigate(ButtonItem.FilledTonalButtonSample.route)}
+        )
+        ButtonScreenPreview(title = "OutlineButtonSample",
+            onClick = {navController.navigate(ButtonItem.OutlineButtonSample.route)}
+        )
+        ButtonScreenPreview(title = "TextButtonSample",
+            onClick = {navController.navigate(ButtonItem.TextButtonSample.route)}
+        )
+        ButtonScreenPreview(title = "ButtonWithIconButtonSample",
+            onClick = {navController.navigate(ButtonItem.ButtonWithIconButtonSample.route)}
         )
     }
 

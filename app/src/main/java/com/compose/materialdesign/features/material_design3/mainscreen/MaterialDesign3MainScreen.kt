@@ -37,12 +37,15 @@ import com.compose.materialdesign.features.material_design3.features.buttonappba
 import com.compose.materialdesign.features.material_design3.features.checkboxes.MainCheckBoxViewScreen
 import com.compose.materialdesign.features.material_design3.features.dialogbox.MainDialogBoxViewScreen
 import com.compose.materialdesign.features.material_design3.features.divider.MainDividerViewScreen
+import com.compose.materialdesign.features.material_design3.features.extendedfab.MainExtendedFABViewScreen
 import com.compose.materialdesign.features.material_design3.features.menus.menuscreen.MainMenusViewScreen
 import com.compose.materialdesign.features.material_design3.features.navigationbar.MainNavigationViewScreen
+import com.compose.materialdesign.features.material_design3.features.navigationdrawer.MainNavigationDrawerViewScreen
 import com.compose.materialdesign.features.material_design3.features.progressIndicators.MainIndicatorsViewScreen
 import com.compose.materialdesign.features.material_design3.features.radiobutton.MainRadioButtonViewScreen
 import com.compose.materialdesign.features.material_design3.features.slider.sliderscreen.MainSliderViewScreen
 import com.compose.materialdesign.features.material_design3.features.switches.MainSwitchViewScreen
+import com.compose.materialdesign.features.material_design3.features.tabs.MainTabsViewScreen
 import com.compose.materialdesign.features.material_design3.features.text.textscreen.MainTextViewScreen
 import com.compose.materialdesign.features.material_design3.features.textfield.textfieldscreen.MainTextFieldViewScreen
 import com.compose.materialdesign.features.material_design3.features.tooltips.tooltipscreen.MainToolTipsViewScreen
@@ -96,78 +99,100 @@ fun MaterialDesign3MainScreen() {
             MainMenusViewScreen(navMaterialController)
         }
 
-        composable(MaterialDesign3Item.RadioButton.route){
+        composable(MaterialDesign3Item.RadioButton.route) {
             MainRadioButtonViewScreen()
         }
 
-        composable(MaterialDesign3Item.Badge.route){
+        composable(MaterialDesign3Item.Badge.route) {
             MainBadgeViewScreen()
         }
 
-        composable(MaterialDesign3Item.Card.route){
+        composable(MaterialDesign3Item.Card.route) {
             MainCardViewScreen()
         }
 
-        composable(MaterialDesign3Item.Switches.route){
+        composable(MaterialDesign3Item.Switches.route) {
             MainSwitchViewScreen()
         }
 
-        composable(MaterialDesign3Item.CheckBoxes.route){
+        composable(MaterialDesign3Item.CheckBoxes.route) {
             MainCheckBoxViewScreen()
         }
 
-        composable(MaterialDesign3Item.ProgressIndicators.route){
+        composable(MaterialDesign3Item.ProgressIndicators.route) {
             MainIndicatorsViewScreen()
         }
 
-        composable(MaterialDesign3Item.NavigationBar.route){
+        composable(MaterialDesign3Item.NavigationBar.route) {
             MainNavigationViewScreen()
         }
 
-        composable(MaterialDesign3Item.Divider.route){
+        composable(MaterialDesign3Item.Divider.route) {
             MainDividerViewScreen()
         }
+        composable(MaterialDesign3Item.Tabs.route) {
+            MainTabsViewScreen()
+        }
 
-        composable(MaterialDesign3Item.Slider.route){
+        composable(MaterialDesign3Item.Slider.route) {
             MainSliderViewScreen(navMaterialController)
         }
 
-        composable(MaterialDesign3Item.BottomSheets.route){
+        composable(MaterialDesign3Item.BottomSheets.route) {
             MainBottomSheetViewScreen(navMaterialController)
+        }
+
+        composable(MaterialDesign3Item.NavigationDrawer.route) {
+            MainNavigationDrawerViewScreen()
+        }
+
+        composable(MaterialDesign3Item.ExtendedFAB.route) {
+            MainExtendedFABViewScreen()
         }
     }
 }
 
+
 @Composable
 fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
     Surface(modifier = Modifier.fillMaxSize()) {
-        Column(modifier = Modifier.fillMaxWidth()
-            .verticalScroll(rememberScrollState())
-            .padding(10.dp)
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .verticalScroll(rememberScrollState())
+                .padding(10.dp)
+
         ) {
-            MaterialComponents(title = "Badge",
+            MaterialComponents(
+                title = "Badge",
             ) { navMaterialController.navigate(MaterialDesign3Item.Badge.route) }
 
             // text components
-            MaterialComponents(title = "Text",
+            MaterialComponents(
+                title = "Text",
             ) { navMaterialController.navigate(MaterialDesign3Item.Text.route) }
 
             // button components
-            MaterialComponents(title = "Button",
+            MaterialComponents(
+                title = "Button",
             ) { navMaterialController.navigate(MaterialDesign3Item.Button.route) }
 
             // input text field components
-            MaterialComponents(title = "TextField",
+            MaterialComponents(
+                title = "TextField",
             ) { navMaterialController.navigate(MaterialDesign3Item.TextField.route) }
 
             // dialog box components
-            MaterialComponents(title = "Dialog Box",
+            MaterialComponents(
+                title = "Dialog Box",
             ) { navMaterialController.navigate(MaterialDesign3Item.DialogBox.route) }
 
-            MaterialComponents(title = "BottomTop/AppBar",
+            MaterialComponents(
+                title = "BottomTop/AppBar",
             ) { navMaterialController.navigate(MaterialDesign3Item.BottomAppBar.route) }
 
-            MaterialComponents(title = "Tooltips",
+            MaterialComponents(
+                title = "Tooltips",
             ) { navMaterialController.navigate(MaterialDesign3Item.ToolTips.route) }
 
             MaterialComponents(
@@ -194,30 +219,41 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
                 title = "Navigation Bar",
             ) { navMaterialController.navigate(MaterialDesign3Item.NavigationBar.route) }
 
-            MaterialComponents(title = "Menus",
+            MaterialComponents(
+                title = "Menus",
             ) { navMaterialController.navigate(MaterialDesign3Item.Menus.route) }
 
-            MaterialComponents(title = "Radio Button" ,
-            ) {navMaterialController.navigate(MaterialDesign3Item.RadioButton.route)}
+            MaterialComponents(
+                title = "Radio Button",
+            ) { navMaterialController.navigate(MaterialDesign3Item.RadioButton.route) }
 
-            MaterialComponents(title = "Cards" ,
-            ) {navMaterialController.navigate(MaterialDesign3Item.Card.route)}
+            MaterialComponents(
+                title = "Cards",
+            ) { navMaterialController.navigate(MaterialDesign3Item.Card.route) }
 
-            MaterialComponents(title = "Switches" ,
-            ) {navMaterialController.navigate(MaterialDesign3Item.Switches.route)}
+            MaterialComponents(
+                title = "Switches",
+            ) { navMaterialController.navigate(MaterialDesign3Item.Switches.route) }
 
-            MaterialComponents(title = "CheckBoxes" ,
-            ) {navMaterialController.navigate(MaterialDesign3Item.CheckBoxes.route)}
+            MaterialComponents(
+                title = "CheckBoxes",
+            ) { navMaterialController.navigate(MaterialDesign3Item.CheckBoxes.route) }
 
-            MaterialComponents(title = "Progress Indicators" ,
-            ) {navMaterialController.navigate(MaterialDesign3Item.ProgressIndicators.route)}
+            MaterialComponents(
+                title = "Progress Indicators",
+            ) { navMaterialController.navigate(MaterialDesign3Item.ProgressIndicators.route) }
 
-            MaterialComponents(title = "Navigation Bar" ,
-            ) {navMaterialController.navigate(MaterialDesign3Item.NavigationBar.route)}
+            MaterialComponents(
+                title = "Navigation Bar",
+            ) { navMaterialController.navigate(MaterialDesign3Item.NavigationBar.route) }
 
-             MaterialComponents(title = "Divider") {
+            MaterialComponents(title = "Divider") {
                 navMaterialController.navigate(MaterialDesign3Item.Divider.route)
-             }
+            }
+
+            MaterialComponents(title = "Tabs") {
+                navMaterialController.navigate(MaterialDesign3Item.Tabs.route)
+            }
 
             MaterialComponents(title = "Slider") {
                 navMaterialController.navigate(MaterialDesign3Item.Slider.route)
@@ -225,6 +261,14 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
 
             MaterialComponents(title = "Bottom Sheet") {
                 navMaterialController.navigate(MaterialDesign3Item.BottomSheets.route)
+            }
+            MaterialComponents(title = "Navigation Drawer") {
+                navMaterialController.navigate(MaterialDesign3Item.NavigationDrawer.route)
+            }
+
+            MaterialComponents(title = "Extended FAB") {
+                navMaterialController.navigate(MaterialDesign3Item.ExtendedFAB.route)
+
             }
             // add new component
         }
@@ -261,3 +305,4 @@ fun MaterialComponents(title: String, onClick: () -> Unit) {
         }
     }
 }
+
