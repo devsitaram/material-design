@@ -46,10 +46,10 @@ import com.compose.materialdesign.features.material_design3.features.navigationd
 import com.compose.materialdesign.features.material_design3.features.progressIndicators.MainIndicatorsViewScreen
 import com.compose.materialdesign.features.material_design3.features.radiobutton.MainRadioButtonViewScreen
 import com.compose.materialdesign.features.material_design3.features.slider.sliderscreen.MainSliderViewScreen
+import com.compose.materialdesign.features.material_design3.features.snackbar.MainSnackBarViewScreen
 import com.compose.materialdesign.features.material_design3.features.switches.MainSwitchViewScreen
 import com.compose.materialdesign.features.material_design3.features.tabs.MainTabsViewScreen
 import com.compose.materialdesign.features.material_design3.features.text.textscreen.MainTextViewScreen
-import com.compose.materialdesign.features.material_design3.features.text.textscreen.Material3TextComponents
 import com.compose.materialdesign.features.material_design3.features.textfield.textfieldscreen.MainTextFieldViewScreen
 import com.compose.materialdesign.features.material_design3.features.tooltips.tooltipscreen.MainToolTipsViewScreen
 
@@ -158,11 +158,14 @@ fun MaterialDesign3MainScreen() {
             MainIconButtonViewScreen()
         }
 
-            composable(MaterialDesign3Item.BottomSheets.route) {
-                MainBottomSheetViewScreen(navMaterialController)
-            }
+        composable(MaterialDesign3Item.BottomSheets.route) {
+            MainBottomSheetViewScreen(navMaterialController)
+        }
+        composable(MaterialDesign3Item.SnackBar.route) {
+            MainSnackBarViewScreen()
         }
     }
+}
 
 
 @Composable
@@ -290,6 +293,11 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
 
             MaterialComponents(title = "Bottom Sheet") {
                 navMaterialController.navigate(MaterialDesign3Item.BottomSheets.route)
+            }
+
+            MaterialComponents(title = "Snack Bar") {
+                navMaterialController.navigate(MaterialDesign3Item.SnackBar.route)
+
             }
             // add new component
         }

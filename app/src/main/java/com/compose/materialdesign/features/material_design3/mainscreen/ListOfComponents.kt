@@ -23,5 +23,7 @@ sealed class MaterialDesign3Item(var route: String) {
     object FloatingActionButton:MaterialDesign3Item("FloatingActionButton")
     object IconButton:MaterialDesign3Item("IconButton")
     object BottomSheets: MaterialDesign3Item("BottomSheet")
+
+    object  SnackBar: MaterialDesign3Item("SnackBar")
 }
 
