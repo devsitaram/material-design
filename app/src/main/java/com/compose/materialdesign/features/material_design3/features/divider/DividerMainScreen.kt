@@ -27,10 +27,7 @@ fun MainDividerViewScreen() {
             DividerViewScreen(navController)
         }
         composable(DividerItems.DividerSample.route) {
-            val searchTextState by remember { mutableStateOf(TextFieldValue()) }
-          SearchView(
-            modifier = Modifier,
-            state = mutableStateOf(searchTextState))
+            DividerSamplePreview()
         }
     }
 }
