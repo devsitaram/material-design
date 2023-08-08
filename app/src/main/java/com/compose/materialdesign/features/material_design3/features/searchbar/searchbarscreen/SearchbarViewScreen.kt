@@ -17,7 +17,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.compose.materialdesign.features.material_design3.features.searchbar.DockedSearchBarViewScreen
-import com.compose.materialdesign.features.material_design3.features.searchbar.SearchBarSample
+import com.compose.materialdesign.features.material_design3.features.searchbar.MySearchBarScreen
 import com.compose.materialdesign.features.material_design3.features.searchbar.SimpleSearchBarViewScreen
 import com.compose.materialdesign.features.util.ButtonTopAppBar
 import com.compose.materialdesign.features.util.ListOfDataCard
@@ -30,7 +30,7 @@ fun MainSearchBarViewScreen(navMaterialController: NavHostController) {
             MainSearchBarScreen(navSearchBarController, navMaterialController)
         }
         composable(ListOfSearchbarItems.SimpleSearchBar.route){
-            SearchBarSample()
+            MySearchBarScreen()
 //            SimpleSearchBarViewScreen(navSearchBarController)
         }
         composable(ListOfSearchbarItems.DockedSearchBar.route){

@@ -28,10 +28,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
-import androidx.leanback.widget.SearchBar
 
 @Composable
 fun DividerSamplePreview() {
@@ -44,57 +42,57 @@ fun DividerSamplePreview() {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun SearchView(
-    modifier: Modifier = Modifier,
-    state: MutableState<TextFieldValue>
-) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(top = 20.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        TextField(
-            value = state.value,
-            onValueChange = { value ->
-                state.value = value
-            },
-            modifier = modifier.fillMaxWidth(),
-            textStyle = MaterialTheme.typography.bodyMedium.copy(color = MaterialTheme.colorScheme.onPrimary),
-            leadingIcon = {
-                Icon(
-                    Icons.Default.Search,
-                    contentDescription = "",
-                    modifier = Modifier
-                        .padding(15.dp)
-                        .size(24.dp)
-                )
-            },
-            trailingIcon = {
-                if (state.value != TextFieldValue("")) {
-                    IconButton(
-                        onClick = {
-                            state.value =
-                                TextFieldValue("") // Remove text from TextField when you press the 'X' icon
-                        }
-                    ) {
-                        Icon(
-                            Icons.Default.Close,
-                            contentDescription = "",
-                            modifier = Modifier
-                                .padding(15.dp)
-                                .size(24.dp)
-                        )
-                    }
-                }
-            },
-            singleLine = true,
-            shape = ShapeDefaults.Medium
-        )
-    }
-}
+//@OptIn(ExperimentalMaterial3Api::class)
+//@Composable
+//fun SearchView(
+//    modifier: Modifier = Modifier,
+//    state: MutableState<TextFieldValue>
+//) {
+//    Column(
+//        modifier = Modifier
+//            .fillMaxSize()
+//            .padding(top = 20.dp),
+//        horizontalAlignment = Alignment.CenterHorizontally
+//    ) {
+//        TextField(
+//            value = state.value,
+//            onValueChange = { value ->
+//                state.value = value
+//            },
+//            modifier = modifier.fillMaxWidth(),
+//            textStyle = MaterialTheme.typography.bodyMedium.copy(color = MaterialTheme.colorScheme.onPrimary),
+//            leadingIcon = {
+//                Icon(
+//                    Icons.Default.Search,
+//                    contentDescription = "",
+//                    modifier = Modifier
+//                        .padding(15.dp)
+//                        .size(24.dp)
+//                )
+//            },
+//            trailingIcon = {
+//                if (state.value != TextFieldValue("")) {
+//                    IconButton(
+//                        onClick = {
+//                            state.value =
+//                                TextFieldValue("") // Remove text from TextField when you press the 'X' icon
+//                        }
+//                    ) {
+//                        Icon(
+//                            Icons.Default.Close,
+//                            contentDescription = "",
+//                            modifier = Modifier
+//                                .padding(15.dp)
+//                                .size(24.dp)
+//                        )
+//                    }
+//                }
+//            },
+//            singleLine = true,
+//            shape = ShapeDefaults.Medium
+//        )
+//    }
+//}
 
 
 

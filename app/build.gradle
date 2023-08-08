@@ -82,7 +82,9 @@ dependencies {
     implementation "com.google.accompanist:accompanist-pager:0.28.0"
     implementation "com.google.accompanist:accompanist-pager-indicators:0.28.0"
 
-    //Add
+    //Add material 3
    implementation("androidx.compose.material3:material3")
 
+    // defaults icons
+    implementation 'androidx.compose.material:material-icons-extended-android:1.6.0-alpha02'
 }

@@ -196,7 +196,6 @@ fun MaterialDesign3MainScreen() {
 
         composable(MaterialDesign3Item.Chips.route){
             MainChipsViewScreen()
-
         }
     }
 }
