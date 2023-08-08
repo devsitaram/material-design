@@ -13,18 +13,15 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.remember
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.Chip
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.NavigationRail
-import androidx.compose.material.NavigationRailItem
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Done
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.AssistChipDefaults
@@ -40,15 +37,11 @@ import androidx.compose.material3.InputChipDefaults
 import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.*
-import androidx.compose.runtime.remember
 
 
 @Composable
@@ -300,26 +293,3 @@ fun ChipGroupReflowSampleViewScreen() {
     }
 }
 
-//
-//@SuppressLint("RememberReturnType")
-//@Composable
-//fun NavigationRailSampleViewScreen() {
-//    var selectedItem by remember{ mutableIntStateOf(0) }
-//    val items = listOf("Home", "Search", "Settings")
-//    val icons = listOf(Icons.Filled.Home, Icons.Filled.Search, Icons.Filled.Settings)
-//    NavigationRail {
-//        items.forEachIndexed { index, item ->
-//            NavigationRailItem(
-//                icon = { Icon(icons[index], contentDescription = item) },
-//                label = { Text(item) },
-//                selected = selectedItem == index,
-//                onClick = { selectedItem = index }
-//            )
-//        }
-//    }
-//}
-//
-//
-//
-//
-//

@@ -74,7 +74,9 @@ fun MainChipsViewScreen() {
         }
 
         composable(ChipsItem.ChipGroupReflowSample.route) {
-            ChipGroupReflowSampleViewScreen()
+//            ChipGroupReflowSampleViewScreen()
+            NavigationRailSampleViewScreen()
+
         }
 
     }
