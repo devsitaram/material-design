@@ -1,5 +1,8 @@
-package com.compose.materialdesign.features.material_design3.features.navigationdrawer
+package com.compose.materialdesign.features.material_design3.features.floatingactionbutton
 
+import FloatingActionButtonSampleViewScreen
+import LargeFloatingActionButtonSampleViewScreen
+import SmallFloatingActionButtonSampleViewScreen
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -19,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -27,70 +31,65 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 
 
+@Preview
 @Composable
-fun MainNavigationDrawerViewScreen() {
+fun MainFloatingABViewScreen() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "NavigationDrawerViewScreen") {
-        composable("NavigationDrawerViewScreen") {
-            NavigationDrawerViewScreen(navController)
+    NavHost(navController = navController, startDestination = "FloatingActionButtonRoute"){
+        composable("FloatingActionButtonRoute"){
+            FloatingActionButtonRoute(navController)
         }
-        composable(NavDrawerItems.ModalNavigationNavDrawerBarSample.route) {
-            ModalNavigationDrawerSampleViewScreen()
-        }
-        composable(NavDrawerItems.PermanentNavigationNavDrawerBarSample.route) {
-            PermanentNavigationDrawerSampleViewScreen()
-        }
+        composable(FloatingActionButtonItem.FloatingActionButtonSample.route){
+            FloatingActionButtonSampleViewScreen()
 
-        composable(NavDrawerItems.DismissibleNavigationNavDrawerBarSample.route) {
-            DismissibleNavigationDrawerSampleViewScreen()
         }
+        composable(FloatingActionButtonItem.LargeFloatingActionButtonSample.route){
+          LargeFloatingActionButtonSampleViewScreen()
+         }
 
+        composable(FloatingActionButtonItem.SmallFloatingActionButtonSample.route){
+            SmallFloatingActionButtonSampleViewScreen()
 
+        }
     }
+
 }
 
-
 @Composable
-fun NavigationDrawerViewScreen(navController: NavHostController) {
+fun FloatingActionButtonRoute(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(15.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        NavigationDrawerScreenPreview(
-            title = "ModalNavigationDrawerBarSample",
-            onClick = { navController.navigate(NavDrawerItems.ModalNavigationNavDrawerBarSample.route) }
+        FloatingActionButtonPreview(
+            title = "FloatingActionButtonSample",
+            onClick = {navController.navigate(FloatingActionButtonItem.FloatingActionButtonSample.route)}
+        )
+        FloatingActionButtonPreview(
+            title = "LargeFloatingActionButtonSample",
+            onClick = {navController.navigate(FloatingActionButtonItem.LargeFloatingActionButtonSample.route)}
+        )
+        FloatingActionButtonPreview(title = "SmallFloatingActionButtonSample",
+            onClick = {navController.navigate(FloatingActionButtonItem.SmallFloatingActionButtonSample.route)}
         )
 
-        NavigationDrawerScreenPreview(
-            title = "PermanentNavigationDrawerBarSample",
-            onClick = { navController.navigate(NavDrawerItems.PermanentNavigationNavDrawerBarSample.route) }
-
-        )
-
-        NavigationDrawerScreenPreview(
-            title = "DismissibleNavigationDrawerBarSample",
-            onClick = { navController.navigate(NavDrawerItems.DismissibleNavigationNavDrawerBarSample.route) }
-
-        )
     }
 
 }
 
-
 @Composable
-fun NavigationDrawerScreenPreview(title: String, onClick: () -> Unit) {
+fun FloatingActionButtonPreview(title: String, onClick: ()-> Unit) {
     Card(
         modifier = Modifier
             .padding(5.dp)
             .clickable { onClick() }
-            .border(width = 0.5.dp, color = Color.DarkGray, shape = ShapeDefaults.Small),
+            .border(width = 0.5.dp, color = Color.White, shape = ShapeDefaults.Small),
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(5.dp),
+        Row(modifier = Modifier
+            .fillMaxWidth()
+            .padding(5.dp),
         ) {
 
             Text(

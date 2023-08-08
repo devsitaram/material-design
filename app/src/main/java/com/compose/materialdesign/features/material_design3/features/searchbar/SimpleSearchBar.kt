@@ -104,15 +104,13 @@ fun SearchBarSample() {
         }
 
         LazyColumn(
-            contentPadding = PaddingValues(start = 16.dp, top = 72.dp, end = 16.dp, bottom = 16.dp),
+            contentPadding = PaddingValues(start = 15.dp, top = 72.dp, end = 15.dp, bottom = 15.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             val list = List(30) { "Text $it" }
             items(count = list.size) {
                 Text(list[it],
-                    Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp))
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp))
             }
         }
     }

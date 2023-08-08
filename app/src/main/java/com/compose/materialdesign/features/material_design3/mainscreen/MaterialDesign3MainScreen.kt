@@ -49,9 +49,12 @@ import com.compose.materialdesign.features.material_design3.features.badge.MainB
 import com.compose.materialdesign.features.material_design3.features.button.MainButtonViewScreen
 import com.compose.materialdesign.features.material_design3.features.buttonappbar.appbarscreen.MainBottomAppBarViewScreen
 import com.compose.materialdesign.features.material_design3.features.checkboxes.MainCheckBoxViewScreen
+import com.compose.materialdesign.features.material_design3.features.chips.MainChipsViewScreen
 import com.compose.materialdesign.features.material_design3.features.dialogbox.MainDialogBoxViewScreen
 import com.compose.materialdesign.features.material_design3.features.divider.MainDividerViewScreen
 import com.compose.materialdesign.features.material_design3.features.extendedfab.MainExtendedFABViewScreen
+import com.compose.materialdesign.features.material_design3.features.floatingactionbutton.MainFloatingABViewScreen
+import com.compose.materialdesign.features.material_design3.features.iconbutton.MainIconButtonViewScreen
 import com.compose.materialdesign.features.material_design3.features.listsItem.listItemscreen.MainListItemsViewScreen
 import com.compose.materialdesign.features.material_design3.features.menus.menuscreen.MainMenusViewScreen
 import com.compose.materialdesign.features.material_design3.features.navigationbar.MainNavigationViewScreen
@@ -60,6 +63,7 @@ import com.compose.materialdesign.features.material_design3.features.progressInd
 import com.compose.materialdesign.features.material_design3.features.radiobutton.MainRadioButtonViewScreen
 import com.compose.materialdesign.features.material_design3.features.searchbar.searchbarscreen.MainSearchBarViewScreen
 import com.compose.materialdesign.features.material_design3.features.slider.sliderscreen.MainSliderViewScreen
+import com.compose.materialdesign.features.material_design3.features.snackbar.MainSnackBarViewScreen
 import com.compose.materialdesign.features.material_design3.features.switches.MainSwitchViewScreen
 import com.compose.materialdesign.features.material_design3.features.tabs.MainTabsViewScreen
 import com.compose.materialdesign.features.material_design3.features.text.RegularText
@@ -168,12 +172,31 @@ fun MaterialDesign3MainScreen() {
             MainExtendedFABViewScreen()
         }
 
-        composable(MaterialDesign3Item.ListsItems.route){
+        composable(MaterialDesign3Item.FloatingActionButton.route) {
+            MainFloatingABViewScreen()
+        }
+
+        composable(MaterialDesign3Item.IconButton.route) {
+            MainIconButtonViewScreen()
+        }
+
+        composable(MaterialDesign3Item.BottomSheets.route) {
+            MainBottomSheetViewScreen(navMaterialController)
+        }
+        composable(MaterialDesign3Item.SnackBar.route) {
+            MainSnackBarViewScreen()
+        }
+        composable(MaterialDesign3Item.ListsItems.route) {
             MainListItemsViewScreen(navMaterialController)
         }
 
-        composable(MaterialDesign3Item.Searchbar.route){
+        composable(MaterialDesign3Item.Searchbar.route) {
             MainSearchBarViewScreen(navMaterialController)
+        }
+
+        composable(MaterialDesign3Item.Chips.route){
+            MainChipsViewScreen()
+
         }
     }
 }
@@ -182,6 +205,7 @@ fun MaterialDesign3MainScreen() {
 @Composable
 fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
     Surface(modifier = Modifier.fillMaxSize()) {
+
         Column(modifier = Modifier.background(Color.White)) {
             TopAppBar(modifier = Modifier.background(Color.White)) {
                 AppBarViewScreen() // call the app bab view screen
@@ -306,11 +330,26 @@ fun MaterialDesign3MainScree(navMaterialController: NavHostController) {
                 MaterialComponents(title = "Search Bar") {
                     navMaterialController.navigate(MaterialDesign3Item.Searchbar.route)
                 }
+
+                MaterialComponents(title = "Icon Button") {
+                    navMaterialController.navigate(MaterialDesign3Item.IconButton.route)
+                }
+
+                MaterialComponents(title = "Snack Bar") {
+                    navMaterialController.navigate(MaterialDesign3Item.SnackBar.route)
+
+                }
+
+                MaterialComponents(title = "Chips") {
+                    navMaterialController.navigate(MaterialDesign3Item.Chips.route)
+
+                }
                 // add new component
             }
         }
     }
 }
+
 
 @Composable
 fun MaterialComponents(title: String, onClick: () -> Unit) {
@@ -318,7 +357,9 @@ fun MaterialComponents(title: String, onClick: () -> Unit) {
         modifier = Modifier
             .padding(5.dp)
             .clickable { onClick() }
-            .border(width = 0.5.dp, color = Color.DarkGray, shape = ShapeDefaults.Small),
+            .border(
+                width = 0.5.dp, color = Color.DarkGray, shape = ShapeDefaults.Small
+            ),
     ) {
         Column(
             modifier = Modifier
@@ -346,13 +387,15 @@ fun MaterialComponents(title: String, onClick: () -> Unit) {
 @Composable
 fun AppBarViewScreen() {
     var showMenus by remember { mutableStateOf(false) }
-    Row(modifier = Modifier
-        .fillMaxWidth()
-        .padding(start = 10.dp),
-        verticalAlignment = Alignment.CenterVertically) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 10.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
         Title3(text = "Compose Material 3", color = Color.White)
-        Row(modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.End
+        Row(
+            modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End
         ) {
             IconButton(onClick = { /*TODO*/ }) {
                 Image(
@@ -366,31 +409,29 @@ fun AppBarViewScreen() {
                     colorFilter = ColorFilter.tint(Color.White),
                 )
                 // dropdown menu and inside have more item
-                DropdownMenu(
-                    expanded = showMenus,
-                    onDismissRequest = { showMenus = false }
-                ) {
-                    DropdownMenuItem(onClick = {  }) {
+                DropdownMenu(expanded = showMenus,
+                    onDismissRequest = { showMenus = false }) {
+                    DropdownMenuItem(onClick = { }) {
                         RegularText(text = "View design guidelines", color = Color.Gray)
                     }
-                    DropdownMenuItem(onClick = {  }) {
+                    DropdownMenuItem(onClick = { }) {
                         RegularText(text = "View developer code", color = Color.Gray)
                     }
-                    DropdownMenuItem(onClick = {  }) {
+                    DropdownMenuItem(onClick = { }) {
                         RegularText(text = "View of source code", color = Color.Gray)
                     }
                     Divider()
-                    DropdownMenuItem(onClick = {  }) {
+                    DropdownMenuItem(onClick = { }) {
                         RegularText(text = "report and issue", color = Color.Gray)
                     }
                     Divider()
-                    DropdownMenuItem(onClick = {  }) {
+                    DropdownMenuItem(onClick = { }) {
                         RegularText(text = "Terms of service", color = Color.Gray)
                     }
-                    DropdownMenuItem(onClick = {  }) {
+                    DropdownMenuItem(onClick = { }) {
                         RegularText(text = "Privacy policy", color = Color.Gray)
                     }
-                    DropdownMenuItem(onClick = {  }) {
+                    DropdownMenuItem(onClick = { }) {
                         RegularText(text = "Open source licenses", color = Color.Gray)
                     }
                 }

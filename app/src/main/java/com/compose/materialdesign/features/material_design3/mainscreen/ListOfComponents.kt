@@ -1,7 +1,7 @@
 package com.compose.materialdesign.features.material_design3.mainscreen
 
 sealed class MaterialDesign3Item(var route: String) {
-    object Badge: MaterialDesign3Item("Badge")
+    object Badge : MaterialDesign3Item("Badge")
     object Text : MaterialDesign3Item("Text")
     object Button : MaterialDesign3Item("Button")
     object TextField : MaterialDesign3Item("TextField")
@@ -23,4 +23,8 @@ sealed class MaterialDesign3Item(var route: String) {
     object ExtendedFAB: MaterialDesign3Item("ExtendedFAB")
     object ListsItems: MaterialDesign3Item("ListsItems")
     object Searchbar: MaterialDesign3Item("Searchbar")
+    object FloatingActionButton : MaterialDesign3Item("FloatingActionButton")
+    object IconButton : MaterialDesign3Item("IconButton")
+    object SnackBar : MaterialDesign3Item("SnackBar")
+    object Chips : MaterialDesign3Item("Chips")
 }

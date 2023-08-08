@@ -1,4 +1,4 @@
-package com.compose.materialdesign.features.material_design3.features.navigationdrawer
+package com.compose.materialdesign.features.material_design3.features.snackbar
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -28,69 +28,84 @@ import androidx.navigation.compose.rememberNavController
 
 
 @Composable
-fun MainNavigationDrawerViewScreen() {
+fun MainSnackBarViewScreen() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "NavigationDrawerViewScreen") {
-        composable("NavigationDrawerViewScreen") {
-            NavigationDrawerViewScreen(navController)
+    NavHost(navController = navController, startDestination = "SnackBarViewScreen") {
+        composable("SnackBarViewScreen") {
+            SnackBarViewScreen(navController)
         }
-        composable(NavDrawerItems.ModalNavigationNavDrawerBarSample.route) {
-            ModalNavigationDrawerSampleViewScreen()
+        composable(SnackBarItem.ScaffoldWithSimpleSnackBar.route) {
+            ScaffoldWithSimpleSnackBarViewScreen()
         }
-        composable(NavDrawerItems.PermanentNavigationNavDrawerBarSample.route) {
-            PermanentNavigationDrawerSampleViewScreen()
-        }
-
-        composable(NavDrawerItems.DismissibleNavigationNavDrawerBarSample.route) {
-            DismissibleNavigationDrawerSampleViewScreen()
+        composable(SnackBarItem.ScaffoldWithIndefiniteSimpleSnackBar.route) {
+            ScaffoldWithIndefiniteSnackBarViewScreen()
         }
 
+        composable(SnackBarItem.ScaffoldWithCustomSimpleSnackBar.route) {
+            ScaffoldWithCustomSnackBarViewScreen()
+        }
+
+        composable(SnackBarItem.ScaffoldWithCoroutineSimpleSnackBar.route) {
+            ScaffoldWithCoroutineSnackBarSnackBarViewScreen()
+        }
+
+
+        composable(SnackBarItem.ScaffoldWithMultilineSimpleSnackBar.route) {
+            ScaffoldWithMultilineSnackBarViewScreen()
+        }
 
     }
 }
 
 
 @Composable
-fun NavigationDrawerViewScreen(navController: NavHostController) {
+fun SnackBarViewScreen(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(15.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        NavigationDrawerScreenPreview(
-            title = "ModalNavigationDrawerBarSample",
-            onClick = { navController.navigate(NavDrawerItems.ModalNavigationNavDrawerBarSample.route) }
+        SnackBarScreenPreview(
+            title = "ScaffoldWithSimpleSnackBar",
+            onClick = { navController.navigate(SnackBarItem.ScaffoldWithSimpleSnackBar.route) }
         )
 
-        NavigationDrawerScreenPreview(
-            title = "PermanentNavigationDrawerBarSample",
-            onClick = { navController.navigate(NavDrawerItems.PermanentNavigationNavDrawerBarSample.route) }
-
+        SnackBarScreenPreview(
+            title = "ScaffoldWithIndefiniteSimpleSnackBar",
+            onClick = { navController.navigate(SnackBarItem.ScaffoldWithIndefiniteSimpleSnackBar.route) }
+        )
+        SnackBarScreenPreview(
+            title = "ScaffoldWithCustomSimpleSnackBar",
+            onClick = { navController.navigate(SnackBarItem.ScaffoldWithCustomSimpleSnackBar.route) }
         )
 
-        NavigationDrawerScreenPreview(
-            title = "DismissibleNavigationDrawerBarSample",
-            onClick = { navController.navigate(NavDrawerItems.DismissibleNavigationNavDrawerBarSample.route) }
-
+        SnackBarScreenPreview(
+            title = "ScaffoldWithCoroutineSimpleSnackBar",
+            onClick = { navController.navigate(SnackBarItem.ScaffoldWithCoroutineSimpleSnackBar.route) }
         )
+
+        SnackBarScreenPreview(
+            title = "ScaffoldWithMultilineSimpleSnackBar",
+            onClick = { navController.navigate(SnackBarItem.ScaffoldWithMultilineSimpleSnackBar.route) }
+        )
+
     }
 
 }
 
 
 @Composable
-fun NavigationDrawerScreenPreview(title: String, onClick: () -> Unit) {
+fun SnackBarScreenPreview(title: String, onClick: ()-> Unit) {
     Card(
         modifier = Modifier
             .padding(5.dp)
             .clickable { onClick() }
             .border(width = 0.5.dp, color = Color.DarkGray, shape = ShapeDefaults.Small),
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(5.dp),
+        Row(modifier = Modifier
+            .fillMaxWidth()
+            .padding(5.dp),
         ) {
 
             Text(

@@ -1,6 +1,7 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
 package com.compose.materialdesign.features.material_design3.features.extendedfab
+
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -24,9 +25,11 @@ import androidx.compose.ui.res.painterResource
 
 @Composable
 fun FloatingActionButtonSampleViewScreen() {
-    Column(modifier = Modifier.fillMaxSize(),
-    verticalArrangement = Arrangement.Center,
-    horizontalAlignment = Alignment.CenterHorizontally) {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         ExtendedFloatingActionButton(
             onClick = { },
         ) {
@@ -38,12 +41,13 @@ fun FloatingActionButtonSampleViewScreen() {
 }
 
 
-
 @Composable
 fun FloatingActionButtonTextSampleViewScreen() {
-    Column(modifier = Modifier.fillMaxSize(),
+    Column(
+        modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally) {
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         ExtendedFloatingActionButton(
             onClick = { },
         ) {
